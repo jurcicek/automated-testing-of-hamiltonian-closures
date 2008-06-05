@@ -1,0 +1,258 @@
+\section{Zakázané podgrafy}
+
+Pomocí programu \emph{ForbiddenGraphs} byly vygenerovány zakázané
+podgrafy pro nìkolik struktur. Výsledkem jsou ní¾e uvedené vìty.
+Nezapomeòme na definici \ref{def:cada:indukovany} a pøipomeòme si
+je¹tì následující oznaèení.
+
+V následujícím budeme pou¾ívat: $S$ bude mno¾ina uzlù $x$, $y$,
+$u$, $v$ indukovaného podgrafu $K4-X$ grafu $G$ ($X=A,\ldots,L$),
+tj. $S=V(K_4-X)$, $L$ bude graf ze zadané mno¾iny grafù. $S_1$
+bude pøedstavovat mno¾inu uzlù $x$, $y$ indukovaného podgrafu
+$K_4-X$ (struktury) v grafu $G$, obdobnì $S_2$ pro mno¾inu uzlù
+$u$, $v$. $L_1$ bude pøedstavovat mno¾inu uzlù oznaèených $x$, $y$
+v grafu $L$, $L_2$ mno¾inu uzlù oznaèených $u$, $v$.
+
+Buï nyní $N_p(u)$ mno¾ina privátních sousedù uzlu $u$ vzhledem k uzlùm $x$,
+$y$. Obdobný význam má $N_p(v)$. Podgraf $F$ budeme u¾ívat ve dvou
+významech: jednou jako $\indu{S \cup N_G(S)}$, zde pak hovoøíme
+zjednodu¹enì o "struktuøe $K_4-X$ a jejím prvním okolí plus uzly
+$u$, $v$" a podruhé jako o $\indu{S \cup (N(S)\setminus
+(N_p(u)\cup N_p(v)))}$, zde pak hovoøíme o "struktuøe K4-X a jejím
+prvním okolí".
+
+Poznámka: Situaci je mo¾né si pak pøedstavit tak, ¾e uzly $u,v$
+grafu $G$ (struktury $K4-X$) odpovídají uzlùm $u$, $v$ grafu $L$
+a¾ na zámìnu a uzly $x$, $y$ grafu $G$ odpovídají uzlùm $x$,$y$
+grafu $L$ a¾ na zámìnu.
+
+V lemmatech \ref{lem:forbbidden:k4-b} a¾ \ref{lem:forbbidden:k4-l}
+bude $F$ pøedstavovat $\indu{S \cup (N(S)\setminus (N_p(u)\cup
+N_p(v)))}$.
+
+\begin{lemma}[Struktura $K_4-B$] \label{lem:forbbidden:k4-b}
+Nech» $G$ je graf, $\cal H$ je mno¾ina zakázaných podgrafù ze
+souboru \texttt{/Tests/\hyp forbidden/\hyp k4-b-o1/\hyp
+graph.fg.dot}. Nech» $S = \set{u, v, x, y}$ je podmno¾ina uzlù
+grafu $G$ taková, ¾e $uv \nin E(G)$ a platí $\set{x,y} \subseteq
+N(u)$, $xv,yv,xy \nin E(G)$. Jestli¾e $G$ neobsahuje indukovaný
+podgraf s centrem $S$ a okolím v $F$ izomorfní s nìjakým grafem
+$L \in \cal H$, potom graf $G$ je hamiltonovský, právì kdy¾
+$G+uv$ je hamiltonovský. Tento výsledek je navíc ostrý v
+následujícím smyslu: Ke ka¾dému z grafù v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-b-o1/\hyp graph.fg.dot}
+existuje nehamiltonovský nadgraf $G$ takový, ¾e $G+uv$ je
+hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-b}.
+\end{dukaz}
+
+\begin{lemma}[Struktura $K_4-C$] \label{lem:forbbidden:k4-c}
+Nech» $G$ je graf, $\cal H$ je mno¾ina zakázaných podgrafù z
+obrázkù \ref{fig:zakazane:podgrafy:k4-c1} a
+\ref{fig:zakazane:podgrafy:k4-c2}. Nech» $S = \set{u, v, x, y}$ je
+podmno¾ina uzlù grafu $G$ taková, ¾e $uv \nin E(G)$ a platí
+$\set{x,y} \subseteq N(u)$, $xv \in E(G)$, $yv,xy \nin E(G)$.
+Jestli¾e $G$ neobsahuje indukovaný podgraf s centrem $S$ a okolím
+v $F$ izomorfní s nìjakým grafem $L \in \cal H$, potom graf $G$ je
+hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský. Tento výsledek
+je navíc ostrý v následujícím smyslu: Ke ka¾dému grafu z obrázkù
+\ref{fig:zakazane:podgrafy:k4-c1} a
+\ref{fig:zakazane:podgrafy:k4-c2} existuje nehamiltonovský
+nadgraf $G$ takový, ¾e $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-c}.
+\end{dukaz}
+
+\begin{lemma}[Struktura $K_4-G$] \label{lem:forbbidden:k4-g}
+Nech» $G$ je 2-souvislý graf, $\cal H$ je mno¾ina zakázaných
+podgrafù z obrázku \ref{fig:zakazane:podgrafy:k4-g1}. Nech» $S =
+\set{u, v, x, y}$ je podmno¾ina uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$ a platí $ux,vy,xy \in E(G)$, $uy,vx \nin E(G)$.
+Jestli¾e $G$ neobsahuje indukovaný podgraf s centrem $S$ a okolím
+v $F$ izomorfní s nìjakým grafem $L \in \cal H$, potom graf $G$ je
+hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský. Tento výsledek
+je navíc ostrý v následujícím smyslu: Ke ka¾dému grafu z obrázku
+\ref{fig:zakazane:podgrafy:k4-g1} existuje nehamiltonovský
+nadgraf $G$ takový, ¾e $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-g}.
+\end{dukaz}
+
+\begin{lemma}[Struktura $K_4-I$] \label{lem:forbbidden:k4-i}
+Nech» $G$ je graf, $\cal H$ je mno¾ina zakázaných podgrafù ze
+souboru \texttt{/Tests/\hyp forbidden/\hyp k4-i-o1/\hyp
+graph.fg.dot}. Nech» $S = \set{u, v, x, y}$ je podmno¾ina uzlù
+grafu $G$ taková, ¾e $uv \nin E(G)$ a platí $uy,vy \in E(G)$,
+$ux,vx,xy \nin E(G)$. Jestli¾e $G$ neobsahuje indukovaný podgraf
+s centrem $S$ a okolím v $F$ izomorfní s nìjakým grafem $L \in
+\cal H$, potom graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je
+hamiltonovský. Tento výsledek je navíc ostrý v následujícím
+smyslu: Ke ka¾dému z grafù v souboru \texttt{/Tests/\hyp
+forbidden/\hyp k4-i-o1/\hyp graph.fg.dot} existuje
+nehamiltonovský nadgraf $G$ takový, ¾e $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-i}.
+\end{dukaz}
+
+\begin{lemma}[Struktura $K_4-L$] \label{lem:forbbidden:k4-l}
+Nech» $G$ je 2-souvislý graf, $\cal H$ je mno¾ina zakázaných
+podgrafù z obrázku \ref{fig:zakazane:podgrafy:k4-l1}. Nech» $S =
+\set{u, v, x, y}$ je podmno¾ina uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$ a platí $ux,uy,vy,xy \in E(G)$, $vx \nin E(G)$.
+Jestli¾e $G$ neobsahuje indukovaný podgraf s centrem $S$ a okolím
+v $F$ izomorfní s nìjakým grafem $L \in \cal H$, potom graf $G$ je
+hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský. Tento výsledek
+je navíc ostrý v následujícím smyslu: Ke ka¾dému grafu z obrázku
+\ref{fig:zakazane:podgrafy:k4-l1} existuje nehamiltonovský nadgraf
+$G$ takový, ¾e $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-l}.
+\end{dukaz}
+
+V lemmatech \ref{lem:forbbidden:k4-a-1o-uv} a
+\ref{lem:forbbidden:k4-f-1o-uv} bude $F$ pøedstavovat $\indu{S
+\cup N_G(S)}$.
+
+\begin{lemma}[Struktura $K_4-A$] \label{lem:forbbidden:k4-a-1o-uv}
+Nech» $G$ je graf, $\cal H$ je mno¾ina zakázaných podgrafù z
+obrázkù \ref{fig:zakazane:podgrafy:k4-a1-1o-uv}. Nech» $S =
+\set{u, v, x, y}$ je podmno¾ina uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$ a platí $\set{x,y} \subseteq N(u) \cap N(v)$, $xy \in
+E(G)$. Jestli¾e $G$ neobsahuje indukovaný podgraf s centrem $S$ a
+okolím v $F$ izomorfní s nìjakým grafem $L \in \cal H$, potom
+graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+Tento výsledek je navíc ostrý v následujícím smyslu: Ke ka¾dému
+grafu z obrázku \ref{fig:zakazane:podgrafy:k4-a1-1o-uv} existuje
+nehamiltonovský nadgraf $G$ takový, ¾e $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-a-1o-uv}.
+\end{dukaz}
+
+\begin{lemma}[Struktura $K_4-F$] \label{lem:forbbidden:k4-f-1o-uv}
+Nech» $G$ je graf, $\cal H$ je mno¾ina zakázaných podgrafù z
+obrázkù \ref{fig:zakazane:podgrafy:k4-f1-1o-uv}. Nech» $S =
+\set{u, v, x, y}$ je podmno¾ina uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$ a platí $\set{x,y} \subseteq N(u) \cap N(v)$, $xy \nin
+E(G)$. Jestli¾e $G$ neobsahuje indukovaný podgraf s centrem $S$ a
+okolím v $F$ izomorfní s nìjakým grafem $L \in \cal H$, potom
+graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+Tento výsledek je navíc ostrý v následujícím smyslu: Ke ka¾dému
+grafu z obrázku \ref{fig:zakazane:podgrafy:k4-f1-1o-uv} existuje
+nehamiltonovský nadgraf $G$ takový, ¾e $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:forb:k4-f-1o-uv}.
+\end{dukaz}
+
+Na základì pøedchozích lemmat mù¾eme definovat uzávìry pomocí
+následující definice. Za $X$ si v¾dy domyslíme èíslo jednoho z
+vý¹e uvedených lemmat.
+
+\begin{defi}
+Nech» $G$ je graf. Øekneme, ¾e graf $H$ je $fs_X$-uzávìrem grafu
+$G$, jestli¾e
+\begin{enumerate}
+  \item existuje taková posloupnost grafu $H_1,\ldots ,H_k$, ¾e
+      $H_1=G$, $H_k=H$ a $H_{i+1}$ vznikl z $H_i$ pøidáním hrany
+      $uv$, splòující pøedpoklady lemma X,
+  \item $H$ ji¾ neobsahuje ¾ádnou hranu $uv$, splòující pøedpoklady lemma X.
+\end{enumerate}
+\end{defi}
+
+Pøipomeòme zde lemmata~\ref{lem:k4-b} a~\ref{lem:k4-c}. První z
+nich je urèeno pro strukturu $K_4-B$ a druhé z nich pro strukturu
+$K_4-C$. Odtud plyne, ze lemma~\ref{lem:forbbidden:k4-b} zobecòuje
+lemma~\ref{lem:k4-b}, a lemma~\ref{test:forb:k4-c} zobecòuje
+lemma~\ref{lem:k4-c}.
+
+U lemmat~\ref{lem:k4-d} a~\ref{lem:k4-e} bylo ji¾ øeèeno, ze
+odpovídají postupnì strukturám $K_4-B$ a $K_4-G$. Tedy,
+lemma~\ref{lem:forbbidden:k4-b} zobecòuje také
+lemma~\ref{lem:k4-d} a lemma~\ref{lem:forbbidden:k4-g} zobecòuje
+lemma~\ref{lem:k4-e}
+
+Pro struktury $K_4-D$, $K_4-E$, $K_4-H$, $K_4-J$ a $K_4-K$ z
+výsledkù vyplývá, ¾e pøíslu¹ná mno¾ina zakázaných indukovaných
+podgrafù urèuje prázdnou tøídu grafù.
+
+\obrazek{obrazky/k4-d-contra.eps}{fig:vysl:forb:k4-d-contra}
+{Nehamiltonovský graf pro vìtu \ref{veta:forbbidden:k4-d}.}
+
+\begin{veta} \label{veta:forbbidden:k4-d}
+Neexistuje strukturální uzávìr pro první okolí struktury $K_4-D$
+ve vý¹e uvedeném smyslu, který by zachovával vlastnost neexistence
+hamiltonovské kru¾nice.
+\end{veta}
+\begin{dukaz}
+Graf na obrázku \ref{fig:vysl:forb:k4-d-contra} je zøejmì
+nehamiltonovský a podgraf indukovaný na vrcholech $x$, $y$, $u$,
+$v$ je izomorfní se strukturou $K_4-D$. Graf indukovaný na této
+struktuøe a jejím prvním okolí (uzly $u$, $v$ nemají privátní
+sousedy) je úplný (a¾ na chybìjící hrany struktury). Pod uzlem
+$A$ si mù¾eme také pøedstavit libovolný graf, ve kterém existuje
+nále¾itì pøipojená hamiltonovská cesta. Graf $G+uv$ je
+hamiltonovský. Odtud plyne neexistence uzávìru z lemma.
+\end{dukaz}
+
+\obrazek{obrazky/k4-e-contra.eps}{fig:vysl:forb:k4-e-contra}
+{Nehamiltonovský graf pro vìtu \ref{veta:forbbidden:k4-e}.}
+
+\begin{veta} \label{veta:forbbidden:k4-e}
+Neexistuje strukturální uzávìr pro první okolí struktury $K_4-E$
+ve vý¹e uvedeném smyslu, který by zachovával vlastnost neexistence
+hamiltonovské kru¾nice.
+\end{veta}
+\begin{dukaz}
+Obdobnì jako v dùkazu vìty \ref{veta:forbbidden:k4-d} je na
+obrázku \ref{fig:vysl:forb:k4-e-contra} pøíklad grafu, který
+dokazuje platnost této vìty.
+\end{dukaz}
+
+\obrazek{obrazky/k4-h-contra.eps}{fig:vysl:forb:k4-h-contra}
+{Nehamiltonovský graf pro vìtu \ref{veta:forbbidden:k4-h}.}
+
+\begin{veta} \label{veta:forbbidden:k4-h}
+Neexistuje strukturální uzávìr pro první okolí struktury $K_4-H$
+ve vý¹e uvedeném smyslu, který by zachovával vlastnost neexistence
+hamiltonovské kru¾nice.
+\end{veta}
+\begin{dukaz}
+Obdobnì jako v dùkazu vìty \ref{veta:forbbidden:k4-d} je na
+obrázku \ref{fig:vysl:forb:k4-h-contra} pøíklad grafu, který
+dokazuje platnost této vìty.
+\end{dukaz}
+
+\obrazek{obrazky/k4-j-contra.eps}{fig:vysl:forb:k4-j-contra}
+{Nehamiltonovský graf pro vìtu \ref{veta:forbbidden:k4-j}.}
+
+\begin{veta} \label{veta:forbbidden:k4-j}
+Neexistuje strukturální uzávìr pro první okolí struktury $K_4-J$
+ve vý¹e uvedeném smyslu, který by zachovával vlastnost neexistence
+hamiltonovské kru¾nice.
+\end{veta}
+\begin{dukaz}
+Obdobnì jako v dùkazu vìty \ref{veta:forbbidden:k4-d} je na
+obrázku \ref{fig:vysl:forb:k4-j-contra} pøíklad grafu, který
+dokazuje platnost této vìty.
+\end{dukaz}
+
+\obrazek{obrazky/k4-k-contra.eps}{fig:vysl:forb:k4-k-contra}
+{Nehamiltonovský graf pro vìtu \ref{veta:forbbidden:k4-k}.}
+
+\begin{veta} \label{veta:forbbidden:k4-k}
+Neexistuje strukturální uzávìr pro první okolí struktury $K_4-K$
+ve vý¹e uvedeném smyslu, který by zachovával vlastnost neexistence
+hamiltonovské kru¾nice.
+\end{veta}
+\begin{dukaz}
+Obdobnì jako v dùkazu vìty \ref{veta:forbbidden:k4-d} je na
+obrázku \ref{fig:vysl:forb:k4-k-contra} pøíklad grafu, který
+dokazuje platnost této vìty.
+\end{dukaz}

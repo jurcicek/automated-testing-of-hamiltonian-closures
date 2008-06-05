@@ -1,0 +1,218 @@
+\section{Generování zakázaných podgrafù} \label{sec:gen:zak:podgrafy}
+
+V \cite{cada_forbidden_subgraphs} dùkaz zaèíná tím, ¾e na poèátku
+pro danou strukturu ji¾ existuje mno¾ina zakázaných podgrafù. A
+dále se dokazuje úplnost mno¾iny zakázaných podgrafù. My budeme
+postupovat jinak. Budeme mno¾inu zakázaných podgrafù pro danou
+strukturu generovat.
+
+Pøipomeòme si, ¾e uva¾ujeme pojem \emph{indukovaný} ve smyslu daný
+èástí \ref{subsec:cada:closure}. Uzávìrový koncept zakázaných
+podgrafù vychází z my¹lenky, ¾e kdy¾ na uzlech $u,v,x,y$ grafu
+$G$ jsou splnìny jisté podmínky (viz lemma
+\ref{lem:forbbidden:k4-f}) a neindukuje se na uzlech $u,v,x,y$ a
+jejich okolí ¾ádný graf z mno¾iny zakázaných podgrafù, potom platí
+ekvivalence: $G$ je hamiltonovský, právì kdy¾ $G + uv$ je
+hamiltonovský.
+
+Snadno si v¹imneme, ¾e podmínky z \ref{lem:forbbidden:k4-f} nám
+urèují strukturu $K_4-A$ nebo $K_4-F$. Podmínky nepopisují, zda
+tam má èi nemá být hrana $xy$, proto se v lemma uva¾ují oba
+pøípady. My budeme v¾dy pøedpokládat, ¾e u v¹ech hran struktury
+je dáno, zda tam má èi nemá být. Tudí¾ budeme pracovat pouze s
+jednou strukturou. Napøíklad mù¾eme pracovat se strukturami z
+obrázku \ref{fig:k4} pod písmeny $A$ a¾ $F$. Samozøejmì struktury
+mohou mít i více uzlù, ale potom bude chtít zobecnit pojem
+\emph{indukovaný} takovým zpùsobem, ¾e si budou odpovídat uzly
+$u,v$ indukovaného grafu s uzly $u,v$ pùvodního grafu a uzly
+$x,y,z,...$ indukovaného grafu s uzly $x,y,z,...$ pùvodního grafu
+(viz napø. \ref{def:cada:indukovany}). Pokud budeme chtít být
+obecní, potom budeme mluvit o poèáteèní struktuøe pro generování
+zakázaných podgrafù. Ale pro jednoduchost budeme nyní pracovat se
+strukturou $K_4-F$.
+
+Jako u pøedchozích algoritmù, první implikace je zøejmá, a proto
+se budeme zabývat pouze implikací: $G + uv$ je hamiltonovský,
+potom $G$ je hamiltonovský. Nyní se podívejme na to, jak takové
+zakázané podgrafy mohou vypadat.
+
+\subsection{Nehamiltonovské grafy}
+
+Budeme generovat jenom minimální nutnou mno¾inu grafù, která
+obsahují v¹echny zakázané podgrafy. Potom v tìch, které nejsou
+hamiltonovské, vyhledáme zakázané podgrafy. Díky tomu, ¾e jsou
+tyto podgrafy zakázané pøes indukci, velice èasto se stává, ¾e
+men¹í podgraf zakazuje velkou mno¾inu jiných zakázaných grafù.
+Proto budeme vlastnì nejprve generovat mno¾inu \emph{mo¾ných
+zakázaných podgrafù}, a potom z ní vybereme mno¾inu zakázaných
+podgrafù tak, aby platilo: ¾ádný zakázaný podgraf neobsahuje
+indukovaný graf izomorfní s libovolným jiným zakázaným podgrafem.
+
+Pro generování minimální nutné mno¾iny grafù si vypùjèíme z èásti
+\ref{sec:alg:kruznice} algoritmus na generování konfigurací a
+pøidáme do tìchto konfigurací hrany struktury. Konfiguraci s
+pøidanými hranami prozkoumáme, zda neporu¹uje strukturu. Neboli
+na uzlech $u,v,x,y$ konfigurace se musí indukovat struktura. K
+poru¹ení struktury dojde napøíklad pro strukturu $K_4-F$ jestli¾e
+budou uzly $x,y$ le¾et bezprostøednì vedle sebe na cestì mezi
+uzly $u$ a $v$. Hrany poru¹ující strukturu pocházejí z
+pøedpokladu cesty mezi uzly $u$ a $v$.
+
+Pokud struktura je poru¹ena, konfiguraci nebudeme dále uva¾ovat,
+proto¾e by z ní vznikly zakázané podgrafy, které by se nikdy
+nevyu¾ily. Pokud dále konfigurace bude hamiltonovská, tak pro nás
+není zajímavá. Pokud není hamiltonovská, potom z ní musíme dostat
+zakázaný podgraf.
+
+Nyní musíme zvládnout operaci, kdy z pùvodního nehamiltonovského
+grafu dostaneme podgraf indukovaný na uzlech $\set{u,v,x,y}$
+(uzlech struktury) a prvním okolí. Prvním okolím mù¾eme rozumìt
+následující:
+\begin{enumerate}
+  \item okolí jenom co-uzlù (v na¹em pøípadì se jedná o uzly $x$ a $y$),
+  \item okolí v¹ech uzlù struktury (v na¹em pøípadì se jedná o
+    uzly z $\set{u,v,x,y}$), toto okolí budeme nazývat první okolí
+    + $u,v$.
+\end{enumerate}
+
+Je zøejmé, ¾e prvním okolím nìjaké mno¾iny uzlù $S$ je mno¾ina
+$N(S \backslash \set{u,v})$. Dále okolím + $u,v$ nìjaké mno¾iny
+uzlù $S$ je mno¾ina $N(S)$. Na obrázku \ref{fig:k4-1o} vidíme
+pøíklady prvního okolí pro danou konfiguraci s pøidanými hranami
+struktury $K_4-F$.
+
+\obrazek{obrazky/k4-f-1o.eps}{fig:k4-1o}{Ukázka konfigurací pro
+strukturu $K_4-F$ s jejich prvním okolím.}
+
+Nyní ji¾ umíme z nehamiltonovské konfigurace vytvoøit zakázaný
+podgraf, resp. mo¾ný zakázaný podgraf \footnote{Jak jsme se
+zmiòovali, takto vytvoøené podgrafy budeme probírat, aby ani jeden
+z vybraných podgrafù neobsahoval indukovaný jiný podgraf.}. Ale
+to nejsou v¹echny mo¾né zakázané podgrafy, které se dají z dané
+konfigurace získat. Mo¾ný zakázaný podgraf $G_{pf}$ je indukovaný
+na jisté mno¾inì uzlù. Vezmìme z ní dva takové uzly $a$ a $b$
+takové, ¾e platí $ab \nin E(G_{pf})$ a $a \nin \set{u,v,x,y} \vee
+b \nin \set{u,v,x,y}$ \footnote{Pomocí podmínky $ab \nin
+E(G_{pf})$ a $a \nin \set{u,v,x,y} \vee b \nin \set{u,v,x,y}$
+zabraòujeme, abychom pøidávali hranu, která by mohla poru¹it
+strukturu v zakázaných podgrafech. Neboli hrana $ab$ nesmí být
+hrana z následující mno¾iny hran $\set{ux,uy,vx,vy,xy}$}. Pokud
+takovou hranu pøidáme do pùvodní konfigurace a pokud takový graf
+opìt není hamiltonovský, potom z nìho mù¾eme získat dal¹í mo¾ný
+zakázaný podgraf, neboli kandidáta na zakázaný podgraf. Toto
+ovìøení musíme provést pro ka¾dou chybìjící hranu, která splòuje
+vý¹e uvedené podmínky, v mo¾ném zakázaném podgrafu. Nesmíme
+zapomenout pro ka¾dý nový mo¾ný zakázaný podgraf provést opìtovné
+ovìøení, zda v¹echny chybìjících hrany ji¾ zaji¹»ují
+hamiltonovskost v pùvodním (zdrojovém) grafu.
+
+Èasto se stává, ¾e se dostaneme ke stejnému mo¾nému zakázanému
+podgrafu rozdílným pøidáváním hran do pùvodního mo¾ného
+zakázaného grafu vzniklého z poèáteèní konfigurace. Proto je
+vhodné si pamatovat v¹echny takto expandované grafy a v¾dy
+ovìøit, jestli se ná¹ nový mo¾ný zakázaný podgraf nenachází v
+této mno¾inì. Jestli¾e se tam ji¾ nachází, potom nemusíme
+provádìt jeho testování na chybìjící hrany, proto¾e to ji¾ bylo
+provedeno døíve.
+
+Jakmile máme jednou vygenerovány v¹echny mo¾né zakázané podgrafy,
+potom staèí provést jejich probrání. Vybereme jeden graf z
+mno¾iny v¹ech mo¾ných zakázaných podgrafù a ovìøíme, zda se v nìm
+neindukuje nìjaký zakázaný podgraf. Jestli¾e tam není, potom ho
+dáme do mno¾iny zakázaných podgrafù.
+
+\subsection{Algoritmus}
+
+Následuje zápis algoritmu, který vygeneruje zakázané podgrafy.
+
+\begin{alg} \label{alg:zakazane:main}
+\begin{ttfamily} \noindent \\
+\\
+{\bf Inicializuj} ZakázanéPodgrafy := prázdná mno¾ina \\
+{\bf Inicializuj} Mo¾néZakázanéPodgrafy := prázdná mno¾ina \\
+{\bf Inicializuj} ExpandovanéMo¾néZakázanéPodgrafy := prázdná mno¾ina \\
+{\bf Inicializuj} Konfigurace := v¹echny konfigurace pro daný uzávìr\\
+\\
+{\bf Pro v¹echny} K {\bf z} Konfigurace\\
+{\bf \{} \\
+\taba  {\bf Pøidej} v¹echny hrany struktury {\bf do} K\\
+\taba  {\bf Jestli¾e} graf K má poru¹enou strukturu {\bf potom} \\
+\tabb    jdi zpracovat dal¹í konfiguraci \\
+\\
+\taba  {\bf Jestli¾e} graf K není hamiltonovský {\bf potom} \\
+\taba  {\bf \{} \\
+\tabb    {\bf Jestli¾e} provádím generování na prvním okolí {\bf potom} \\
+\tabb    {\bf \{} \\
+\tabc      {\bf Inicializuj} G := získej podgraf indukovaný v K na dané struktuøe a prvním \\
+\tabd        okolí struktury \\
+\tabb    {\bf \}} \\
+\tabb    {\bf jinak} \\
+\tabb    {\bf \{} \\
+\tabc      {\bf Inicializuj} G := získej podgraf indukovaný v K na dané struktuøe a prvním \\
+\tabd        okolí struktury + $u,v$ \\
+\tabb    {\bf \}} \\
+\\
+\tabb    {\bf Pøidej} G {\bf do} mno¾iny Mo¾néZakázanéPodgrafy \\
+\tabb    {\bf Pøidej} K {\bf do} mno¾iny ZdrojovéGrafy \\
+\\
+\tabb    {\bf Dokud} mno¾ina Mo¾néZakázanéPodgrafy obsahuje nìjaký graf \\
+\tabb    {\bf \{} \\
+\tabc      {\bf Inicializuj} MZP := libovolný graf z mno¾iny Mo¾néZakázanéPodgrafy, takto \\
+\tabd        pøiøazený graf odstraò z mno¾iny Mo¾néZakázanéPodgrafy \\
+\tabc      {\bf Inicializuj} ZG := libovolný graf z mno¾iny ZdrojovéGrafy, takto \\
+\tabd        pøiøazený graf odstraò z mno¾iny ZdrojovéGrafy \\
+\\
+\tabc      {\bf Jestli¾e} MZP se rovná nìjakému grafu z mno¾iny ExpandovanéMo¾né- \\
+\tabd        Zakázané\-Podgrafy {\bf potom} \\
+\tabc      {\bf \{} \\
+\tabd        jdi zpracovat dal¹í graf z mno¾iny Mo¾néZakázanéPodgrafy \\
+\tabc      {\bf \}} \\
+\tabc      {\bf jinak} \\
+\tabc      {\bf \{} \\
+\tabd        vlo¾ MZP do mno¾iny ExpandovanéMo¾néZakázanéPodgrafy \\
+\\
+\tabd        {\bf Pro v¹echny} hrany H {\bf z} $(V(MZP), E(K_{\abs{V(MZP}}) \backslash E(MZP)$) \\
+\tabd        {\bf \{} \\
+\tabe          {\bf Jestli¾e} hrana H spojuje uzly struktury {\bf potom} \\
+\tabf            vyber dal¹í hranu \\
+\\
+\tabe          {\bf Pøidej} hranu H {\bf do} grafu ZG \\
+\\
+\tabe          {\bf Jestli¾e} graf ZG není hamiltonovský {\bf potom} \\
+\tabe          {\bf \{} \\
+\tabf            {\bf Inicializuj} NovýMZP := MZP \\
+\\
+\tabf            {\bf Pøidej} hranu H {\bf do} grafu NovýMZP \\
+\tabf            {\bf Pøidej} graf NovýMZP {\bf do} mno¾iny Mo¾néZakázanéPodgrafy \\
+\tabf            {\bf Pøidej} graf ZG {\bf do} mno¾iny ZdrojovéGrafy \\
+\tabe          {\bf \}} \\
+\tabe          {\bf Sma¾} hranu H {\bf z} grafu ZG \\
+\tabd        {\bf \}} \\
+\tabc      {\bf \}} \\
+\tabb    {\bf \}} \\
+\taba  {\bf \}} \\
+{\bf \}} \\
+\\
+{\bf Pro v¹echny} MZP {\bf z} mno¾iny Mo¾néZakázanéPodgrafy \\
+\taba  {\bf Jestli¾e} se v grafu MZP neindukuje ¾ádný graf z mno¾iny \\
+\tabb    ZakázanéPodgrafy {\bf potom} \\
+\tabb    {\bf Pøidej} MZP {\bf do} mno¾iny ZakázanéPodgrafy \\
+\\
+{\bf Ulo¾} v¹echny grafy z mno¾iny ZakázanéPodgrafy \\
+\end{ttfamily}
+\end{alg}
+
+Na první pohled je zøejmé, ¾e slo¾itost algoritmu je
+exponenciální vzhledem k poètu uzlù struktury, proto¾e probíráme
+v¹echny konfigurace (poèet konfigurací je funkcí s poètem co-uzlù
+v exponentu). Poèet konfigurací roste také díky tomu, ¾e
+permutujeme co-uzly na cestì mezi uzly $u$ a $v$.
+
+\subsection{Shrnutí}
+
+Postupnì generujeme konfigurace a z nich mo¾né zakázané podgrafy.
+Z takto vygenerovaných mo¾ných podgrafù lze vytvoøit dal¹í mo¾né
+zakázané podgrafy. Jakmile je vytvoøena mno¾ina v¹ech mo¾ných
+zakázaných podgrafù, je probrána tak, aby neobsahovala grafy, kdy
+by byl jeden indukovaný v druhém. Mno¾ina zakázaných podgrafù je
+výstupem tohoto algoritmu.

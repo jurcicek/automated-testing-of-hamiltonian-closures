@@ -1,0 +1,17 @@
+//======================================================
+//
+//  Structure K_4-G
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+degree: 1
+use_uv: false
+min_num_of_configuration_nodes: 5
+
+//condition:       {x,y} <= N(u) & N(v)
+condition:       x_y <= E(G)
+condition:       u_x <= E(G)
+//condition:       u_y <= E(G)
+condition:       y_v <= E(G)

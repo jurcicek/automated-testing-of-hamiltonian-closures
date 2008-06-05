@@ -1,0 +1,23 @@
+//======================================================
+//
+//  Path closure K_5-5
+//
+//======================================================
+
+nodes:  u,v,x,y1,y2,y3,y4
+path:   u,v
+test:   sPath
+
+condition:       {x} <= N(u) & N(v)
+condition:         u_y1 <= E(G)
+condition:         v_y2 <= E(G)
+condition:        y1_y2 <= E(G)
+condition:         u_y3 <= E(G)
+condition:         v_y4 <= E(G)
+condition:        y3_y4 <= E(G)
+condition:         N(x) <= N[u] | N[v]
+condition: N(y1) \ N[x] <= clique
+condition: N(y2) \ N[x] <= clique
+condition: N(y3) \ N[x] <= clique
+condition: N(y4) \ N[x] <= clique
+

@@ -1,0 +1,5 @@
+hamiltonpath_release
+*.out
+*.log
+*.dot
+*.tgz

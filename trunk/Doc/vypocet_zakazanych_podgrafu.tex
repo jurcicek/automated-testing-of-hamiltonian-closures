@@ -1,0 +1,414 @@
+\section{Výpoèet zakázaných podgrafù}
+Struktury, pro které budu poèítat zakázané podgrafy pomocí
+programu \emph{ForbiddenGraphs}, jsou $K_4-A$ a¾ $K_4-L$.
+
+\subsection{Výpoèet pro $K_4-A$ první okolí} \label{test:forb:k4-a}
+
+V èásti \ref{sec:gen:zak:podgrafy} jsme se zmínili o tom, ¾e
+lemma \ref{subsec:cada:closure} rozdìlíme tak, aby dvì struktury
+v nìm obsa¾ené byly zpracovány oddìlenì. Proto generujeme pro
+strukturu $K_4-A$ na prvním okolí zakázané podgrafy zde a pro
+strukturu $K_4-F$ generujeme zakázané podgrafy na prvním okolí v
+èásti \ref{test:forb:k4-f}. Zadání ze souboru \texttt{/Tests/\hyp
+forbidden/\hyp k4-a-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: \{x,y\} <= N(u) \& N(v)\\
+condition:       x\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-a-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 3 sekundy na procesoru P800. Bylo vygenerováno 305
+mo¾ných zakázaných podgrafù, z nich¾ bylo vybráno 11 zakázaných
+podgrafù. Tyto zakázané podgrafy jsou uvedeny v pøíloze
+\ref{cha:zakazane:podgrafy:k4:variace} na obrázku
+\ref{fig:zakazane:podgrafy:k4-a}.
+
+\subsection{Výpoèet pro $K_4-B$ první okolí} \label{test:forb:k4-b}
+
+Generujeme pro strukturu $K_4-B$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-b-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: \{x,y\} <= N(u) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-b-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 14649 sekund (více jak 4 hodiny) na procesoru P800.
+Bylo vygenerováno 42656 mo¾ných zakázaných podgrafù, z nich¾ bylo
+vybráno 382 zakázaných podgrafù. Tyto zakázané podgrafy jsou
+umístìny v souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-b-o1/\hyp graph.fg.dot}.
+
+\subsection{Výpoèet pro $K_4-C$ první okolí} \label{test:forb:k4-c}
+
+Generujeme pro strukturu $K_4-C$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-c-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: \{x,y\} <= N(u) \\
+condition: x <= N(v) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem C. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-c-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 46 sekund na procesoru P800. Bylo vygenerováno 4338
+mo¾ných zakázaných podgrafù, z nich¾ bylo vybráno 38 zakázaných
+podgrafù. Tyto zakázané podgrafy jsou uvedeny v pøíloze
+\ref{cha:zakazane:podgrafy:k4:variace} na obrázcích
+\ref{fig:zakazane:podgrafy:k4-c1} a
+\ref{fig:zakazane:podgrafy:k4-c2}.
+
+\subsection{Výpoèet pro $K_4-D$ první okolí} \label{test:forb:k4-d}
+
+Generujeme pro strukturu $K_4-D$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-d-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: x <= N(u) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem D. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-d-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 79391 sekund (více jak 22 hodin) na procesoru P800.
+Bylo vygenerováno 156992 mo¾ných zakázaných podgrafù, z nich¾ bylo
+vybráno 340 zakázaných podgrafù. Tyto zakázané podgrafy jsou
+umístìny v souboru \texttt{/Tests/\hyp forbidden/\hyp k4-d-o1/\hyp
+graph.fg.dot}.
+
+\subsection{Výpoèet pro $K_4-E$ první okolí} \label{test:forb:k4-e}
+
+Generujeme pro strukturu $K_4-E$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-e-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition:       x\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem E. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-e-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 23829 sekund (více jak 6 hodin) na procesoru P800.
+Bylo vygenerováno 81024 mo¾ných zakázaných podgrafù, z nich¾ bylo
+vybráno 48 zakázaných podgrafù. Tyto zakázané podgrafy jsou
+umístìny v souboru \texttt{/Tests/\hyp forbidden/\hyp k4-e-o1/\hyp
+graph.fg.dot}.
+
+\subsection{Výpoèet pro $K_4-F$ první okolí} \label{test:forb:k4-f}
+
+V èásti \ref{sec:gen:zak:podgrafy} jsme se zmínili o tom, ¾e
+lemma \ref{subsec:cada:closure} rozdìlíme tak, aby dvì struktury
+v nìm obsa¾ené byly zpracovány oddìlenì. Proto generujeme pro
+strukturu $K_4-F$ na prvním okolí zakázané podgrafy zde a pro
+strukturu $K_4-A$ generujeme zakázané podgrafy na prvním okolí v
+èásti \ref{test:forb:k4-a}. Zadání ze souboru \texttt{/Tests/\hyp
+forbidden/\hyp k4-f-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: \{x,y\} <= N(u) \& N(v)\\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem F. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-f-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 3 sekund na procesoru P800. Bylo vygenerováno 313
+mo¾ných zakázaných podgrafù, z nich¾ bylo vybráno 13 zakázaných
+podgrafù. Tyto zakázané podgrafy jsou uvedeny v pøíloze
+\ref{cha:zakazane:podgrafy:k4:variace} na obrázku
+\ref{fig:zakazane:podgrafy:k4-f}.
+
+\subsection{Výpoèet pro $K_4-G$ první okolí} \label{test:forb:k4-g}
+
+Generujeme pro strukturu $K_4-G$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-g-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+min\_num\_of\_configuration\_nodes: 5 \\
+\\
+condition: u\_x <= E(G) \\
+condition: v\_y <= E(G) \\
+condition: x\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem G. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-g-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 26 sekund na procesoru P800. Bylo vygenerováno 5380
+mo¾ných zakázaných podgrafù, z nich¾ byly vybrány 4 zakázané
+podgrafy. Tyto zakázané podgrafy jsou uvedeny v pøíloze
+\ref{cha:zakazane:podgrafy:k4:variace} na obrázku
+\ref{fig:zakazane:podgrafy:k4-g1}.
+
+\subsection{Výpoèet pro $K_4-H$ první okolí} \label{test:forb:k4-h}
+
+Generujeme pro strukturu $K_4-H$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-h-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: v\_x <= E(G) \\
+condition: x\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem H. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-b-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 20105 sekund (více jak 5 hodin) na procesoru P450.
+Bylo vygenerováno 78224 zakázaných podgrafù, z nich¾ bylo vybráno
+24 zakázaných podgrafù. Tyto zakázané podgrafy jsou uvedeny v
+pøíloze \ref{cha:zakazane:podgrafy:k4:variace} na obrázku
+\ref{fig:zakazane:podgrafy:k4-h1}.
+
+\subsection{Výpoèet pro $K_4-I$ první okolí} \label{test:forb:k4-i}
+
+Generujeme pro strukturu $K_4-I$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-i-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: u\_y <= E(G) \\
+condition: v\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem I. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-i-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 8114 sekund (více jak 2 hodiny) na procesoru P800.
+Bylo vygenerováno 24668 mo¾ných zakázaných podgrafù, z nich¾ bylo
+vybráno 214 zakázaných podgrafù. Tyto zakázané podgrafy jsou
+umístìny v souboru \texttt{/Tests/\hyp forbidden/\hyp k4-i-o1/\hyp
+graph.fg.dot}.
+
+\subsection{Výpoèet pro $K_4-J$ první okolí} \label{test:forb:k4-j}
+
+Generujeme pro strukturu $K_4-J$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-j-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\\
+condition: u\_x <= E(G) \\
+condition: v\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem J. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-j-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 827 sekund na procesoru P800. Bylo vygenerováno
+15196 mo¾ných zakázaných podgrafù, z nich¾ bylo vybráno 28
+zakázaných podgrafù. Tyto zakázané podgrafy jsou uvedeny v pøíloze
+\ref{cha:zakazane:podgrafy:k4:variace} na obrázku
+\ref{fig:zakazane:podgrafy:k4-j1}.
+
+\subsection{Výpoèet pro $K_4-K$ první okolí} \label{test:forb:k4-k}
+
+Generujeme pro strukturu $K_4-K$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-k-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem K. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-b-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet se nepodaøilo dopoèítat. Bylo vygenerováno 264192 mo¾ných
+zakázaných podgrafù, z nich¾ je nejménì 1819 zakázaných podgrafù.
+Tyto zakázané podgrafy jsou umístìny v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-k-o1/\hyp graph.fg.dot}.
+
+\subsection{Výpoèet pro $K_4-L$ první okolí} \label{test:forb:k4-l}
+
+Generujeme pro strukturu $K_4-L$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-l-o1/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: false \\
+min\_num\_of\_configuration\_nodes: 5 \\
+\\
+condition: u\_x <= E(G) \\
+condition: u\_y <= E(G) \\
+condition: v\_y <= E(G) \\
+condition: x\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem L. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-l-o1/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 7 sekund na procesoru P800. Bylo vygenerováno 2885
+mo¾ných zakázaných podgrafù, z nich¾ bylo vybráno 14 zakázaných
+podgrafù. Tyto zakázané podgrafy jsou uvedeny v pøíloze
+\ref{cha:zakazane:podgrafy:k4:variace} na obrázku
+\ref{fig:zakazane:podgrafy:k4-l1}.
+
+\subsection{Výpoèet pro $K_4-A$ první okolí + $u$,$v$} \label{test:forb:k4-a-1o-uv}
+
+Generujeme pro strukturu $K_4-A$ na prvním okolí zakázané
+podgrafy. Zadání ze souboru \texttt{/Tests/\hyp forbidden/\hyp
+k4-a-o1-uv/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: true \\
+\\
+condition: \{x,y\} <= N(u) \& N(v)\\
+condition:       x\_y <= E(G) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-a-o1-uv/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 439663 sekundy (více ne¾ 5 dny) na procesoru P800.
+Bylo vygenerováno 317505 mo¾ných zakázaných podgrafù, z nich¾ bylo
+vybráno 33 zakázaných podgrafù. Tyto zakázané podgrafy jsou
+uvedeny v pøíloze \ref{cha:zakazane:podgrafy:k4:variace} na
+obrázku \ref{fig:zakazane:podgrafy:k4-a1-1o-uv}.
+
+\subsection{Výpoèet pro $K_4-F$ první okolí + $u$,$v$} \label{test:forb:k4-f-1o-uv}
+
+Generujeme pro strukturu $K_4-F$ na prvním okolí plus uzly
+$u$,$v$ zakázané podgrafy. Zadání ze souboru \texttt{/Tests/\hyp
+forbidden/\hyp k4-f-o1-uv/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+degree: 1 \\
+use\_uv: true \\
+\\
+condition: \{x,y\} <= N(u) \& N(v)\\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem F. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp forbidden/\hyp k4-f-o1-uv/\hyp nohup.out}.
+
+\subsubsection{Výsledky programu}
+
+Výpoèet trval 453266 sekund (více ne¾ 5 dní) na procesoru P800.
+Bylo vygenerováno 317555 mo¾ných zakázaných podgrafù, z nich¾ bylo
+vybráno 35 zakázaných podgrafù. Tyto zakázané podgrafy jsou
+uvedeny v pøíloze \ref{cha:zakazane:podgrafy:k4:variace} na
+obrázku \ref{fig:zakazane:podgrafy:k4-f1-1o-uv}.

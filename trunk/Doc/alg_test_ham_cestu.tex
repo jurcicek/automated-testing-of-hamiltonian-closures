@@ -1,0 +1,183 @@
+\section{Test zachování vlastnosti neexistence hamiltonovské cesty,
+$r$-cesty a $st$-cesty} \label{sec:alg:cesta}
+
+Nyní budeme formulovat obdobný algoritmus, jako se nám podaøilo v
+èásti \ref{sec:alg:kruznice}. S tím rozdílem, ¾e budeme testovat
+jiné hamiltonovské vlastnosti. Z tohoto dùvodu budeme pøedchozí
+postup modifikovat, ale ne pøíli¹ zásadnì. Zmìny se dotknou pouze
+generování konfigurací.
+
+Vlastnosti zachování neexistence hamiltonovské cesty, $r$-cesty a
+$st$-cesty se dokazují stejnì a a¾ po vygenerování grafù
+splòujících v¹echny podmínky si vybereme, jakou vlastnost chceme
+testovat. Proto zde budeme mluvit pouze o testování zachování
+neexistence hamiltonovské cesty a teprve a¾ ve shrnutí zase na
+tuto drobnost upozorníme.
+
+Lemmata o zachování neexistence hamiltonovské cesty, která nás
+zajímají, jsou témìø stejná jako lemmata \ref{lem:k4-a} a¾
+\ref{lem:k5-a}, a¾ na to, ¾e obsahují: graf $G$ obsahuje
+hamiltonovskou cestu, právì kdy¾ $G+uv$ obsahuje hamiltonovskou
+cestu. První implikace je zøejmá jako u pøedchozího algoritmu.
+Druhá implikace: $G + uv$ obsahuje hamiltonovskou cestu, potom $G$
+obsahuje hamiltonovskou cestu, se musí provìøit.
+
+Øekneme-li $G + uv$ obsahuje hamiltonovskou cestu, potom to
+neznamená nic jiného, ne¾ existenci uzlù $s$ a $t$, které jsou na
+zaèátku, resp. na konci, této cesty. Uzly $u$ a $v$ le¾í na této
+cestì bezprostøednì vedle sebe. Je si tøeba uvìdomit, ¾e mù¾e
+nastat situace, kdy uzel $s$~je toto¾ný s~uzlem $u$, nebo uzel
+$t$~je toto¾ný s~uzlem $v$. Jeliko¾ v grafu $G$ chybí hrana $uv$,
+tak tam existují dvì cesty mezi $s$ a $u$ a mezi $v$ a $t$. Hrany
+struktury a hrany vynucené podmínkami zajistí, ¾e bude v grafu $G$
+mo¾no nalézt hamiltonovskou cestu.
+
+\subsection{Konfigurace uzlù na cestì}
+
+Jako v algoritmu testu na hamiltonovskou kru¾nici musíme
+permutovat uzly na cestì. Permutujeme pouze uzly struktury,
+nikoli uzly $s$ a $t$. Pro uzly $u$ a $v$ platí, ¾e musí být
+bezprostøednì vedle sebe. Dále musíme generovat situace, kdy uzly
+struktury jsou od sebe na cestì rùznì daleko vzdáleny. Zase máme
+ètyøi mo¾né situace: dva uzly struktury spolu bezprostøednì
+sousedí, dva uzly struktury mají mezi sebou jeden uzel, dva uzly
+struktury mají mezi sebou dva uzly, dva uzly struktury mají mezi
+sebou tøi a více uzlù. Na obrázku
+\ref{fig:k4-a-konfigurace-cesta} mù¾eme vidìt nìkolik konfigurací
+pro strukturu $K_4-A$.
+
+\obrazek{obrazky/k4-a-konfigurace-cesta.eps}{fig:k4-a-konfigurace-cesta}{Ukázka
+konfigurací pro strukturu $K_4-A$ pøi testování neexistence
+hamiltonovské cesty.}
+
+Je uvedeno nìkolik minimálních a nìkolik maximálních konfigurací.
+Celkem by tìchto konfigurací bylo 1536. Pøedpis pro výpoèet je
+následující:  $\abs{konfigurace} = 4^{\abs{uzly \ struktury}}$,
+co¾ nám dává 256, ale toto èíslo nesmíme zapomenout vynásobit
+poètem permutací uzlù struktury na cestì, neboli krát $6 = 1
+\cdot 2 \cdot 3$. Permutujeme uzly $x$, $y$ a uzly $u$,$v$. Uzly
+$u$ a $v$ se chovají jako jeden uzel, proto¾e musí le¾et na cestì
+bezprostøednì za sebou.
+
+\subsection{Pøidání hran}
+
+Pøidání hran struktury a hran vynucených podmínkami probìhne
+stejným zpùsobem, jako bylo popsáno v èásti
+\ref{sec:alg:kruznice}. To, ¾e v jistých situacích bude uzel $s$
+nebo $t$ pøipojen pouze ke svému následovníku, resp. pøedchùdci,
+nás nemusí trápit. Na rozdíl od testu v èásti
+\ref{sec:alg:kruznice} hledáme pouze cesty a cesta mù¾e existovat
+i za této situace.
+
+\subsection{Algoritmus}
+
+Následuje zápis algoritmu, který postupnì pøidává do
+vygenerovaných konfigurací hrany struktury a hrany vynucené
+podmínkami a následnì testuje takto vygenerované grafy na
+existenci hamiltonovské cesty, $r$-cesty nebo $st$-cesty.
+
+\begin{alg} \label{alg:cesty:main}
+\begin{ttfamily} \noindent \\
+\\
+{\bf Inicializuj} Grafy := prázdná mno¾ina \\
+{\bf Inicializuj} Podmínky := podmínky uzávìru \\
+{\bf Inicializuj} Konfigurace := v¹echny konfigurace pro daný uzávìr\\
+{\bf Inicializuj} TypTestu := typ testu \\
+\\
+{\bf Pro v¹echny} K {\bf z} Konfigurace\\
+{\bf \{} \\
+\taba  {\bf Pøidej} v¹echny hrany struktury {\bf do} K\\
+\taba  {\bf Pøidej} K {\bf do} mno¾iny Grafy\\
+\\
+\taba  {\bf Dokud} mno¾ina Grafy obsahuje nìjaký graf \\
+\taba  {\bf \{} \\
+\tabb    {\bf Inicializuj} G := libovolný graf z mno¾iny Grafy, takto pøiøazený graf \\
+\tabc      odstraò z mno¾iny Grafy \\
+\\
+\tabb    {\bf Pro v¹echny} P {\bf z} Podmínky\\
+\tabb    {\bf \{} \\
+\tabc      {\bf Jestli¾e} není splnìna P na G {\bf potom} \\
+\tabc      {\bf \{} \\
+\tabd        {\bf Jestli¾e} P je podmínka typu: $N(x) \cup N(y) \subseteq N[u] \cup N[v]$ {\bf potom} \\
+\tabd        {\bf \{} \\
+\tabe          zajisti, aby mno¾ina uzlù odpovídající levé stranì podmínky \\
+\tabf            byla v sousedství uzlù odpovídající pravé stranì podmínky \\
+\tabe          uprav $G$ a nové grafy vlo¾ do mno¾iny Grafy \\
+\\
+\tabe          jeliko¾ nebyla splnìna podmínka, ovìø znovu v¹echny podmínky \\
+\tabd        {\bf \}} \\
+\\
+\tabd        {\bf Jestli¾e} P je podmínka typu: $N(y) \backslash
+N[x]$ indukuje kliku (pøípadnì
+\tabe          je prázdná mno¾ina) {\bf potom} \\
+\tabd        {\bf \{} \\
+\tabe          zajisti, aby mno¾ina uzlù odpovídající $N(y) \backslash N[x]$ byla v klice \\
+\tabe          uprav $G$ a nové grafy vlo¾ do mno¾iny Grafy \\
+\\
+\tabe          jeliko¾ nebyla splnìna podmínka, ovìø znovu v¹echny podmínky \\
+\tabd        {\bf \}} \\
+\tabc      {\bf \}} \\
+\tabb    {\bf \}} \\
+\\
+\tabb    {\bf Jestli¾e} TypTestu je test na zachování vlastnosti existence \\
+\tabc      hamiltonovské cesty {\bf potom} \\
+\tabc      otestuj graf G na zachování vlastnosti existence \\
+\tabd        hamiltonovské cesty \\
+\tabb    {\bf Jestli¾e} TypTestu je test na zachování vlastnosti existence \\
+\tabc      hamiltonovské $r$-cesty {\bf potom} \\
+\tabc      otestuj graf G na zachování vlastnosti existence \\
+\tabd        hamiltonovské $r$-cesty \\
+\tabb    {\bf Jestli¾e} TypTestu je test na zachování vlastnosti existence \\
+\tabc      hamiltonovské $st$-cesty {\bf potom} \\
+\tabc      otestuj graf G na zachování vlastnosti existence \\
+\tabd        hamiltonovské $st$-cesty \\
+\\
+\tabb    {\bf Jestli¾e} graf $G$ nezachovává testovanou vlastnost {\bf potom} \\
+\tabb      {\bf \{} \\
+\tabc      graf $G$ ulo¾ jako výjimku \\
+\tabc      vypi¹: uzávìr nezachovává testovanou vlastnost \\
+\tabc      pokraèuj ve výpoètu, aby byly vygenerovány v¹echny minimální výjimky \\
+\tabb      {\bf \}} \\
+{\bf \}} \\
+\\
+{\bf Jestli¾e} nebyla vygenerována jediná výjimka {\bf potom} \\
+\taba  vypi¹: uzávìr zachovává vlastnost TypTestu \\
+\end{ttfamily}
+\end{alg}
+
+Na první pohled je zøejmé, ¾e slo¾itost algoritmu je
+exponenciální vzhledem k poètu uzlù struktury, proto¾e probíráme
+v¹echny konfigurace (poèet konfigurací je funkcí s poètem co-uzlù
+v~exponentu). Poèet konfigurací roste také díky tomu, ¾e
+permutujeme co-uzly na cestì mezi uzly $u$ a $v$.
+
+\subsection{Shrnutí}
+
+V tomto algoritmu platí v¹e z èásti \ref{sec:alg:kruznice}, a¾ na
+popsaný rozdíl v generování konfigurací. Jakmile vznikne graf s
+minimálním vynuceným poètem hran, tak ho podrobíme jednomu z
+následujících testù:
+\begin{enumerate}
+  \item zachování vlastnosti neexistence hamiltonovské cesty,
+  \item zachování vlastnosti neexistence hamiltonovské cesty
+    s jedním pevným koncem,
+  \item zachování vlastnosti neexistence hamiltonovské cesty
+  s dvìma pevnými konci.
+\end{enumerate}
+
+Pro pøipomenutí, test na hamiltonovskou $st$-cestu znamená, ¾e
+hledáme cestu mezi uzly $s$ a $t$. Test na hamiltonovskou
+$r$-cestu znamená, ¾e hledáme hamiltonovskou cestu z uzlu $r$,
+tj. v oznaèeni pou¾itém v dùkazu hledáme cestu z $s$ do
+libovolného uzlu (pokud uva¾ujeme v¹echny mo¾né polohy vrcholu
+struktury na cestì) a zároveò hledáme hamiltonovskou cestu z uzlu
+$t$ do libovolného uzlu (pokud uva¾ujeme symetrické situace pouze
+jednou).
+
+Po celou dobu testování samozøejmì provádíme pouze jeden a tý¾
+test. Pokud nebyla nalezena jediná výjimka, øekneme, ¾e uzávìr
+definovaný pomocí struktury a podmínek zachovává vlastnost
+neexistence hamiltonovské cesty, $r$-cesty, nebo $st$-cesty.
+Pokud jsou vygenerovány nìjaké výjimky, pak se nejedná o v¹echny,
+ale pouze o ty, které jsou minimální v poètu vynucených hran
+podmínkami testovaného uzávìru.

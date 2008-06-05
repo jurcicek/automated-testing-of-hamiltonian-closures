@@ -1,0 +1,33 @@
+\subsection{Dokumentace tøídy Parse}
+\label{classParse}\index{Parse@{Parse}}
+{\tt \#include $<$Parse.h$>$}
+
+Tøída zjednodu¹uje práci s øetìzci obsahujícími výrazy. Pomocí
+metody {\bf Remove\-WS} odstraòuje nadbyteèné bílé znaky z
+textového øetìzce. Metoda {\bf Split} umo¾òuje snadné rozdìlení
+øetìzce v pøípadì, ¾e obsahuje daný operátor. Metoda zaji¹»uje
+správné zpracování závorek. Metoda {\bf
+Extract\-Parameter\-From\-Function} získá parametry funkce
+pøedané jako parametr metody.
+
+\obrazekparam{width=223pt}{obrazky/prog/classParse__inherit__graph}
+{fig:classParse__inherit__graph}{Diagram dìdiènosti pro tøídu
+Parse}
+
+\subsubsection*{Veøejné metody}
+\begin{CompactItemize}
+\item
+bool {\bf Remove\-WS} (string \&str)
+\item
+bool {\bf Split} (string str, string s\-Delimeter, string \&s\-Begin, string \&s\-Rest, bool b\-Test=false)
+\item
+bool {\bf Split} (string str, set$<$ string $>$ ss\-Delimeters, string \&s\-Begin, string \&s\-Rest, string \&s\-Used\-Delimeter)
+\item
+bool {\bf Remove\-Ambient\-Brackets} (string \&str, char ch\-Bracket1, char ch\-Bracket2)
+\item
+bool {\bf Extract\-Parameter\-From\-Function} (string str, string s\-Function, char ch\-Bracket1, char ch\-Bracket2, string \&s\-Parameter)
+\item
+bool {\bf Successor} (string str, string \&s\-Node)
+\item
+bool {\bf Predecessor} (string str, string \&s\-Node)
+\end{CompactItemize}

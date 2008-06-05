@@ -1,0 +1,17 @@
+//======================================================
+//
+//  Closure K_4-d from "Subgraphs, closures and 
+//    hamiltonocity", H.J. Broersma, I. Schiermeyer
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+
+//======================================================
+//  K_4-d from Theorem 3.5 
+//======================================================
+  
+condition:    x <= N(u)
+condition: N(y) <= N[v] | u
+condition: N(x) <= N[y] | v

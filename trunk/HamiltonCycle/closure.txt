@@ -1,0 +1,17 @@
+//======================================================
+//
+//  Closure K_4-a from "Subgraphs, closures and 
+//    hamiltonocity", H.J. Broersma, I. Schiermeyer
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+
+//======================================================
+//  K_4-a from Theorem 3.1 
+//======================================================
+
+condition:             {x,y} <= N(u) & N(v)
+condition:              N(x) <= N(u) | N(v) | {u,v}
+condition: N(y) \ (N(x) | x) <= clique

@@ -1,0 +1,11 @@
+Debug
+Release
+release_objs
+release_deps
+debug_objs
+debug_deps
+hamiltoncycle_release
+hamiltoncycle_debug
+Source
+.kdevses
+*.dot

@@ -1,0 +1,32 @@
+\section{Test na hamiltonovskou $r$-cestu}
+Testy uzávìrù budeme provádìt pomocí programu \emph{HamiltonPath}
+s tím, ¾e v definici uzávìru bude nastaven test na $r$-cestu
+(\verb|test: sPath|).
+
+\subsection{Uzávìr $K_{4-4}-a$} \label{test:s:k4-4-a}
+Provìøujeme strukturu $K_{4-4}-A$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp s/\hyp
+k4-4-a/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+test:   sPath \\
+\\
+condition:       \{x,y1,y2\} <= N(u) \& N(v) \\
+\\
+condition:        N(x) <= N[u] | N[v] \\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k-a-b} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp s/\hyp k4-4-a/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1626 sekund na procesoru P450.
+Vygeneroval 756 výjimek z 718128 testovaných grafù. Proto z
+pohledu tohoto programu uzávìr nezachovává vlastnost neexistence
+hamiltonovské $r$-cesty.

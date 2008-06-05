@@ -1,0 +1,38 @@
+\section{Hranové grafy}
+
+\begin{defi}
+Nech» $G$ je graf. Graf $L(G)$, definovaný pøedpisem
+  \begin{enumerate}
+    \item $V(L(G)) = E(G)$,
+    \item $E(L(G)) = \{\set{h_i, h_j}|$ hrany $h_i$, $h_j$ mají spoleèný uzel $\}$,
+  \end{enumerate}
+se nazývá hranový graf grafu $G$.
+\end{defi}
+
+\begin{defi}
+Øekneme, ¾e $G$ je hranový graf, jestli¾e existuje graf $H$
+takový, ¾e platí $L(H) = G$.
+\end{defi}
+
+\begin{veta}[Krausz]
+Graf $G$ je hranovým grafem, právì kdy¾ v grafu $G$ existuje
+pokrytí takovým systémem klik $K$, ¾e ka¾dý vrchol le¾í nejvý¹e ve
+dvou klikách a ka¾dá hrana le¾í právì v~jedné klice systému $K$.
+\end{veta}
+
+\begin{veta}[Beineke]
+Graf $G$ je hranovým grafem, právì kdy¾ neobsahuje jako
+indukovaný podgraf ¾ádný z devíti grafù vyobrazených na obrázku
+\ref{fig:benike_hranovy_grafy}.
+\obrazek{obrazky/benike_hranovy_grafy.eps}{fig:benike_hranovy_grafy}
+{Seznam 9 zakázaných podgrafù.}
+\end{veta}
+
+\begin{dusl} Snadno se uká¾e, ¾e
+  \begin{enumerate}
+    \item vlastnost "býti indukovaným grafem" je dìdièná na indukované
+    grafy,
+    \item otázku "je daný graf hranovým grafem ?" lze øe¹it v
+    polynomiálním èase.
+  \end{enumerate}
+\end{dusl}

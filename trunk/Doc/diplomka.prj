@@ -1,0 +1,182 @@
+129 Patch Control
+
+1
+1
+1
+main.tex
+39
+1
+0
+
+
+vysledky_zakazane_podgrafy.tex
+TeX
+268447675 0 213 31 177 22 110 110 812 503
+C:\TEMP\alg_test_ham_kruznici.tex
+TeX
+268447675 0 0 1 0 1 132 132 834 525
+titulni_listy.tex
+TeX
+268447675 0 0 1 0 1 176 176 878 569
+uvod.tex
+TeX
+268447675 0 0 1 0 1 0 0 702 393
+motivace.tex
+TeX
+268447675 0 7 46 7 27 110 110 812 503
+hranove_grafy.tex
+TeX
+268447675 0 0 1 0 1 22 22 724 415
+uzaverove_techniky.tex
+TeX
+268447675 0 0 1 0 1 132 132 834 525
+ut_obecne.tex
+TeX
+268447675 0 249 1 247 44 110 110 790 525
+ut_claw_free.tex
+TeX
+268447675 0 0 1 0 1 88 88 790 481
+algoritmizace.tex
+TeX
+268447675 0 7 20 7 30 110 110 812 503
+alg_test_ham_kruznici.tex
+TeX
+268447675 0 0 1 0 1 132 132 834 525
+alg_gen_zakazane_podgrafy.tex
+TeX
+268447675 0 143 1 152 3 22 22 702 437
+vysledky.tex
+TeX
+268447675 0 7 34 7 56 176 176 683 591
+zaver.tex
+TeX
+268447675 0 27 15 27 25 88 88 790 481
+literatura.tex
+TeX
+268447675 0 1 1 24 1 176 176 878 569
+zak_podgrafy_k4_variace.tex
+TeX
+268447675 0 25 1 13 10 88 88 790 481
+test_ham_cestu_dva_pevne_konce.tex
+TeX
+268447675 0 195 1 107 1 44 44 724 459
+test_ham_cestu_jeden_pevny_konec.tex
+TeX
+268447675 0 2 52 2 61 198 198 878 613
+test_ham_cestu.tex
+TeX
+268447675 1 29 54 32 7 110 110 790 525
+test_ham_kruznici.tex
+TeX
+268447675 0 247 42 247 49 22 22 724 379
+vypocet_zakazanych_podgrafu.tex
+TeX
+268447675 0 381 40 0 38 22 22 702 437
+implementace.tex
+TeX
+268447675 1 10 27 10 12 66 66 768 423
+rejstrik_trid.tex
+TeX
+268447675 0 17 36 17 46 88 88 790 445
+rejstrik_souboru.tex
+TeX
+268447675 0 0 1 0 1 110 110 812 467
+dokumentace_trid.tex
+TeX
+268447675 0 0 1 0 1 132 132 834 489
+classCondition.tex
+TeX
+268447675 0 0 1 0 1 154 154 856 511
+classConditionSet.tex
+TeX
+268447675 0 0 1 0 1 176 176 878 533
+classGraph.tex
+TeX
+268447675 0 27 38 27 47 88 88 812 449
+classParse.tex
+TeX
+268447675 0 0 1 3 1 110 110 834 471
+classClosureHamCycle.tex
+TeX
+268447675 0 0 1 0 1 132 132 856 493
+classClosureHamPath.tex
+TeX
+268447675 0 6 18 6 19 154 154 878 515
+classForbiddenGraphs.tex
+TeX
+268447675 0 0 1 0 1 0 0 724 361
+evidencni_list.tex
+TeX
+268447675 0 0 1 0 1 22 22 746 383
+main.tex
+TeX
+402665403 0 26 38 12 1 154 154 856 547
+zakladni_definice.tex
+TeX
+268447675 2 58 34 58 35 132 132 834 525
+vysledky_hamiltonovske_testy.tex
+TeX
+268447675 2 191 75 191 76 66 66 834 335
+testy.tex
+TeX
+268447675 0 10 17 4 22 0 0 680 415
+alg_test_ham_cestu.tex
+TeX
+268447675 0 167 59 168 10 154 154 856 547
+priloha2.tex
+TeX
+268447675 0 0 1 0 1 88 88 790 481
+
+*main.tex
+>
+*titulni_listy
+*uvod
+>
+*motivace
+*zakladni_definice
+*hranove_grafy
+<
+*uzaverove_techniky
+>
+*ut_obecne
+*ut_claw_free
+<
+*algoritmizace
+>
+*alg_test_ham_kruznici
+*alg_test_ham_cestu
+*alg_gen_zakazane_podgrafy
+<
+*vysledky
+>
+*vysledky_hamiltonovske_testy
+*vysledky_zakazane_podgrafy
+<
+*zaver
+*literatura
+*zak_podgrafy_k4_variace
+*testy
+>
+*test_ham_cestu_dva_pevne_konce
+*test_ham_cestu_jeden_pevny_konec
+*test_ham_cestu
+*test_ham_kruznici
+*vypocet_zakazanych_podgrafu
+<
+*implementace
+>
+*rejstrik_trid
+*rejstrik_souboru
+*dokumentace_trid
+>
+*classCondition
+*classConditionSet
+*classGraph
+*classParse
+*classClosureHamCycle
+*classClosureHamPath
+*classForbiddenGraphs
+<
+<
+*evidencni_list
+<

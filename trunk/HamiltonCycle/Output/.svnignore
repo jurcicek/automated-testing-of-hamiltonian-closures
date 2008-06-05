@@ -1,0 +1,6 @@
+hamiltonian_release
+*.out
+*.log
+*.dot
+*.txt
+*.ps

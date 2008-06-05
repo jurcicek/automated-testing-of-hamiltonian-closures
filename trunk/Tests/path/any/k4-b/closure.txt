@@ -1,0 +1,17 @@
+//======================================================
+//
+//  Closure K_4-b from "Subgraphs, closures and 
+//    hamiltonocity", H.J. Broersma, I. Schiermeyer
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+test: aPath
+
+//======================================================
+//  K_4-b from Theorem 3.3 
+//======================================================
+
+condition:       {x,y} <= N(u)
+condition: N(x) | N(y) <= N[v] | u

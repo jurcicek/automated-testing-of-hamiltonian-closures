@@ -1,0 +1,12 @@
+*.aux
+*.ps
+*.dvi
+*.toc
+*.bbl
+*.blg
+*.log
+*.bak
+g.tex
+t.tex
+.tex
+main.lof

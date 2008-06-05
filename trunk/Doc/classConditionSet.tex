@@ -1,0 +1,65 @@
+\subsection{Dokumentace tøídy Condition\-Set}
+\label{classConditionSet}\index{ConditionSet@{Condition\-Set}}
+{\tt \#include $<$Condition\-Set.h$>$}
+
+Tøída reprezentující mno¾inu v¹ech podmínek uzávìru. Dále umí
+nìkteré druhy podmínek zjednodu¹it pomocí metody {\bf Expand}.
+Zjednodu¹it lze napøíklad podmínky reprezentující strukturu v
+testovaném uzávìru. Z mno¾iny podmínek se odeberou voláním funkce
+{\bf Add\-Removable\-Edges} a odpovídající hrany se pøidají do
+daného grafu. Dále mohou být do grafu pøidány hrany vynucené
+podmínkami. To se provede pomocí metody {\bf Add\-Edges}. Pokud
+podmínky vedou k roz¹íøení testované mno¾iny grafù, potom se
+pøidají do pøedaného seznamu grafù.
+
+\obrazekparam{width=49pt}{obrazky/prog/classConditionSet__inherit__graph}
+{fig:classConditionSet__inherit__graph}{Diagram dìdiènosti pro
+tøídu Condition\-Set}
+
+\obrazekparam{width=49pt}{obrazky/prog/classConditionSet__coll__graph}
+{fig:classConditionSet__coll__graph}{Diagram tøíd pro
+Condition\-Set}
+
+\subsubsection*{Veøejné metody}
+\begin{CompactItemize}
+\item
+{\bf Condition\-Set} (set$<$ string $>$ $\ast$pss\-Nodes, string $\ast$ps\-Node\-U, string $\ast$ps\-Node\-V)
+\item
+{\bf Condition\-Set} (Condition\-Set \&con\-Set)
+\item
+{\bf $\sim$Condition\-Set} (void)
+\item
+void {\bf Add\-Condition} (string s\-Left\-Side, string s\-Right\-Side)
+\item
+void {\bf Clear\-Conditions} (void)
+\item
+bool {\bf Expand} (void)
+\item
+short {\bf Add\-Removable\-Edges} ({\bf Graph} $\ast$p\-G)
+\item
+short {\bf Add\-Edges} ({\bf Graph} $\ast$p\-G, list$<$ {\bf Graph} $\ast$$>$ \&l\-Graph)
+\item
+void {\bf Print} (void)
+\item
+void {\bf Write} (string s\-File\-Name)
+\end{CompactItemize}
+\subsubsection*{Privátní metody}
+\begin{CompactItemize}
+\item
+bool {\bf Is\-Node} (string s\-Node\-Name)
+\item
+bool {\bf Is\-Node\-U} (string s\-Node\-Name)
+\item
+bool {\bf Is\-Node\-V} (string s\-Node\-Name)
+\end{CompactItemize}
+\subsubsection*{Privátní atributy}
+\begin{CompactItemize}
+\item
+list$<$ {\bf Condition} $>$ {\bf m\_\-l\-Conditions}
+\item
+set$<$ string $>$ $\ast$ {\bf m\_\-pss\-Nodes}
+\item
+string $\ast$ {\bf m\_\-ps\-Node\-U}
+\item
+string $\ast$ {\bf m\_\-ps\-Node\-V}
+\end{CompactItemize}

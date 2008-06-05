@@ -1,0 +1,374 @@
+\section{Test na hamiltonovskou kru¾nici}
+Struktury, které zde budeme testovat pomocí programu
+\emph{HamiltonCycle} pøi rùzných testovacích podmínkách, jsou
+variace struktur $K_4$ a $K_5$.
+
+\subsection{Uzávìr $K_4-a$ }
+Provìøujeme strukturu $K_4-A$ s podmínkami z lemma
+\ref{lem:k4-a}. Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp
+k4-a/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+\\
+condition:     \{x,y\} <= N(u) \& N(v) \\
+condition:        x\_y <= E(G) \\
+\\
+condition: N(x) | N(y) <= N[u] | N[v] \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-a/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za ménì ne¾ 1 sekundu na procesoru P450.
+Nevygeneroval ¾ádnou výjimku z 320 testovaných grafù. Proto z
+pohledu tohoto programu uzávìr zachovává vlastnost neexistence
+hamiltonovské kru¾nice.
+
+\subsection{Uzávìr $K_4-b$}
+Provìøujeme strukturu $K_4-B$ s podmínkami z lemma \ref{lem:k4-b}.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-b/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+\\
+condition:     \{x,y\} <= N(u) \\
+\\
+condition: N(x) | N(y) <= N[v] | u \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-b/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za ménì ne¾ 1 sekundu na procesoru P450.
+Nevygeneroval ¾ádnou výjimku z 70 testovaných grafù. Proto z
+pohledu tohoto programu uzávìr zachovává vlastnost neexistence
+hamiltonovské kru¾nice.
+
+\subsection{Uzávìr $K_4-c$ }
+Provìøujeme strukturu $K_4-C$ s podmínkami z lemma
+\ref{lem:k4-c}. Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp
+k4-c/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+\\
+condition:    x <= N(u) \& N(v) \\
+condition:    y <= N(u) \\
+\\
+condition: N(y) <= N[v] | u \\
+condition: N(x) <= N[y] | v \\
+\end{ttfamily}
+
+\noindent Oproti lemma \ref{lem:k4-c} je zde zmìnìna podmínka
+$N(y) \subseteq N(v) | \set{u}$ na $N(y) \subseteq N[v] |
+\set{u}$, proto¾e pro pøípad na obrázku
+\ref{fig:k4:c:counterpart} nelze pùvodní podmínku aplikovat. Jde
+o formální zále¾itost, proto¾e se jedná o jediný "degenerovaný"
+pøípad. My¹lenka, proè je pùvodní podmínka nevhodná, spoèívá v
+tom, ¾e nemù¾e být splnìno $N(y) \subseteq N(v)$, pokud v grafu
+existuje hrana $yv$. Jestli¾e tam toti¾ hrana $yv$ je jako na
+obrázku \ref{fig:k4:c:counterpart}, potom musí být $v \in N(v)$,
+ale to neplatí, proto¾e pro tuto vlastnost máme vyhrazen symbol
+$N[v]$. To, ¾e hrana $yv$ se vyskytuje v grafu, je zpùsobeno
+technikou dùkazu. V pøípadì, ¾e uzel $y$ není na cestì mezi $u$ a
+$v$, tak pùvodní podmínka mù¾e být pou¾ita.
+
+\obrazek{obrazky/k4-c-counterpart.eps}{fig:k4:c:counterpart}{Formální
+výjimka pro uzávìr $K_4-c$.}
+
+Struktura je vyobrazena na obrázku \ref{fig:k4} pod písmenem C.
+Výstup programu je umístìn v souboru \texttt{/Tests/\hyp
+cycle/\hyp k4-c/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za ménì ne¾ 1 sekundu na procesoru P450.
+Vygeneroval jednu výjimku z 70 testovaných grafù viz. obrázek
+\ref{fig:k4:c:cycle:exception}. Tato výjimka je v¹ak pokryta
+nutným pøedpokladem $2$-souvislosti. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\obrazek{obrazky/k4-c-cycle-exception.eps}{fig:k4:c:cycle:exception}{Výjimka
+pro uzávìr $K_4-c$.}
+
+\subsection{Uzávìr $K_4-d$ }
+Provìøujeme strukturu $K_4-D$ s podmínkami z lemma \ref{lem:k4-d}.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-d/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+\\
+condition:    x <= N(u) \\
+\\
+condition: N(y) <= N[v] | u \\
+condition: N(x) <= N[y] | v \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem D. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-d/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P450. Vygeneroval
+jednu výjimku z 70 testovaných grafù viz. obrázek
+\ref{fig:k4:d:cycle:exception}. Tato výjimka je v¹ak pokryta
+nutným pøedpokladem $2$-souvislosti. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\obrazek{obrazky/k4-d-cycle-exception.eps}{fig:k4:d:cycle:exception}{Výjimka
+pro uzávìr $K_4-d$.}
+
+\subsection{Uzávìr $K_4-e$ }
+Provìøujeme strukturu $K_4-E$ s podmínkami z lemma \ref{lem:k4-e}.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-e/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+\\
+condition:  x\_y <= E(G) \\
+\\
+condition: N(x) <= N[u] | v \\
+condition: N(y) <= N[v] | u \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem E. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-e/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za ménì ne¾ 1 sekundu na procesoru P450.
+Vygeneroval jednu výjimku z 70 testovaných grafù viz. obrázek
+\ref{fig:k4:e:cycle:exception}. Tato výjimka je v¹ak pokryta
+nutným pøedpokladem $2$-souvislosti. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\obrazek{obrazky/k4-e-cycle-exception.eps}{fig:k4:e:cycle:exception}{Výjimka
+pro uzávìr $K_4-e$.}
+
+\subsection{Uzávìr $K_4-f$ }
+Provìøujeme strukturu $K_4-F$ s podmínkami z lemma \ref{lem:k4-f}.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-f/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+\\
+condition:       \{x,y\} <= N(u) \& N(v) \\
+\\
+condition:        N(x) <= N[u] | N[v] \\
+condition: N(y) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem F. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-f/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 352 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\subsection{Uzávìr $K_{4}-g$} \label{test:cycle:k4-g}
+Provìøujeme strukturu $K_{4}-G$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-g/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y \\
+path:   u,v \\
+\\
+condition: u\_x <= E(G) \\
+condition: x\_y <= E(G) \\
+condition: y\_v <= E(G) \\
+\\
+condition: N(x) <= N[u] \\
+condition: N(y) <= N[v] \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem G. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-g/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P800. Nevygeneroval
+¾ádnou výjimku z 70 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\subsection{Uzávìr $K_{4}-i$} \label{test:cycle:k4-i}
+Provìøujeme strukturu $K_{4}-I$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-i/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y \\
+path:   u,v \\
+\\
+condition: u\_x <= E(G) \\
+condition: x\_v <= E(G) \\
+\\
+condition: N(x) <= N[u] \& N[v] \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem I. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-i/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P800. Nevygeneroval
+¾ádnou výjimku z 70 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\subsection{Uzávìr $K_{4}-l$} \label{test:cycle:k4-l}
+Provìøujeme strukturu $K_{4}-L$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k4-l/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y \\
+path:   u,v \\
+\\
+condition: u\_x <= E(G) \\
+condition: u\_y <= E(G) \\
+condition: x\_y <= E(G) \\
+condition: y\_v <= E(G) \\
+\\
+condition: N(x) <= N[u] \\
+condition: N(y) <= N(u)|N(v) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem L. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k4-l/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P800. Nevygeneroval
+¾ádnou výjimku z 310 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+kru¾nice.
+
+\subsection{Uzávìr $K_5-a$}
+Provìøujeme strukturu $K_5-A$ s podmínkami z lemma \ref{lem:k5-a}.
+Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k5-a/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+\\
+condition:        \{x,y1,y2\} <= N(u) \& N(v) \\
+condition:               x\_y1 <= E(G) \\
+condition: x\_y2 <= E(G) \\
+condition:              y1\_y2 <= E(G) \\
+\\
+condition:               N(x) <= N[u] | N[v] \\
+condition:              N(y1) <= N[u] | N[v] | N(y2) \\
+condition:              N(y2) <= N[u] | N[v] | N(y1) \\
+\\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k5} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k5-a/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 4367 sekund (více ne¾ 1 hodina) na
+procesoru P450. Nevygeneroval ¾ádnou výjimku z 1163046
+testovaných grafù. Proto z pohledu tohoto programu uzávìr
+zachovává vlastnost neexistence hamiltonovské kru¾nice.
+
+\subsection{Uzávìr $K_5-b$} \label{test:path:k5-b}
+Provìøujeme strukturu $K_5-B$ s podmínkami \footnote{V tomto
+uzávìru pouze ubylo hran ve struktuøe. Poèet uzlù a podmínky pro
+uzly zùstaly stejné.} z lemma \ref{lem:k5-a}. Jedná se o návrh
+uzávìru od Èady. Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp
+k5-b/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+\\
+condition:           x  <= N(u) \& N(v) \\
+condition:         u\_y1 <= E(G) \\
+condition:         v\_y2 <= E(G) \\
+condition:        y1\_y2 <= E(G) \\
+\\
+condition:         N(x) <= N[u] | N[v] \\
+condition:        N(y1) <= N[u] | N[v] | N(y2) \\
+condition: N(y2) <= N[u] | N[v] | N(y1) \\
+\\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k5} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k5-b/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 52947 sekund (více ne¾ 14 hodin) na
+procesoru P450. Nevygeneroval ¾ádnou výjimku z 15710322
+testovaných grafù. Proto z pohledu tohoto programu uzávìr
+zachovává vlastnost neexistence hamiltonovské kru¾nice.
+
+\subsection{Uzávìr $K_5-c$} \label{test:path:k5-c}
+Provìøujeme strukturu $K_5-B$. Podmínky tohoto uzávìru navrhl
+Èada. Zadání ze souboru \texttt{/Tests/\hyp cycle/\hyp k5-c/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+\\
+condition:           x  <= N(u) \& N(v) \\
+condition:         u\_y1 <= E(G) \\
+condition:         v\_y2 <= E(G) \\
+condition:        y1\_y2 <= E(G) \\
+\\
+condition:         N(x) <= N[u] | N[v] \\
+\\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k5} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp cycle/\hyp k5-c/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 2046 sekund (více ne¾ 34 minut) na
+procesoru P450. Nevygeneroval ¾ádnou výjimku z 850538 testovaných
+grafù. Proto z pohledu tohoto programu uzávìr zachovává vlastnost
+neexistence hamiltonovské kru¾nice.

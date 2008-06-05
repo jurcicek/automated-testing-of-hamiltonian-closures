@@ -1,0 +1,14 @@
+graph G
+{
+  rankdir = LR;
+  node [shape = circle, fontname = Helvetica];
+  0 [label = "u"];
+  1 [label = "x"];
+  2 [label = "y"];
+  3 [label = "v"];
+  0 -- 1;
+  0 -- 2;
+  1 -- 2;
+  1 -- 3;
+  2 -- 3;
+}

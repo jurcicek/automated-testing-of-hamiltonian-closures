@@ -1,0 +1,4 @@
+forbiddengraphs_release
+*.out
+*.log
+*.dot

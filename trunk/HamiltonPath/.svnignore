@@ -1,0 +1,10 @@
+Debug
+Release
+release_objs
+release_deps
+debug_objs
+debug_deps
+hamiltonpath_release
+hamiltonpath_debug
+Source
+*.kdevses

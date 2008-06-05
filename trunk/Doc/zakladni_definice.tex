@@ -1,0 +1,309 @@
+\section{Základní definice a vìty}
+
+\begin{defi}
+Nech» $V$ je koneèná mno¾ina. Dvojici $G = (V,E)$, kde $E \subset
+{V \choose 2}$ nazveme neorientovaný graf. Prvky mno¾iny $V$
+nazýváme uzly grafu $G$, prvky mno¾iny $E$ nazýváme hrany grafu
+$G$. Znaèíme $V(G)$, resp. $E(G)$.
+\end{defi}
+
+Je mo¾né také definovat orientovaný graf, ale v této práci se
+budeme zabývat pouze neorientovanými grafy. Proto si vystaèíme
+pouze s uvedenou definicí grafu. Dále budeme hovoøit o
+neorientovaném grafu pouze jako o grafu.
+
+\begin{defi}
+Dva grafy $G=(V,E)$ a $G'=(V',E')$ jsou si rovny $G=G'$, jestli¾e
+$V=V'$ a $E=E'$.
+\end{defi}
+
+\begin{defi}
+Nech» $G=(V,E), G'=(V',E')$ jsou dva grafy. Zobrazení $f: V
+\rightarrow V'$ nazveme homomorfismus, jestli¾e platí:
+\[ \{x,y\} \in E(G) \Rightarrow \{f(x), f(y)\} \in  E(G') = E'. \]
+\end{defi}
+
+\begin{pozn}
+Zobrazení $f: V(G) \rightarrow V(G'´)$ je homomorfismus, právì
+kdy¾ pro ka¾dou hranu $e \in E(G)$ je $f^*(e) \in E(G')$.
+\end{pozn}
+
+\begin{defi}
+Nech» $G, G'$ jsou dva grafy, nech» $f: G \rightarrow G'$ je
+homomorfismus $G$ do $G'$. Potom $f$ se nazývá:
+  \begin{itemize}
+    \item uzlový monomorfismus, je-li $f$ zobrazení prosté
+    \item uzlový epimorfismus, je-li $f$ zobrazení na
+    \item hranový monomorfismus, je-li zobrazení $f^*$ prosté
+    \item hranový epimorfismus, je-li zobrazení $f^*$ na
+    \item monomorfismus, je-li $f$ i $f^*$ zobrazení prosté
+    \item epimorfismus, je-li $f$ i $f^*$ zobrazení na
+    \item izomorfismus, je-li $f$ i $f^*$ zobrazení prosté a na
+  \end{itemize}
+Grafy $G$ a $G'$ se nazývají izomorfní, jestli¾e existuje
+izomorfní zobrazení $f: G \rightarrow G'$. Potom pí¹eme $G \cong
+G'$.
+\end{defi}
+
+\begin{defi}
+Nech» $G, G'$ jsou dva grafy. Øekneme, ¾e $G$ je podgrafem grafu
+$G'$, jestli¾e platí $V(G) \subseteq V(G')$ a $E(G) \subseteq
+E(G')$. Pí¹eme $G \subseteq G'$. Øekneme, ¾e graf $G$ je faktorem
+grafu $G'$, jestli¾e platí $V(G) = V(G')$  a $E(G) \subseteq
+E(G')$.
+\end{defi}
+
+\begin{defi} \label{def:indukovany}
+Nech» $G$ je graf. Nech» $X \subseteq V(G)$. Potom graf $(X, E(G)
+\cap {X \choose 2})$ se nazývá podgraf grafu $G$ indukovaný na
+mno¾inì uzlù $X$. Znaèíme $\indu{X}$.
+\end{defi}
+
+\begin{defi}
+Nech» $G,H$ jsou grafy. Øekneme, ¾e graf $G$ je bez $H$, jestli¾e
+$G$ neobsahuje indukovaný podgraf izomorfní s $H$.
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je graf, $S$ je neprázdná podmno¾ina $V(G)$, $u,v \in
+V(G)$ a $\{u,v\} \in E(G)$. Potom øekneme, ¾e uzel $u$ je
+sousedem uzlu $v$. Mno¾inu v¹ech sousedù uzlu $u$ nazveme okolím
+uzlu $u$ a oznaèíme $N_G(u)$. Mno¾inu $N_G(u) \cup \{u\}$ znaèíme
+$N_G[u]$. Okolím mno¾iny uzlù $S$ nazveme mno¾inu uzlù $N_G(S) =
+\set{x \in V(G) | N(x) \cap S \not = \emptyset}$. Pro podgraf $F$
+grafu $G$ znaèíme $N_G(F) = N_G(V(F))$.
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je graf, $u,v \in V(G)$. Mno¾ina $N_G(u) \backslash
+N_G(v)$ se nazývá mno¾ina privátních sousedù $u$ vzhledem k $v$.
+Uzel $w \in  N_G(u) \backslash N_G(v)$ se nazývá privátní soused
+$u$ vzhledem k $v$.
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je graf, $u \in V(G)$. Potom èíslo
+\[ d_G(u) =  | \{v \in V(G); \{u, v\} \in E(G)\} |\]
+nazýváme stupeò uzlu $u$ v grafu $G$.
+\end{defi}
+
+\begin{pozn}
+Znaèíme:
+  \begin{enumerate}
+    \item $|M| =$ poèet prvkù mno¾iny $M$
+    \item $0 \leq d_G(u) \leq |V(G)| - 1$
+  \end{enumerate}
+\end{pozn}
+
+Dále budeme znaèit poèet uzlù $|V(G)|$ grafu $G$ pomocí $n$,
+neboli $n = |V(G)|$. Poèet hran $|E(G)|$ grafu $G$ budeme znaèit
+pomocí $m$, neboli $m = |E(G)|$.
+
+\begin{veta}
+Nech» $G$ je graf, potom platí $\sum_{u \in V(G)} d_G(u) = 2m$.
+\end{veta}
+
+\begin{dusl}
+V ka¾dém grafu je poèet uzlù lichého stupnì sudé èíslo.
+\end{dusl}
+
+\noindent Nìkteré speciální typy grafù.
+
+\begin{defi}
+Graf $K_n$ nazveme úplný graf, jestli¾e platí
+\[ K_n = \left( <1,n>,{<1,n> \choose 2} \right). \]
+Symbolem $\langle 1,n\rangle$ jsou mínìna pøirozená èísla mezi
+$1$ a $n$ vèetnì.
+\end{defi}
+
+\begin{defi}
+Graf $K_{1,n}$ nazveme takový graf, pro který platí
+\[ K_{1,n} = ( <0,n>, \{ \{0, i\}; i \in <1, n> \}). \]
+Graf $K_{1,3}$ nazýváme claw.
+\end{defi}
+
+\begin{defi}
+Graf $C_n$ nazveme kru¾nice délky $n \geq 3$, jestli¾e platí
+\[ C_n = ( <1,n>, \{ \{i, i+1\}; i \in <1, n-1> \cup \{1, n\} \}). \]
+\end{defi}
+
+\begin{defi}
+Graf $P_n$ nazveme cestu délky $n \geq 0$, jestli¾e platí
+\[ P_n = ( <0,n>, \{ \{i, i+1\}; i \in <0, n-1> \}). \]
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je graf. Potom èíslo
+\[ \delta(G) =  \min_{u \in V(G)} d_G(u)\]
+nazýváme minimální stupeò grafu $G$.
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je graf, $u,v$ jsou uzly grafu $G$. Potom èíslo
+$d_G(u,v)$ nazveme vzdáleností uzlù $u$ a $v$ v grafu $G$,
+jestli¾e je rovno délce nejkrat¹í cesty mezi uzly $u,v$.
+\end{defi}
+
+\begin{defi}
+Nech» $P_n$ je cesta délky $n \geq 0$, $G$ graf a $f: P_n
+\rightarrow G$ je homomorfismus, nech» $f(0)=u$, \ldots ,
+$f(n)=v$. Podgraf $f(P_n)$ se nazývá sled z uzlu $u$ do uzlu $v$
+v grafu $G$. Je-li $f$ hranový monomorfismus, potom $f(P)$ se
+nazývá tah z uzlu $u$ do uzlu $v$ v $G$. Je-li $f$ uzlový
+monomorfismus, potom $f(P_n)$ se nazývá cesta z uzlu $u$ do uzlu
+$v$ v $G$.
+\end{defi}
+
+\begin{defi}
+Jestli¾e v grafu $G$ existuje pro ka¾dé dva uzly $x,y \in G$ sled
+z uzlu $x$ do uzlu $y$, potom takový graf nazýváme souvislý.
+Maximální souvislé podgrafy grafu $G$ se nazývají komponentami
+grafu $G$.
+\end{defi}
+
+\begin{veta}
+V ka¾dém souvislém grafu $G$ ($n \geq 2$), existují alespoò dva
+uzly $x,y \in V(G)$ takové, ¾e $G-x$ a $G-y$ jsou souvislé grafy
+\end{veta}
+
+\begin{veta}
+Je-li graf $G$ souvislý, potom $m \geq n-1$.
+\end{veta}
+
+\begin{veta}
+Jestli¾e v grafu $G$ platí $\delta(G) \geq \frac{1}{2} |V(G)|$,
+potom $G$ je souvislý.
+\end{veta}
+
+\begin{defi}
+Nech» $C_n$ je kru¾nice délky $n \geq 3$, $G$ je graf. Nech» $f:
+C_n \rightarrow G$ je homomorfismus, potom podgraf $f(C_n)$ se
+nazývá uzavøený sled grafu $G$. Je-li $f$ hranový monomorfismus,
+potom podgraf $f(C_n)$ se nazývá uzavøený tah grafu $G$. Je-li
+$f$ uzlový monomorfismus, potom podgraf $f(C_n)$ se nazývá
+kru¾nice v grafu $G$.
+\end{defi}
+
+\begin{veta}
+Nech» $G$ je souvislý graf, nech» $C \subseteq G$ je kru¾nice v
+grafu $G$, nech» $h \in E(C)$. Potom graf $G'=G-h$ je souvislý.
+\end{veta}
+
+\begin{defi}
+Nech» $G$ je souvislý graf, $x,y \in V(G)$. Mno¾ina $B \subset
+E(G)$ taková, ¾e
+  \begin{enumerate}
+    \item ka¾dá cesta z uzlu $x$ do uzlu $y$ obsahuje alespoò
+      jednu hranu z mno¾iny $B$,
+    \item ¾ádná vlastní podmno¾ina mno¾iny $B$ nemá vlastnost 1.,
+  \end{enumerate}
+se nazývá minimální hranový øez grafu $G$ mezi uzly $x$ a $y$.
+\end{defi}
+
+\begin{defi}
+Nejmen¹í poèet prvkù hranového øezu mezi uzly $x$ a $y$ se nazývá
+hranový stupeò souvislosti grafu $G$ mezi uzly $x$ a $y$ a znaèí
+se $h_G(x,y)$.
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je souvislý graf, $x,y \in V(G)$. Mno¾ina $A \subset
+V(G)$ taková, ¾e
+  \begin{enumerate}
+    \item ka¾dá cesta z uzlu $x$ do uzlu $y$ obsahuje alespoò
+      jeden uzel z mno¾iny $A$,
+    \item ¾ádná vlastní podmno¾ina mno¾iny $A$ nemá vlastnost 1.,
+  \end{enumerate}
+se nazývá minimální uzlový øez grafu $G$ mezi uzly $x$ a $y$.
+\end{defi}
+
+\begin{defi}
+Nejmen¹í poèet prvkù uzlového øezu, oddìlující uzly $x$ a $y$, se
+nazývá uzlový stupeò souvislosti grafu $G$ mezi uzly $x$ a $y$ a
+znaèí se $u_G(x,y)$. Neexistuje-li uzlový øez mezi uzly $x$ a
+$y$, tj. jsou-li uzly $x$ a $y$ sousední, klademe
+$u_G(x,y)=|U(G)| - 1$.
+\end{defi}
+
+\begin{defi}
+Nejmen¹í z èísel $u_G(x,y)$ nazveme uzlový stupeò souvislosti
+grafu $G$ a budeme ho znaèit $u(G)$. Nejmen¹í z èísel $h_G(x,y)$
+nazveme hranový stupeò souvislosti grafu $G$ a budeme ho znaèit
+$h(G)$. Øekneme, ¾e graf $G$ je uzlovì (hranovì) $k$-souvislý,
+jestli¾e $u(G) \geq k$ ($h(G) \geq k$).
+\end{defi}
+
+\begin{pozn}
+Èasto se pro jednoduchost pou¾ívá pojem $k$-souvislost ve významu
+uzlové \mbox{$k$-souvislosti}. My se tímto zvykem budeme dále
+øídit.
+\end{pozn}
+
+\begin{veta}
+Pro ka¾dý graf $G$ platí
+\[ u(G) \leq h(G) \leq \delta(G).\]
+\end{veta}
+
+\begin{veta}
+V ka¾dém grafu $G$ platí
+\[ h(G) \leq \frac{2|E(G)|}{|V(G)|}.\]
+\end{veta}
+
+\begin{veta}[Ford, Fulkerson]
+Graf $G$ je hranovì $k$-souvislý mezi uzly $a$ a $b$, právì kdy¾
+v~nìm existuje $k$ hranovì disjunktních cest vedoucích z $a$ do
+$b$.
+\end{veta}
+
+\begin{veta}[Menger]
+Graf $G$ je uzlovì $k$-souvislý mezi nesousedními uzly $a$ a $b$,
+právì kdy¾ v~nìm existuje $k$ uzlovì disjunktních cest vedoucích
+z $a$ do $b$.
+\end{veta}
+
+\begin{defi}
+Podgraf $K \subset G$ se nazývá klika grafu $G$, jestli¾e $K$ je
+úplný podgraf.
+\end{defi}
+
+\begin{defi}
+Nech» $G$ je graf. Délku nejdel¹í cesty grafu $G$ oznaèíme $p(G)$.
+Délku nejdel¹í cesty s jedním pevným koncovým uzlem $r$ grafu $G$
+oznaèíme $p^r(G)$. Takovou to cestu znaèíme jako $r$-cesta. Délku
+nejdel¹í  cesty s dvìma pevnými koncovými uzly $s,t$ grafu $G$
+oznaèíme $p_t^s(G)$. Takovou to cestu znaèíme jako $st$-cesta.
+Délku nejdel¹í kru¾nice grafu $G$ oznaèíme $c(G)$.
+\end{defi}
+
+\begin{defi}
+Cesta, $r$-cesta, resp. $st$-cesta, $P$ grafu $G$ se nazývá
+hamiltonovská, jestli¾e cesta, $r$-cesta, resp. $st$-cesta,
+prochází v¹emi uzly (tj. $|V(G)|=|V(P)|$). Kru¾nice $C$ grafu $G$
+se nazývá hamiltonovská, jestli¾e kru¾nice prochází v¹emi uzly
+(tj. $|V(G)|=|V(C)|$). Graf $G$ se nazývá hamiltonovský, jestli¾e
+obsahuje hamiltonovskou kru¾nici.
+\end{defi}
+
+\begin{veta}[Dirac]
+Nech» $G$ je graf, $|V(G)| \geq 3$ a platí $\delta(G) \geq
+\frac{1}{2}|V(G)|$, potom $G$ je hamiltonovský.
+\end{veta}
+
+\begin{defi}
+Nech» $G$ je graf, $x \in G$. Øekneme, ¾e $x$ je lokálnì souvislý
+uzel, jestli¾e \mbox{$<N(x)>$} je souvislý graf.
+\end{defi}
+
+\begin{defi}
+Graf $G$ nazveme $t$-tuhý ($t \in R, t \ge 1$), jestli¾e pro
+ka¾dou neprázdnou mno¾inu $S \subset V(G)$ platí, ¾e:
+\[\abs{S} \geq t \abs{c(G-S)},\]
+kde $c(G-S) \ge 1$. $c(G-S)$ vyjadøuje poèet komponent v grafu
+$G-S$.
+\end{defi}
+
+\begin{defi}
+Tuhost grafu $\tau(G)$ je nejvìt¹í hodnota $t$, pro které je G
+$t$-tuhý. Dále definujeme $\tau(K_n) = \infty$ pro $\forall n \ge
+1$.
+\end{defi}

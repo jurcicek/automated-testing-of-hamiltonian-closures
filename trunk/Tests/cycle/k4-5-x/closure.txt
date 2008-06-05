@@ -1,0 +1,21 @@
+//======================================================
+//
+//  Cycle closure K_4-5-x
+//
+//======================================================
+
+nodes:  u,v,x,y1,y2,y3
+path:   u,v
+
+condition:                 {x,y1} <= N(u) & N(v)
+
+condition:                   u_y2 <= E(G)
+condition:                   v_y3 <= E(G)
+condition:                  y2_y3 <= E(G)
+
+condition:           N(y1) \ N[x] <= clique
+condition:           N(y2) \ N[x] <= clique
+condition:           N(y3) \ N[x] <= clique
+
+condition: N(x) \ ( N[u] | N[v] ) <= clique
+

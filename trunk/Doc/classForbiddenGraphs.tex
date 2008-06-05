@@ -1,0 +1,73 @@
+\subsection{Dokumentace tøídy Forbidden\-Graphs}
+\label{classForbiddenGraphs}\index{ForbiddenGraphs@{Forbidden\-Graphs}}
+{\tt \#include $<$Forbidden\-Graphs.h$>$}
+
+Tøída implementující algoritmus pro generování zakázaných
+podgrafù pro danou strukturu. Metoda {\bf Read} naète zadání
+uzávìru z daného souboru. {\bf Print} vypí¹e naètený uzávìr na
+standardní výstup. {\bf Parse\-Closure} zjednodu¹í mno¾inu
+uzávìrových podmínek. Jedná se zejména o podmínky reprezentující
+strukturu. Metoda {\bf Generate\-Graphs} provede vygenerování
+v¹ech grafù vynucených podmínkami uzávìru. Vyu¾ívá pøitom metody
+{\bf Permute\-Co\-Nodes} a {\bf Combine\-Graph\-States}.
+
+Metoda {\bf Permute\-Co\-Nodes} provádí permutování co-uzlù na
+cestì. {\bf Combine\-Graph\-States} generuje co-uzly na cestì ve
+v¹ech nutných vzdálenostech.
+
+Jakmile je vytvoøena konfigurace s pøidanými hranami struktury,
+jsou z ní vytváøeny mo¾né zakázané podgrafy. Následnì je z celé
+mno¾iny mo¾ných zakázaných podgrafù vybrána mno¾ina zakázaných
+podgrafù.
+
+\obrazekparam{width=58pt}{obrazky/prog/classForbiddenGraphs__inherit__graph}
+{fig:classForbiddenGraphs__inherit__graph}{Diagram dìdiènosti pro
+tøídu Forbidden\-Graphs}
+
+\obrazekparam{width=91pt}{obrazky/prog/classForbiddenGraphs__coll__graph}
+{fig:classForbiddenGraphs__coll__graph}{Diagram tøíd pro
+Forbidden\-Graphs}
+
+\subsubsection*{Veøejné metody}
+\begin{CompactItemize}
+\item
+{\bf Forbidden\-Graphs} (void)
+\item
+{\bf $\sim$Forbidden\-Graphs} (void)
+\item
+short {\bf Read} (string s\-File\-Name)
+\item
+short {\bf Print} (void)
+\item
+short {\bf Write\-Condition\-Set} (string s\-File\-Name)
+\item
+short {\bf Parse\-Closure} (void)
+\item
+short {\bf Generate\-Graphs} (string s\-File\-Name)
+\end{CompactItemize}
+\subsubsection*{Privátní metody}
+\begin{CompactItemize}
+\item
+void {\bf Combine\-Graph\-States} (short $\ast$pi\-Selected\-Parts, short i\-Max\-Parts\-Num)
+\item
+bool {\bf Permute\-Co\-Nodes} (vector$<$ string $>$ $\ast$pvs\-Permuted\-Co\-Nodes)
+\item
+void {\bf Set\-Permuted\-Node\-Names} ({\bf Graph} $\ast$p\-G, vector$<$ string $>$ $\ast$pvs\-Permuted\-Co\-Nodes, short $\ast$pi\-Selected\-Parts, short i\-Max\-Parts\-Num)
+\end{CompactItemize}
+\subsubsection*{Privátní atributy}
+\begin{CompactItemize}
+\item
+bool {\bf m\_\-b\-Use\-UV}
+\item
+short {\bf m\_\-i\-Degree}
+\item
+set$<$ string $>$ {\bf m\_\-ss\-Nodes}
+\item
+set$<$ string $>$ {\bf m\_\-ss\-Co\-Nodes}
+\item
+string {\bf m\_\-s\-Node\-U}
+\item
+string {\bf m\_\-s\-Node\-V}
+\item
+{\bf Condition\-Set} {\bf m\_\-Condition\-Set}
+\end{CompactItemize}
