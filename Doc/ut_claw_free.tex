@@ -1,0 +1,78 @@
+\section{Uzávìrové techniky pro claw-free grafy}
+
+\subsection{Ryjáèkùv uzávìr}
+\begin{defi}
+Buï $G$ graf bez $K_{1,3}$. Øekneme, ¾e uzel $x \in V(G)$ je
+pøípustný, pokud jeho okolí je souvislé a neúplné. Lokálním
+zúplnìním grafu $G$ nazýváme graf $G'_x$ s mno¾inou uzlù
+$V(G'_x)=V(G)$ a mno¾inou hran $E(G'_x)=E(G) \cup B_x$, kde $B_x
+= \{uv| u,v \in N_G(x), uv \nin E(G)\}$.
+\end{defi}
+
+\begin{lemma}[\cite{ryjacek}]
+Nech» $G$ je graf bez $K_{1,3}$ a $x \in V(G)$ je pøípustný uzel.
+Pak
+  \begin{enumerate}
+    \item $G'_x$ je graf bez $K_{1,3}$,
+    \item $c(G'_x) = c(G)$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{defi}
+Nech» $G$ je graf bez $K_{1,3}$. Øekneme pak, ¾e graf $H$ je
+"claw-free" uzávìrem grafu $G$, znaèíme $cl_R(G)$, jestli¾e
+  \begin{enumerate}
+    \item existuje posloupnost grafù $G_1, \ldots ,G_t$,taková, ¾e $G_1 =
+      G$, $G_t=H$ a $G_{i+1} = (G_i)'_{x_i}$ pro nìkterý pøípustný
+      uzel $x_i \in V(G_i)$, $i=1, \ldots, t-1$,
+    \item ka¾dý lokálnì souvislý uzel grafu $H$ má úplné okolí..
+  \end{enumerate}
+\end{defi}
+
+\begin{pozn}
+Ekvivalentnì by se dal uzávìr $cl_R(G)$ definovat jako graf
+vzniklý z $G$ opakováním operace lokálního zúplnìní, dokud
+existuje lokálnì souvislý uzel s neúplným okolím.
+\end{pozn}
+
+\begin{defi}
+Nech» $G$ je graf bez $K_{1,3}$. Øekneme pak, ¾e graf $G$ je
+uzavøeným grafem, jestli¾e platí $G = cl_R(G)$
+\end{defi}
+
+\begin{veta}[\cite{ryjacek}]
+Nech» $G$ je graf bez $K_{1,3}$. Pak
+  \begin{enumerate}
+    \item uzávìr $cl_R(G)$ je jednoznaènì urèen,
+    \item existuje graf $H$ bez trojúhelníkù takový, ¾e $G = L(G)$,
+    \item $c(cl_R(G)) = c(G)$,
+  \end{enumerate}
+\end{veta}
+
+Jako bezprostøední dùsledek mù¾eme pova¾ovat následující vìtu,
+proto¾e Zhann a Jackson na sobì nezávisle dokázali, ¾e ka¾dý
+$7$-souvislý hranový graf  je hamiltonovský. Máme-li tedy
+\mbox{$7$-souvislý} nehamiltonovský claw-free graf $G$, potom
+$cl_R(G)$ je $7$-souvislý (souvislost se nemù¾e sní¾it pøidáváním
+hran) nehamiltonovský hranový graf, co¾ je spor.
+
+\begin{veta}[\cite{ryjacek}]
+Ka¾dý $7$-souvislý graf bez $K_{1,3}$ je hamiltonovský.
+\end{veta}
+
+\subsection{Broersma-Trommelùv uzávìr}
+
+\begin{lemma}[\cite{broersma_96}]
+Nech» $G$ je graf bez $K_{1,3}$ a $\set{x,y,u,v}$ mno¾ina ètyø
+uzlù grafu $G$ taková, ¾e $\set{x,y} \subseteq N(u) \cap N(v)$.
+Pokud $xy \in E(G)$, pak $N(x) \subseteq N[u] \cup N[v]$ a mno¾ina
+$N(y) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina).
+\end{lemma}
+
+Na základì tohoto lemmatu je pak definován, obdobnì jako u vý¹e
+uvedených uzávìrù, uzávìr $K_4^*$.
+
+Z pøedchozího lemma je vidìt, ¾e pro graf $G$ bez $K_{1,3}$ platí,
+¾e $cl_R(G)$ je podgrafem nìkterého $K_4^*$-uzávìru. Nevýhodou
+$K_4^*$-uzávìru oproti $cl_R$-uzávìru je jeho nejednoznaènost.

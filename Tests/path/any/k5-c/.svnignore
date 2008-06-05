@@ -1,0 +1,4 @@
+hamiltoncycle_release
+*.out
+*.log
+*.dot

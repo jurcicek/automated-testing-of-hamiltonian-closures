@@ -1,0 +1,11 @@
+Debug
+Release
+release_objs
+release_deps
+debug_objs
+debug_deps
+Source
+.kdevses
+*.dot
+*.ps
+*.plg

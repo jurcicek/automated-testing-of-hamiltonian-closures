@@ -1,0 +1,68 @@
+\subsection{Dokumentace tøídy Closure\-Ham\-Cycle}
+\label{classClosureHamCycle}\index{ClosureHamCycle@{Closure\-Ham\-Cycle}}
+{\tt \#include $<$Closure\-Ham\-Cycle.h$>$}
+
+Tøída implementující algoritmus pro testování uzávìrù
+zachovávajících vlastnost neexistence hamiltonovské kru¾nice.
+Metoda {\bf Read} naète zadání uzávìru z daného souboru. {\bf
+Print} vypí¹e naètený uzávìr na standardní výstup. {\bf
+Parse\-Closure} zjednodu¹í mno¾inu uzávìrových podmínek. Jedná se
+zejména o podmínky reprezentující strukturu. Metoda {\bf
+Generate\-Graphs} provede vygenerování v¹ech grafù vynucených
+podmínkami uzávìru. Vyu¾ívá pøitom metody {\bf
+Permute\-Co\-Nodes} a {\bf Combine\-Graph\-States}. Jakmile má
+metoda {\bf Generate\-Graphs} vygenerovaný graf, který splòuje
+v¹echny uzávìrové podmínky, potom je testován na danou
+hamiltonovskou vlastnost.
+
+Metoda {\bf Permute\-Co\-Nodes} provádí permutování co-uzlù na
+cestì. {\bf Combine\-Graph\-States} generuje co-uzly na cestì ve
+v¹ech nutných vzdálenostech.
+
+\obrazekparam{width=60pt}{obrazky/prog/classClosureHamCycle__inherit__graph}
+{fig:classClosureHamCycle__inherit__graph}{Diagram dìdiènosti pro
+tøídu Closure\-Ham\-Cycle}
+
+\obrazekparam{width=92pt}{obrazky/prog/classClosureHamCycle__coll__graph}
+{fig:classClosureHamCycle__coll__graph}{Diagram tøíd pro
+Closure\-Ham\-Cycle}
+
+\subsubsection*{Veøejné metody}
+\begin{CompactItemize}
+\item
+{\bf Closure\-Ham\-Cycle} (void)
+\item
+{\bf $\sim$Closure\-Ham\-Cycle} (void)
+\item
+short {\bf Read} (string s\-File\-Name)
+\item
+short {\bf Print} (void)
+\item
+short {\bf Write\-Condition\-Set} (string s\-File\-Name)
+\item
+short {\bf Parse\-Closure} (void)
+\item
+short {\bf Generate\-Graphs} (string s\-File\-Name)
+\end{CompactItemize}
+\subsubsection*{Privátní metody}
+\begin{CompactItemize}
+\item
+void {\bf Combine\-Graph\-States} (short $\ast$pi\-Selected\-Parts, short i\-Max\-Parts\-Num)
+\item
+bool {\bf Permute\-Co\-Nodes} (vector$<$ string $>$ $\ast$pvs\-Permuted\-Co\-Nodes)
+\item
+void {\bf Set\-Permuted\-Node\-Names} ({\bf Graph} $\ast$p\-G, vector$<$ string $>$ $\ast$pvs\-Permuted\-Co\-Nodes, short $\ast$pi\-Selected\-Parts, short i\-Max\-Parts\-Num)
+\end{CompactItemize}
+\subsubsection*{Privátní atributy}
+\begin{CompactItemize}
+\item
+set$<$ string $>$ {\bf m\_\-ss\-Nodes}
+\item
+set$<$ string $>$ {\bf m\_\-ss\-Co\-Nodes}
+\item
+string {\bf m\_\-s\-Node\-U}
+\item
+string {\bf m\_\-s\-Node\-V}
+\item
+{\bf Condition\-Set} {\bf m\_\-Condition\-Set}
+\end{CompactItemize}

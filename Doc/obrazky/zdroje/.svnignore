@@ -1,0 +1,9 @@
+*.aux
+*.ps
+*.dvi
+*.toc
+*.bbl
+*.blg
+*.log
+*.bak
+Zálohování*

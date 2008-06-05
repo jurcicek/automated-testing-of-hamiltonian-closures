@@ -1,0 +1,113 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{czech}
+
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{alltt}
+\usepackage{doxygen}
+
+\usepackage{epsf}
+
+\oddsidemargin -0.4truemm \evensidemargin 0truemm \marginparwidth
+0pt \marginparsep   0pt \topmargin     -0.4truemm \headheight
+14pt \headsep        10truemm \footskip       10truemm
+\textheight     222truemm \textwidth      160truemm
+
+\pagestyle{headings}
+
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\seq}[1]{\left<#1\right>}
+\newcommand{\indu}[1]{\langle#1\rangle}
+\newcommand{\obrace}[1]{\left( #1 \right)}
+\newcommand{\cbrace}[1]{\left[ #1 \right]}
+\newcommand{\nin}{\not \in}
+\newcommand{\bs}{$\backslash$ }
+\newcommand{\hyp}{\ \!\!\!}
+\newcommand{\taba}{\hspace*{0.5cm}}
+\newcommand{\tabb}{\hspace*{1.0cm}}
+\newcommand{\tabc}{\hspace*{1.5cm}}
+\newcommand{\tabd}{\hspace*{2.0cm}}
+\newcommand{\tabe}{\hspace*{2.5cm}}
+\newcommand{\tabf}{\hspace*{3.0cm}}
+
+\newtheorem{veta}{Vìta}[section]
+\newtheorem{lemma}[veta]{Lemma}
+\newtheorem{tvrz}[veta]{Tvrzení}
+\newtheorem{dusl}[veta]{Dùsledek}
+\newtheorem{defi}{Definice}[section]
+\newtheorem{pozn}{Poznámka}[section]
+\newtheorem{ota}{Otázka}[section]
+\newtheorem{alg}{Algoritmus}[chapter]
+\newenvironment{dukaz}{\textbf{Dùkaz} \quad}{ \hspace{\stretch{1}} $\blacksquare$ \\}
+
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\newcommand{\prazdnyobrazek}[2]{
+  \begin{figure}[htbp]
+    %\makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
+    \makebox[\textwidth]{\rule{0pt}{5cm}}
+    \caption{#2}
+    \label{#1}
+  \end{figure}
+}
+
+\newcommand{\obrazek}[3]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \leavevmode
+      \includegraphics{#1}
+    \end{center}
+    \caption{#3}
+    \label{#2}
+  \end{figure}
+}
+\newcommand{\obrazekparam}[4]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \leavevmode
+      \includegraphics[#1]{#2}
+    \end{center}
+    \caption{#4}
+    \label{#2}
+  \end{figure}
+}
+
+\linespread{1.1}
+
+\begin{document}
+
+\include{titulni_listy}
+
+\pagenumbering{alph}
+
+\tableofcontents \listoffigures
+
+\newpage \pagenumbering{arabic}
+
+\include{uvod}
+\include{uzaverove_techniky}
+\include{algoritmizace}
+\include{vysledky}
+\include{zaver}
+\include{literatura}
+
+\appendix \newpage
+
+\include{zak_podgrafy_k4_variace}
+\include{testy}
+\include{implementace}
+
+\include{evidencni_list}
+
+%\include{priloha1}
+%\include{priloha2}
+
+\end{document}

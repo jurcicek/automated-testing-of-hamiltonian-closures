@@ -1,0 +1,32 @@
+\chapter{Závìr}
+
+Podaøilo se vytvoøit dva programy implementující algoritmy pro
+testování strukturálních uzávìrù zachovávajících vlastnost
+neexistence hamiltonovské kru¾nice, hamiltonovské cesty,
+hamiltonovské $r$-cesty a hamiltonovské $st$-cesty. Jazyk, pomocí
+kterého se popisují návrhy uzávìrù, je natolik obecný, ¾e
+umo¾òuje testovat návrhy uzávìrù libovolného \footnote{Samozøejmì
+zále¾í na tom, kolik nám dovolí pamì» a výkon poèítaèe.} poètu
+uzlù. Napøíklad by se daly testovat uzávìry se strukturou typu
+$K_{4-4-4-4}$ a podobnì. Pro lep¹í vyu¾ití programù by bylo
+vhodné roz¹íøit mno¾inu mo¾ných podmínek o podmínku, která by
+vy¾adovala po mno¾inì uzlù, aby byla bez $K_{1,3}$.
+
+Dále byl vytvoøen program implementující algoritmus generující
+zakázané podgrafy pro danou strukturu. Pomocí struktury a takto
+vygenerovaných zakázaných podgrafù je mo¾né za jistých podmínek
+definovat uzávìr zachovávající vlastnost neexistence hamiltonovské
+kru¾nice. Tento program umo¾òuje generovat zakázané podgrafy pro
+struktury libovolné velikosti. Bohu¾el u¾ pro nejjednodu¹¹í
+strukturu na pìti uzlech, vychází více jak 500 \footnote{Pro
+nedostatek výpoèetního èasu nebyly vygenerovány v¹echny zakázané
+podgrafy.} zakázaných podgrafù. Pøi takto velkém poètu zakázaných
+podgrafù tento uzávìrový koncept ztrácí na eleganci. Zde by bylo
+mo¾né doplnit program o mo¾nost omezení se pouze na urèitou tøídu
+grafù. Dal¹í mo¾ností je doplnit takovýto program o pøevod
+uzávìru definovaného pomocí zakázaných indukovaných podgrafu na z
+nìj plynoucí uzávìry definované pomocí podmínek na okolí vrcholu
+struktury. Bylo by mo¾né vytvoøit také modifikovanou verzi
+programu, která by umo¾òovala generovat zakázané podgrafy pro
+uzávìry zachovávající vlastnost neexistence hamiltonovské cesty,
+hamiltonovské $r$-cesty a hamiltonovské $st$-cesty.

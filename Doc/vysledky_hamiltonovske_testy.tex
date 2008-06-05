@@ -1,0 +1,205 @@
+\section{Zachování hamiltonovských vlastností}
+
+Pomocí programu \emph{HamiltonPath} bylo provìøeno zadání pro
+nìkolik nových uzávìrù. Výsledkem jsou následující vìty.
+
+\obrazek{obrazky/k4-4-b-st-exception.eps}{fig:vysl:st:k4-4-b}
+{Výjimka pro test \ref{test:st:k4-4-b}. Uzel $s$ je toto¾ný s $x$
+a uzel $t$ je toto¾ný s $y_2$.}
+
+\begin{veta} \label{veta:st:k4-4-b}
+Buï $\{x,y_1,y_2,u,v\}$ mno¾ina pìti uzlù grafu $G$ taková, ¾e
+$uv \nin E(G)$, $\set{x,y_1,y_2} \subseteq N(u) \cap N(v)$,
+$xy_1,xy_2 \in E(G)$. Pokud
+\[N(x) \subseteq N[u] \cup N[v],\]
+$N(y_i) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina)($i=1,2$), potom takto nelze definovat uzávìr, který by
+zachovával vlastnost neexistence hamiltonovské $st$-cesty.
+\end{veta}
+\begin{dukaz}
+Na obrázku \ref{fig:vysl:st:k4-4-b} je pøíklad grafu, který
+splòuje pøedpoklady vìty a neobsahuje $st$-cestu (mezi uzly $x$ a
+$y_2$), ale po pøidání hrany $uv$ ji¾ $st$-cesta existuje. Tudí¾
+takto definovaný uzávìr by nezachovával vlastnost neexistence
+hamiltonovské $st$-cesty.
+\end{dukaz}
+
+\obrazek{obrazky/k4-5-b-st-exception.eps}{fig:vysl:st:k4-5-b}
+{Výjimka pro test \ref{test:st:k4-5-b}. Uzel $s$ je toto¾ný s $x$
+a uzel $t$ je toto¾ný s $y_2$.}
+
+\begin{veta} \label{veta:st:k4-5-b}
+Buï $\{x,y_1,y_2,y_3,u,v\}$ mno¾ina ¹esti uzlù grafu $G$ taková, ¾e
+$uv \nin E(G)$, $\set{x,y_1} \subseteq N(u) \cap N(v)$,
+$uy_2,vy_3,y_2y_3 \in E(G)$, $xy_1,xy_2,xy_3 \in E(G)$. Pokud
+\[N(x) \subseteq N[u] \cup N[v],\]
+$N(y_i) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina)($i=1,2,3$), potom takto nelze definovat uzávìr, který by
+zachovával vlastnost neexistence hamiltonovské $st$-cesty.
+\end{veta}
+\begin{dukaz}
+Na obrázku \ref{fig:vysl:st:k4-5-b} je pøíklad grafu, který
+splòuje pøedpoklady vìty a neobsahuje $st$-cestu (mezi uzly $x$ a
+$y_2$), ale po pøidání hrany $uv$ ji¾ $st$-cesta existuje. Tudí¾
+takto definovaný uzávìr by nezachovával vlastnost neexistence
+hamiltonovské $st$-cesty.
+\end{dukaz}
+
+\obrazek{obrazky/k4-4-4-a-st-exception.eps}{fig:vysl:st:k4-4-4-a}
+{Výjimka pro test \ref{test:st:k4-4-4-a}. Uzel $s$ je toto¾ný s
+$x$ a uzel $t$ je toto¾ný s $y_3$.}
+
+\begin{veta} \label{veta:st:k4-4-4-a}
+Buï $\{x,y_1,y_2,y_3,u,v\}$ mno¾ina ¹esti uzlù grafu $G$ taková,
+¾e $uv \nin E(G)$, $\set{x,y_1,y_2,y_3} \subseteq N(u) \cap
+N(v)$. Pokud
+\[N(x) \subseteq N[u] \cup N[v],\]
+$N(y_i) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina)($i=1,2,3$), potom takto nelze definovat uzávìr, který by
+zachovával vlastnost neexistence hamiltonovské $st$-cesty.
+\end{veta}
+\begin{dukaz}
+Na obrázku \ref{fig:vysl:st:k4-4-4-a} je pøíklad grafu, který
+splòuje pøedpoklady vìty a neobsahuje $st$-cestu (mezi uzly $x$ a
+$y_3$), ale po pøidání hrany $uv$ ji¾ $st$-cesta existuje. Tudí¾
+takto definovaný uzávìr by nezachovával vlastnost neexistence
+hamiltonovské $st$-cesty.
+\end{dukaz}
+
+\obrazek{obrazky/k4-4-a-s-exception.eps}{fig:vysl:s:k4-4-a}
+{Výjimka pro test \ref{test:s:k4-4-a}. Uzel $s$ je toto¾ný s $x$.}
+
+\begin{veta} \label{veta:s:k4-4-a}
+Buï $\{x,y_1,y_2,u,v\}$ mno¾ina pìti uzlù grafu $G$ taková, ¾e
+$uv \nin E(G)$, $\set{x,y_1,y_2} \subseteq N(u) \cap N(v)$. Pokud
+\[N(x) \subseteq N[u] \cup N[v],\]
+$N(y_i) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina)($i=1,2$), potom takto nelze definovat uzávìr, který by
+zachovával vlastnost neexistence hamiltonovské $r$-cesty.
+\end{veta}
+\begin{dukaz}
+Na obrázku \ref{fig:vysl:s:k4-4-a} je pøíklad grafu, který
+splòuje pøedpoklady vìty a neobsahuje $r$-cestu (zaèínající uzlem
+$x$), ale po pøidání hrany $uv$ ji¾ $r$-cesta existuje. Tudí¾
+takto definovaný uzávìr by nezachovával vlastnost neexistence
+hamiltonovské $r$-cesty.
+\end{dukaz}
+
+Pøedchozí návrhy uzávìrù mìli prozkoumat jak "daleko" mohou být
+podmínky v uzávìru od potøeby pracovat s grafy bez $K_{1,3}$,
+proto¾e podmínka typu $N(y) \backslash N[x]$ indukuje kliku
+(pøípadnì je prázdná mno¾ina) je automaticky splnìna v grafech
+bez $K_{1,3}$. Obrácenì tato podmínka nevynucuje, aby uzel $y$
+byl uzel bez $K_{1,3}$. Z analýzy výjimek pro dané návrhy uzávìrù
+se zdá, ¾e kdy¾ je struktura slo¾itìj¹í a vìt¹í, potom musí
+podmínky vynucovat graf "bli¾¹í" grafu bez $K_{1,3}$. Napøíklad
+bychom mohli po¾adovat, aby uzel $x$ byl bez $K_{1,3}$.
+
+Poznamenejme, ¾e pokud pøedpokládáme, ¾e $x$ je vrchol bez
+$K_{1,3}$, pak z~\cite{cada_ham_connectivity} plyne, ¾e s
+podmínkami pro vrcholy $y_i$ z vìty \ref{veta:st:k4-4-4-a} pro
+struktury $K_{4,4,4}$, $K_{4,4,5}$, $K_{4,5,5}$, $K_{5,5,5}$,
+dostaneme zachování neexistence nehamiltonovské $st$-cesty.
+Obdobnì pro $K_{4,4}$, $K_{4,5}$, $K_{5,5}$ obdr¾íme ve vìtì
+\ref{veta:s:k4-4-a} zachování neexistence $r$-cesty.
+
+Pomocí programu \emph{HamiltonCycle} bylo provìøeno zadání pro
+nìkolik nových uzávìrù. Výsledkem jsou následující vìty.
+
+\begin{lemma} \label{lem:st:k4-g}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$ a platí $ux,xy,vy \in E(G)$, $uy,vx \nin E(G)$. Pokud
+\[N(x) \subseteq N[u]\]
+a
+\[N(y) \subseteq N[v],\]
+pak graf $G$ obsahuje hamiltonovskou $st$-cestu, $r$-cestu, resp.
+cestu, právì kdy¾ $G+uv$ obsahuje hamiltonovskou $st$-cestu,
+$r$-cestu, resp. cestu.
+\end{lemma}
+\begin{dukaz}
+Pro $st$-cestu plyne pøímo z testu \ref{test:st:k4-g}. Pro
+$r$-cestu, resp. cestu, si staèí uvìdomit, ¾e jsou pøímým
+dùsledkem zachování vlastnosti neexistence, pøípadnì existence,
+$st$-cesty.
+\end{dukaz}
+
+\begin{lemma}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$ a platí $ux,xy,vy \in E(G)$, $uy,vx \nin E(G)$. Pokud
+\[N(x) \subseteq N[u]\]
+a
+\[N(y) \subseteq N[v],\]
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:cycle:k4-g}.
+\end{dukaz}
+
+\begin{lemma} \label{lem:st:k4-i}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$ a platí $ux,vx \in E(G)$, $ux,vx,xy \nin E(G)$. Pokud
+\[N(x) \subseteq N[u] \cap N[v],\]
+pak graf $G$ obsahuje hamiltonovskou $st$-cestu, $r$-cestu, resp.
+cestu, právì kdy¾ $G+uv$ obsahuje hamiltonovskou $st$-cestu,
+$r$-cestu, resp. cestu.
+\end{lemma}
+\begin{dukaz}
+Pro $st$-cestu plyne pøímo z testu \ref{test:st:k4-i}. Pro
+$r$-cestu, resp. cestu, si staèí uvìdomit, ¾e jsou pøímým
+dùsledkem zachování vlastnosti neexistence, pøípadnì existence,
+$st$-cesty.
+\end{dukaz}
+
+\begin{lemma}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$ a platí $ux,vx \in E(G)$, $ux,vx,xy \nin E(G)$. Pokud
+\[N(x) \subseteq N[u] \cap N[v],\]
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:cycle:k4-i}.
+\end{dukaz}
+
+\begin{lemma} \label{lem:st:k4-l}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$ a platí $ux,uy,vy,xy \in E(G)$, $vx \nin E(G)$. Pokud
+\[N(x) \subseteq N[u]\]
+a
+\[N(y) \subseteq N(u) \cup N(v),\]
+pak graf $G$ obsahuje hamiltonovskou $st$-cestu, $r$-cestu, resp.
+cestu, právì kdy¾ $G+uv$ obsahuje hamiltonovskou $st$-cestu,
+$r$-cestu, resp. cestu.
+\end{lemma}
+\begin{dukaz}
+Pro $st$-cestu plyne pøímo z testu \ref{test:st:k4-l}. Pro
+$r$-cestu, resp. cestu, si staèí uvìdomit, ¾e jsou pøímým
+dùsledkem zachování vlastnosti neexistence, pøípadnì existence,
+$st$-cesty.
+\end{dukaz}
+
+\begin{lemma}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$ a platí $ux,uy,vy,xy \in E(G)$, $vx \nin E(G)$. Pokud
+\[N(x) \subseteq N[u]\]
+a
+\[N(y) \subseteq N(u) \cup N(v),\]
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Plyne pøímo z testu \ref{test:cycle:k4-l}.
+\end{dukaz}
+
+Na základì pøedchozích lemmat mù¾eme definovat uzávìry pomocí
+následující definice. Za $X$ si v¾dy domyslíme èíslo jednoho z
+vý¹e uvedených lemmat.
+
+\begin{defi}
+Nech» $G$ je graf. Øekneme, ¾e graf $H$ je $K_{4_X}$-uzávìrem
+grafu $G$, jestli¾e
+\begin{enumerate}
+  \item existuje taková posloupnost grafu $H_1,\ldots ,H_k$, ¾e
+      $H_1=G$, $H_k=H$ a $H_{i+1}$ vznikl z $H_i$ pøidáním hrany
+      $uv$, splòující pøedpoklady lemma X,
+  \item $H$ ji¾ neobsahuje ¾ádnou hranu $uv$, splòující pøedpoklady lemma X.
+\end{enumerate}
+\end{defi}

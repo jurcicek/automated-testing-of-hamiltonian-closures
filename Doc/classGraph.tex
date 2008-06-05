@@ -1,0 +1,132 @@
+\subsection{Dokumentace tøídy Graph}
+\label{classGraph}\index{Graph@{Graph}}
+{\tt \#include $<$Graph.h$>$}
+
+Tøída pro práci s grafy (konfiguracemi). Tøída uchovává informaci
+o hranách v incidenèní matici. Není povoleno, aby existovaly
+násobné hrany a smyèky. Jednotlivé uzly grafu mohou být
+pojmenovány pomocí textového øetìzce.
+
+Aby byly odli¹eny uzly se stejným názvem, je mo¾né pøiøadit uzlu
+identifikaèní èíslo. To je vyu¾ito zejména, kdy¾ chceme zachovat
+korespondenci uzlù, jestli¾e z pùvodního grafu získáme podgraf
+(napø. pomocí metody {\bf Create\-Nodes\-Neighbourhood}). Pro
+získání a nastavení identifikaèního èísla nám slou¾í metody {\bf
+Get\-Node\-Id}, resp. {\bf Set\-Node\-Id}.
+
+Tøída umí vyhodnocovat elementární mno¾inové výrazy na grafu
+pomocí metody {\bf Solve\-Expression}. Parametrem této metody je
+øetìzec, který vìt¹inou obsahuje buï levou stranu nebo pravou
+stranu podmínky uzávìru. Metoda {\bf Make\-Neighbourhood} pro daný
+uzel zajistí, ¾e bude v okolí daném pøedaným výrazem. Pokud mù¾e
+nastat více mo¾ností, jak mù¾e daný graf vypadat, potom jsou
+pøidány do pøedaného seznamu grafù.
+
+Metody {\bf Is\-Hamiltonian\-Cycle}, {\bf Is\-Hamiltonian\-Path},
+{\bf Is\-Hamiltonian\-RPath} a {\bf Is\-Hamiltonian\-STPath}
+slou¾í ke zji¹»ování, zda graf obsahuje hamiltonovskou kru¾nici,
+hamiltonovskou cestu, hamiltonovskou $r$-cestu pøípadnì
+hamiltonovskou $st$-cestu. Metody vyu¾ívají algoritmu
+backtracking, prohledávání do hloubky.
+
+Metoda {\bf Is\-Clique} zjistí, zda daná mno¾ina uzlù tvoøí
+kliku. Metoda {\bf Is\-Induced} zjistí, zda daný graf neobsahuje
+izomorfní podgraf s pøedaným grafem. Metoda je implementována
+algoritmem, který probírá v¹echny mo¾né kombinace.
+
+\obrazekparam{width=35pt}{obrazky/prog/classGraph__inherit__graph}
+{fig:classGraph__inherit__graph}{Diagram dìdiènosti pro tøídu
+Graph}
+
+\obrazekparam{width=35pt}{obrazky/prog/classGraph__coll__graph}
+{fig:classGraph__coll__graph}{Diagram tøíd pro Graph}
+
+\subsubsection*{Veøejné metody}
+\begin{CompactItemize}
+\item
+{\bf Graph} (short i\-Num\-Of\-Nodes)
+\item
+{\bf Graph} (Graph \&G)
+\item
+{\bf $\sim$Graph} (void)
+\item
+short {\bf Get\-Num\-Of\-Nodes} (void)
+\item
+void {\bf Set\-Node\-Name} (short i\-Node, string s\-Name)
+\item
+string \& {\bf Get\-Node\-Name} (short i\-Node)
+\item
+void {\bf Set\-Node\-Id} (short i\-Node, long li\-Node\-Id)
+\item
+long {\bf Get\-Node\-Id} (short i\-Node)
+\item
+short {\bf Find\-Node} (string s\-Node)
+\item
+short {\bf Find\-Node\-By\-Id} (long li\-Node\-Id)
+\item
+short {\bf Add\-Edge} (short i\-Source\-Node, short i\-Destination\-Node)
+\item
+short {\bf Add\-Edge\-By\-Id} (short i\-Source\-Node\-Id, short i\-Destination\-Node\-Id)
+\item
+short {\bf Add\-Edge} (string s\-Source\-Node, string s\-Destination\-Node)
+\item
+short {\bf Remove\-Edge} (short i\-Source\-Node, short i\-Destination\-Node)
+\item
+short {\bf Remove\-Edge\-By\-Id} (short i\-Source\-Node\-Id, short i\-Destination\-Node\-Id)
+\item
+short {\bf Remove\-Edge} (string s\-Source\-Node, string s\-Destination\-Node)
+\item
+short {\bf Remove\-All\-Edges} (void)
+\item
+bool {\bf Is\-Hamiltonian\-Cycle} (void)
+\item
+bool {\bf Ham\-Path\-Rec} (short i\-Idx, bool b\-TPath)
+\item
+bool {\bf Is\-Hamiltonian\-Path} (void)
+\item
+bool {\bf Is\-Hamiltonian\-RPath} (void)
+\item
+bool {\bf Is\-Hamiltonian\-STPath} (void)
+\item
+bool {\bf Is\-Induced} (Graph \&G)
+\item
+short {\bf Write} (string s\-File\-Name)
+\item
+short {\bf Create\-Nodes\-Neighbourhood} (Graph $\ast$$\ast$pp\-Nodes\-Neighbourhood\-G, set$<$ string $>$ \&ss\-Nodes, short i\-Degree=1, bool b\-Use\-UV=false)
+\item
+short {\bf Reduce\-Graph} (Graph $\ast$$\ast$pp\-G, set$<$ string $>$ \&ss\-Nodes)
+\item
+short {\bf Get\-Neighbourhood} (short i\-Node, set$<$ short $>$ \&si\-Neighbourhood)
+\item
+bool {\bf Is\-Clique} (set$<$ short $>$ \&si\-Nodes)
+\item
+void {\bf Set\-Clique} (set$<$ short $>$ \&si\-Nodes)
+\item
+short {\bf Solve\-Expression} (string s\-Expression, set$<$ short $>$ \&si\-Nodes, set$<$ short $>$ \&si\-Core\-Nodes)
+\item
+bool {\bf Make\-Neighbourhood} (string s\-Expression, short i\-Node, list$<$ Graph $\ast$$>$ \&l\-Graph)
+\item
+bool \& {\bf Edge} (short i\-Source\-Node, short i\-Destination\-Node)
+\item
+bool {\bf operator==} (Graph \&G)
+\end{CompactItemize}
+\subsubsection*{Privátní atributy}
+\begin{CompactItemize}
+\item
+short {\bf m\_\-i\-Num\-Of\-Nodes}
+\item
+bool $\ast$ {\bf m\_\-pb\-Incident\-Matrix}
+\item
+string $\ast$ {\bf m\_\-ps\-Node\-Name}
+\item
+long $\ast$ {\bf m\_\-pli\-Node\-Id}
+\item
+short $\ast$ {\bf m\_\-pi\-Hamilton\-Nodes}
+\item
+bool {\bf m\_\-b\-Is\-Hamilton}
+\end{CompactItemize}
+\subsubsection*{Statické privátní atributy}
+\begin{CompactItemize}
+\item
+long {\bf m\_\-li\-Id\-Counter} = 0
+\end{CompactItemize}

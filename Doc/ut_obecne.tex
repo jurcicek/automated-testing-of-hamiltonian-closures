@@ -1,0 +1,390 @@
+\section{Obecné uzávìrové techniky}
+
+Následující skupina uzávìru je zalo¾ena na "globálních"
+parametrech grafu, které lze vyjádøit pomocí nìjakého èísla.
+Napøíklad jsou kladeny podmínky pro stupeò urèitých uzlù.
+
+\subsection{Bondy-Chvátalùv uzávìr}
+
+První uzávìr byl popsán autory Bondym a Chvátalem v
+\cite{bondy_76}. Jejich uzávìr je zalo¾en na pozorování dùkazu
+následujícího lemma.
+
+\begin{lemma}[Ore \cite{ore_60}]
+Nech» $u$ a $v$ jsou dva rùzné, nesousední uzly grafu $G$ takové,
+¾e platí $d(u)+d(v) \geq n$. Potom $G$ je hamiltonovský, právì
+kdy¾ $G + uv$ je hamiltonovský.
+\end{lemma}
+
+My¹lenka dùkazu je následující: uva¾ujme hamiltonovskou kru¾nici
+v $G + uv$ a pøedpokládejme, ¾e v $G$ hamiltonovská kru¾nice
+neexistuje. Potom v $G$ je urèitì hamiltonovská cesta mezi uzly
+$u$ a $v$. Úvahou o stupních vrcholù se pak dojde k závìru, ¾e v
+$G$ musí existovat charakteristické "pøekøí¾ení hran". V $G$ tedy
+nutnì existuje hamiltonovská kru¾nice. Co¾ je spor.
+
+\begin{defi}
+Øekneme, ¾e graf $cl_n(G)$ je Bondy-Chvátalùv uzávìr grafu $G$,
+jestli¾e existuje posloupnost grafù $G_i$, kde $i = 1,\ldots,t$,
+$G_0 = G$, $G_{i+1} = G_i + u_iv_i$, $G_t = cl_n(G)$ taková, ¾e
+$d_{G_i}(u_i)+d_{G_i}(v_i) \geq n$ a graf $cl_n(G)$ neobsahuje
+¾ádnou dvojici nesousedních uzlù $u$, $v$ splòujících podmínku
+$d(u)+d(v) \geq n$.
+\end{defi}
+
+Dùle¾itou vlastností tohoto uzávìru je jeho jednoznaènost, tj. ¾e
+uzávìr grafu nezávisí na poøadí pøidávaných hran do grafu. Zøejmým
+dùsledkem je následující vìta.
+
+\begin{veta}[Bondy-Chvátal \cite{bondy_76}] \label{veta:bondy:chvatal}
+Nech» $K_n$ je uzávìr grafu $G$ ($K_n = cl_n(G)$), potom $G$ je
+hamiltonovský.
+\end{veta}
+
+\subsection{0-duální uzávìr}
+Ainouche a Christofides publikovali následující uzávìr.
+
+\begin{lemma}[\cite{broersma_00}]
+Nech» $u,v$ jsou dva nesousední uzly grafu $G$, dále nech» $T =
+T_{uv} = \{w \in V(G) - \set{u,v} | u, v \nin N(w)\}$ a $t = |T|$.
+Oznaème $\lambda_{uv} = |N(u) \cap N(v)|$. Dále nech» $d_1^T \leq
+d_2^T \leq \cdots \leq d_t^T$ je uspoøádaná posloupnost uzlù z $T$
+v grafu $G$. Jestli¾e platí
+$$ d_i^T \geq t+2 $$
+pro $\forall i$, kde $max(1,\lambda_{uv}-1) \leq i \leq t$, potom
+$G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+
+\begin{defi}[0-duální uzávìr]
+Øekneme, ¾e graf $C_0^*(G)$ je uzávìr grafu $G$, jestli¾e existuje
+posloupnost grafù $G_i$, kde $i = 1,\ldots,t$, $G_0 = G$,
+$G_{i+1} = G_i + u_iv_i$, $G_t = C_0^*(G)$ taková, ¾e dvojice uzlù
+splòuje podmínky pøedchozího lemma.
+\end{defi}
+
+Uzávìr je jednoznaènì definovaný. Dále se podaøilo ukázat, ¾e
+platí $G \subseteq cl_n(G) \subseteq C_0^*(G)$ pro libovolný graf
+$G$. Platí zde obdoba vìty \ref{veta:bondy:chvatal}.
+
+\subsection{Uzávìr zalo¾ený na okolí trojic nezávislých vrcholù}
+Broersma a Schiermeyer zobecnili Bondy-Chvátalùv uzávìr
+následujícím zpùsobem.
+
+Nech» $T = T_{uv} = \{w \in V(G) - \set{u,v} | u, v \nin N(w)\}$ a
+$t = |T|$. Oznaème $\eta(w) = |N(w) \backslash T|$ pro uzel $w
+\in T$ a dále $\eta_1 \geq \eta_2 \geq \cdots \geq \eta_t$ je
+uspoøádaná posloupnost pøíslu¹ející mno¾inì $\{\eta(w) | w \in T
+\}$. Øekneme, ¾e G splòuje podmínku 1-2-3, jestli¾e $T =
+\emptyset$, nebo $\eta_i \geq 4 - i$ pro v¹echna $i$ taková, ¾e
+$1 \leq i \leq t$. Poznamenejme, ¾e $t \geq 1$ implikuje $\eta_1
+\geq 3$, $t \geq 2$ implikuje $\eta_2 \geq 2$, $t \geq 3$
+implikuje $\eta_3 \geq 1$.
+
+\begin{lemma}[\cite{broersma_00}]
+Nech» $u$ a $v$ jsou dva rùzné, nesousední uzly 2-souvislého grafu
+$G$.Je-li $\lambda_{uv} \geq 3$ a
+\[|N(u) \cup N(v) \cup N(w)| \geq n - \lambda_{uv}\]
+pro alespoò $t+2-\lambda_{uv}$ vrcholù $w \in T$, nebo je-li
+$\lambda_{uv} \leq 2$ a $G$ splòuje 1-2-3 podmínku a
+\[|N(u) \cup N(v) \cup N(w)| \geq n - 3\]
+pro v¹echny vrcholy $w \in T$, pak $G$ je hamiltonovský, právì
+kdy¾ $G + uv$ je hamiltonovský.
+\end{lemma}
+
+\begin{defi}[Triple closure]
+Øekneme, ¾e graf $TC(G)$ je uzávìr grafu $G$, jestli¾e existuje
+posloupnost grafù $G_i$, kde $i = 1,\ldots,t$, $G_0 = G$,
+$G_{i+1} = G_i + u_iv_i$, $G_t = TC(G)$ taková, ¾e dvojice uzlù
+splòuje podmínky pøedchozího lemma.
+\end{defi}
+
+Tento uzávìr je takté¾ jednoznaènì definovaný. Dále se podaøilo
+ukázat, ¾e platí $G \subseteq cl_n(G) \subseteq TC(G)$ pro
+libovolný graf $G$. Také zde platí obdoba vìty
+\ref{veta:bondy:chvatal}.
+
+Pøedchozí uzávìry mìly tu nevýhodu, ¾e pøedpokládaly relativnì
+"hustý" graf (tj. má hodnì hran). Následující uzávìry definované
+lokální strukturou tuto nevýhodu nemají. Alespoò ne v~takové míøe.
+
+\subsection{Hasratian-Khachatrianovy uzávìry}
+Uzávìry Hasratian-Khachatriana jsou zalo¾eny na podmínkách, které
+se kladou na roz¹íøené okolí urèitých uzlù.
+
+\begin{defi}
+Nech» $k \in R$ a $u$ je uzel grafu $G$. Oznaème pomocí $N^k(G)$
+mno¾inu v¹ech uzlù $v \in V(G)$ takových, ¾e platí $d(u,v) = k$.
+Dále oznaème pomocí $M^k(G)$ mno¾inu v¹ech uzlù $v \in V(G)$
+takových, ¾e platí $d(u,v) \leq k$. Graf indukovaný na mno¾inì
+uzlù $M^k(G)$ znaèíme $G_k(u)$.
+\end{defi}
+
+\begin{lemma}[\cite{broersma_00}]
+Nech» $u,v$ jsou uzly grafu $G$ takové, ¾e $d(u,v) = 2$ a $d(u) +
+d_{G_2(u)}(v) \geq \abs{M^2(u)}$. Potom $G$ je hamiltonovský,
+právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+
+\begin{lemma}[\cite{broersma_00}]
+Nech» $u,v$ jsou uzly grafu $G$ takové, ¾e $d(u,v) = 2$ a $d(u) +
+d(v) \geq \abs{M^2(u)} + \abs{N^3(u) \cap N(v)}$. Potom $G$ je
+hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+
+\begin{dusl}
+Nech» $u,v$ jsou uzly grafu $G$ takové, ¾e $d(u,v) = 2$ a $d(u) +
+d(v) \geq \abs{M^3(u)}$. Potom $G$ je hamiltonovský, právì kdy¾
+$G+uv$ je hamiltonovský.
+\end{dusl}
+
+Uzávìry definované na základì pøedchozích lemmat nejsou
+jednoznaènì definované. Podaøilo se ukázat, ¾e v¹echny takto
+definované uzávìry v sobì obsahují Bondy-Chvátalùv uzávìr.
+
+U nìkolika následujících uzávìrù si uvedeme dùkazy, proto¾e jejich
+studiem v následující kapitole budeme schopni navrhnout algoritmus
+pro automatické testování, zda dané podmínky zachovávají vlastnost
+neexistence hamiltonovské kru¾nice.
+
+\subsection{Broersmùv uzávìr}
+
+Uzávìr z \cite{broersma_93} pracuje s podgrafy $K_4 - e$ v grafu
+$G$. Struktura je zobrazena na obrázku \ref{fig:k4} pod písmenem
+A. Uveïme je¹tì, ¾e $K_4 - e$ je úplný graf na ètyøech uzlech
+minus odpovídající hrana. Dvojice uzlù $\set{u,v} \subseteq V(G)$
+je $K_4$-dvojice grafu $G$, jestli¾e $u$ a $v$ jsou dva nesousední
+uzly v~indukovaném podgrafu $H$ grafu $G$, který je izomorfní s
+$K_4 - e$. Dvojice uzlù stupnì 3 v grafu $H$ se nazývá co-dvojice
+uzlù $u$ a $v$.
+
+\obrazek{obrazky/k4.eps}{fig:k4}{Struktury $K_4$.}
+
+\begin{lemma}[\cite{broersma_93} Struktura $K_4-A$] \label{lem:k4-a}
+Buï $\set{x,y,u,v}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$, $\set{x,y} \subseteq N(u) \cap N(v)$ a $xy \in E(G)$.
+Pokud
+\[N(x) \cup N(y) \subseteq N[u] \cup N[v],\]
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Jestli¾e $G$ je hamiltonovský, potom zøejmì $G+uv$ je
+hamiltonovský. Naopak pøedpokládejme, ¾e $G+uv$ je hamiltonovský
+a $G$ není hamiltonovský pro nìjakou $K_4$-dvojici $\set{u,v}$
+s~co-dvojicí $\set{x,y}$ splòující $N(x) \cup N(y) \subseteq N[u]
+\cup N[v]$. Potom $G$ obsahuje hamiltonovskou cestu $v_1v_2
+\cdots v_{n-1}v_n$, kde $v_1=u$ a $v_n=v$. Bez ztráty obecnosti
+pøedpokládejme $x=v_i$ a $y=v_j$, kde $2 \leq i < j \leq n-1$.
+Zøejmì platí $i < j - 1$, proto¾e jinak
+\[v_1v_2 \cdots v_iv_nv_{n-1} \cdots v_{i+1}v_1\]
+je hamiltonovská kru¾nice v $G$. Pomocí podobných argumentù
+zjistíme, ¾e $v_{i+1} \nin N(u)$ a $v_{j-1} \nin N(v)$. Tudí¾ $i
+< j - 2$ a $v_{i+1} \in N(v)$ a $v_{j-1} \in N(u)$. Ale nyní
+\[v_1v_{j-1}v_{j-2} \cdots v_{i+1}v_{n}v_{n-1} \cdots v_{j}v_{i}v_{i-1}
+\cdots v_1\] je hamiltonovská kru¾nice $G$. Co¾ je spor.
+\end{dukaz}
+
+Uzávìr, definovaný opakovaným pøidáváním hran splòujících podmínku
+pøedchozího lemma, se nazývá $K_4$-uzávìr. Pro úplnost si uveïme,
+¾e i zde platí obdoba vìty \ref{veta:bondy:chvatal}. Tento uzávìr
+ji¾ v¹ak není obecnì jednoznaènì definovaný.
+
+\subsection{Broersma-Schiermeyerovy uzávìry}
+
+Broersma a Schiermeyer v \cite{broersma_94} dokázali pro struktury
+podobné $K_4-e$ podobná lemmata. Struktury jsou zobrazeny na
+obrázku \ref{fig:k4} pod písmeny B a¾ E.
+
+\begin{lemma}[\cite{broersma_94} Struktura $K_4-B$] \label{lem:k4-b}
+Buï $\set{x,y,u,v}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$ a $x,y \in N(u)$. Pokud
+$$N(x) \cup N(y) \subseteq N[v] \cup \{u\},$$
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Jestli¾e $G$ je hamiltonovský, potom zøejmì $G+uv$ je
+hamiltonovský. Naopak pøedpokládejme, ¾e $G + uv$ je
+hamiltonovský a $G$ není hamiltonovský pro nìjakou mno¾inu
+$\set{u,v,x,y} \subseteq V(G)$ splòující podmínky lemma
+\ref{lem:k4-b}. Potom $G$ obsahuje hamiltonovskou cestu $v_1v_2
+\cdots v_{n-1}v_n$, kde $v_1=u$ a $v_n=v$. Bez ztráty obecnosti
+pøedpokládejme $x=v_i$ a $y=v_j$, kde $2 \leq i < j \leq n-1$.
+Podmínka $N(x) \cup N(y) \subseteq N[v] \cup \{u\}$ implikuje, ¾e
+$v_{j-1}\in N(v)$ a $v_1 \cdots v_{j-1}v_n \cdots v_jv_1$ je
+hamiltonovská kru¾nice v grafu $G$. Co¾ je spor.
+\end{dukaz}
+
+\begin{lemma}[\cite{broersma_94} Struktura $K_4-C$] \label{lem:k4-c}
+Buï $\set{x,y,u,v}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$, $x \in  N(u) \cap N(v)$ a $y \in N(u)$. Pokud
+\begin{equation}
+\label{eq:k4-c:a} N(y) \subseteq N(v) \cup \{u\}
+\end{equation}
+a
+\begin{equation}
+\label{eq:k4-c:b} N(x) \subseteq N[y] \cup \{v\},
+\end{equation}
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+\begin{dukaz}
+Jestli¾e $G$ je hamiltonovský, potom zøejmì $G+uv$ je
+hamiltonovský. Naopak pøedpokládejme, ¾e $G + uv$ je
+hamiltonovský a $G$ není hamiltonovský pro nìjakou mno¾inu
+$\set{u,v,x,y} \subseteq V(G)$ splòující podmínky lemma
+\ref{lem:k4-c}. Potom $G$ obsahuje hamiltonovskou cestu $v_1v_2
+\cdots v_{n-1}v_n$, kde $v_1=u$ a $v_n=v$. Potom $y=v_i$ pro
+nìjaké $j \in \set{2,\cdots,n-1}$. Jestli¾e $j \neq 2$, potom
+podmínka \ref{eq:k4-c:a} implikuje $v_{j-1} \in N(v)$ a $v_1
+\cdots v_{j-1}v_n \cdots v_jv_1$ je hamiltonovská kru¾nice v $G$.
+Nyní pøedpokládejme $j = 2$. Pomocí podobných argumentù podmínky
+\ref{eq:k4-c:a} a \ref{eq:k4-c:b} implikují existenci
+hamiltonovské kru¾nice, leda¾e $x=v_3$ a $y \nin N(v)$. Jestli¾e
+$n=4$, potom $yv_4 \in E(G)$, proto¾e  $G$ je $2$-souvislý.
+Jestli¾e $n \geq 5$, $yv_4 \in E(G)$ díky podmínce
+\ref{eq:k4-c:b}. Nyní tedy $v_1v_3v_n \cdots v_4v_2v_1$ je
+hamiltonovská kru¾nice v $G$. Co¾ je spor.
+\end{dukaz}
+
+Zmiòme zde, ¾e podmínky v pøedchozích dvou lemmatech nevynucují
+automaticky pøidávání hran do základní uva¾ované struktury. Naopak
+tomu bude u následujících dvou lemmat.
+
+\begin{lemma}[\cite{broersma_94} Struktura $K_4-D$] \label{lem:k4-d}
+Buï $\set{x,y,u,v}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$, $x \in  N(u)$. Pokud
+\[N(y) \subseteq N[v] \cup \{u\}\]
+a
+\[N(x) \subseteq N[y] \cup \{v\},\]
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+
+Zde podmínky vynucují, ¾e $uy\in E(G)$, a tedy vìta vypovídá o
+podmínkách pro strukturu $K_4-B$.
+
+\begin{lemma}[\cite{broersma_94} Struktura $K_4-E$] \label{lem:k4-e}
+Buï $\set{x,y,u,v}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$, $xy \in  E(G)$. Pokud
+\[N(x) \subseteq N[u] \cup \{v\}\]
+a
+\[N(y) \subseteq N[v] \cup \{u\},\]
+pak graf $G$ je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský.
+\end{lemma}
+
+V tomto lemmatu podmínky vynucují $xv, yu\in E(G)$. Vìta vypovídá
+tímto o struktuøe $K_4-G$. Toto ``poru¹ování struktury'' bude
+podstatné pøi vyhodnocování výsledku pro uzávìry definované
+zakázanými indukovanými podgrafy.
+
+Uzávìry definované na základì pøedchozích lemmat nejsou
+jednoznaènì definované.
+
+\subsection{Broersma-Trommelovy uzávìry}
+
+Broersma-Trommelùv uzávìr $K_4^*$ z \cite{broersma_96} je zalo¾en
+na následujícím lemma. Struktura je zobrazena na obrázku
+\ref{fig:k4} pod písmenem F. Jestli¾e $P$ je cesta v grafu $G$,
+potom $\overrightarrow{P}$ znaèí cestu $P$ s danou orientací.
+Jestli¾e $u,v \in G$, potom $u\overrightarrow{P}v$ znaèí po sobì
+následující uzly z $P$ od $u$ do $v$ ve smìru daném orientací
+$\overrightarrow{P}$. Tyté¾ uzly v opaèném poøadí se znaèí
+$u\overleftarrow{P}v$. Pomocí $x^+$ znaèíme následníka uzlu $x$
+na $\overrightarrow{P}$ a $x^-$ znaèí pøedchùdce.
+
+\begin{lemma}[\cite{broersma_96} Struktura $K_4-F$] \label{lem:k4-f}
+Buï $\{x,y,u,v\}$ mno¾ina ètyø uzlù grafu $G$ taková, ¾e $uv \nin
+E(G)$, $\set{x,y} \subseteq N(u) \cap N(v)$. Pokud
+$$N(x)\subseteq N[u] \cup N[v],$$
+$N(y) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina), potom pro ka¾dý cyklus $C'$ grafu $G+uv$ zde existuje
+cyklus $C$ grafu $G$ takový, ¾e $V(C') \subseteq V(C)$.
+\end{lemma}
+\begin{dukaz}
+Nech» $G,u,v,x$ a $y$ jsou vybrány tak, ¾e splòující podmínky
+lemma \ref{lem:k4-f}. Nech» $C'$ je kru¾nice v $G+uv$ taková, ¾e
+$G$ nemá kru¾nici obsahující v¹echny uzly $C'$. Uva¾ujme cestu $P
+= C' - uv$ v $G$ orientovanou od $u$ k $v$. Zøejmì $uv \nin E(G)$
+a $N(u) \cap N(v) \subseteq V(P)$. Tudí¾ $x$ a $y$ le¾í na cestì
+$P$. Bez ztráty obecnosti mù¾eme pøedpokládat, ¾e $x \in
+u\overrightarrow{P}y$, proto¾e jinak mù¾eme obrátit orientaci
+cesty a prohodit úlohu uzlù $u$ a $v$. Jestli¾e $xy \in E(P)$,
+potom kru¾nice $uy\overrightarrow{P}vx\overleftarrow{P}u$
+obsahuje v¹echny uzly $V(P) = V(C')$. Co¾ je spor. Dostaneme ten
+samý spor, jestli¾e $x^+u \in E(G)$. Tak¾e pøedpokládejme $x^+v
+\in E(G)$. Jestli¾e $y^- \in N(x)$, potom kru¾nice
+$u\overrightarrow{P}xy^-\overleftarrow{P}x^+v\overleftarrow{P}yu$
+nám dává spor. Jestli¾e $y^+ \in N(x)$, potom kru¾nice
+$u\overrightarrow{P}xy^+\overrightarrow{P}vx^+\overrightarrow{P}yu$
+je ve sporu s pøedpoklady. Tudí¾ $y^- \nin N[x]$ a $y^+ \nin
+N[x]$. Pøedpoklady lemma implikují $y^-y^+ \in E(G)$. Ale potom
+$u\overrightarrow{P}y^-y^+\overleftarrow{P}vyu$ obsahuje v¹echny
+uzly $V(P) = V(C')$. Co¾ je spor.
+\end{dukaz}
+
+Broersma-Trommelùv uzávìr $K_5$ z \cite{broersma_96} je zalo¾en na
+následujícím lemma. Struktura je zobrazena na obrázku
+\ref{fig:k5} pod písmenem A.
+
+\obrazek{obrazky/k5.eps}{fig:k5}{Struktury $K_5$.}
+
+\begin{lemma}[\cite{broersma_96} Struktura $K_5-A$] \label{lem:k5-a}
+Buï $\{x,y_1,y_2,u,v\}$ mno¾ina pìti uzlù grafu $G$ taková, ¾e
+$uv \nin E(G)$, $\set{x,y_1,y_2} \subseteq N(u) \cap N(v)$, $xy_1
+\in E(G)$, $xy_2 \in E(G)$, $y_1y_2 \in E(G)$. Pokud
+\[N(x) \subseteq N[u] \cup N[v],\]
+\[N(y_i) \subseteq N[u] \cup N[v] \cup N(y_{3-i}) \; (i=1,2),\]
+$N(y_i) \backslash N[x]$ indukuje kliku (pøípadnì je prázdná
+mno¾ina)($i=1,2$), potom pro ka¾dý cyklus $C'$ grafu $G+uv$ zde
+existuje cyklus $C$ grafu $G$ takový, ¾e $V(C') \subseteq V(C)$.
+\end{lemma}
+
+Opìt uzávìry definované pomocí tìchto lemmat nejsou obecnì
+jednoznaènì definované.
+
+\subsection{Èadùv uzávìr} \label{subsec:cada:closure}
+
+Èada v \cite{cada_forbidden_subgraphs} navrhl uzávìrový koncept
+zalo¾ený na zakázaných podgrafech.
+
+\begin{defi} \label{def:cada:indukovany}
+Buï $G$ graf, $S\subseteq V(G)$ takové, ¾e $S=\bigcup ^{\ell - 1}
+_{i=1}S_i$, $S_i \not = \emptyset$, $S_i \cap S_j =\emptyset$
+$\forall i,j=1,\ldots , \ell$. Definujme $S_\ell = N_F(S)$, pro
+nìjaký podgraf $F$ grafu $G$.  Buï dále $L$ graf takový, ¾e $V(L)
+= \bigcup ^\ell_{i=1} L_i$, $L_i \not = \emptyset$, $L_i \cap L_j
+=\emptyset$ $\forall i,j=1,\ldots , \ell$.
+
+Øekneme, ze $L$ je {\em indukovaným grafem v $G$ s centrem $S$ a
+okolím v $F$}, platí-li následující:
+\begin{enumerate}
+\item $L$ je indukovaným podgrafem $G$,
+\item $L_i = S_i$ $\forall i=1,\ldots, \ell-1$,
+\item $L_\ell \subseteq S_\ell$.
+\end{enumerate}
+\end{defi}
+
+V následujícím budeme pou¾ívat: $S$ bude mno¾ina uzlù $x$, $y$,
+$u$, $v$ indukovaného podgrafu $K4-X$ grafu $G$ ($X=A,\ldots,L$),
+tj. $S=V(K_4-X)$, $L$ bude graf ze zadané mno¾iny grafù. $S_1$
+bude pøedstavovat mno¾inu uzlù $x$, $y$ indukovaného podgrafu
+$K_4-X$ (struktury) v grafu $G$, obdobnì $S_2$ pro mno¾inu uzlù
+$u$, $v$. $L_1$ bude pøedstavovat mno¾inu uzlù oznaèených $x$, $y$
+v grafu $L$, $L_2$ mno¾inu uzlù oznaèených $u$, $v$.
+
+Uzávìr vyu¾ívá následujícího lemma.
+\begin{lemma}[\cite{cada_forbidden_subgraphs}] \label{lem:forbbidden:k4-f}
+Nech» $G$ je graf, $\cal H$ je mno¾ina zakázaných podgrafù. Nech»
+$S=\set{u, v, x, y}$ je podmno¾ina uzlù grafu $G$ taková, ¾e $uv
+\nin E(G)$ a platí $\set{x,y} \subseteq N(u) \cap N(v)$. Je-li
+$xy\in E(G)$, pak $\cal H$ pøedstavuje grafy na obrázku
+\ref{fig:zakazane:podgrafy:k4-a}, v opaèném pøípadì na obrázku
+\ref{fig:zakazane:podgrafy:k4-f}. Jestli¾e $G$ neobsahuje
+indukovaný podgraf s centrem $S$ a okolím v $\langle S\cup
+(N(S)\setminus (N_p(u)\cup N_p(v)))\rangle$, kde $N_p(u)$, resp.
+$N_p(v)$ je mno¾ina privátních sousedù uzlu $u$, resp. $v$ vùèi
+mno¾inì $S$, izomorfní s nìjakým grafem $L \in \cal H$, potom $G$
+je hamiltonovský, právì kdy¾ $G+uv$ je hamiltonovský. Navíc je
+tento výsledek ostrý v následujícím smyslu: Ke ka¾dému z grafu
+mno¾iny $\cal H$ existuje nehamiltonovský nadgraf $G$ takový, ze
+$G+uv$ je hamiltonovský.
+\end{lemma}
+
+Uzávìr definovaný pomocí tohoto lemma není jednoznaènì definovaný.

@@ -1,0 +1,30 @@
+\chapter{Testy} \label{cha:testy}
+Pomocí navr¾ených programù provedeme sérii testù pro rùzné
+struktury a rùzné testované vlastnosti. V následující èásti jsou
+testy dìleny za prvé podle testovaných vlastností, a to od
+nejsilnìj¹í po nejslab¹í, a potom podle testovaných základních
+struktur.
+
+Testy byly provádìny na poèítaèích s procesory
+\begin{itemize}
+  \item Pentium Xeon 800Mhz (P800),
+  \item Pentium Xeon 450Mhz (P450).
+\end{itemize}
+
+Procesory P800 byly ètyøi ve dvou dvouprocesorových stanicích s
+512MB RAM. Procesorù P450 bylo deset v pìti dvouprocesorových
+stanicích s 256MB RAM. Poèítaèe sdílely sí»ový souborový systém na
+1Gb Ethernet-u.
+
+Pokud se bude odkazovat na nìjaké soubory, potom jsou umístìny na
+pøilo¾eném CD. Pøípadné výjimky pro testované uzávìry jsou v¾dy
+umístìny v podadresáøi \verb|Output| adresáøe daného testu v
+souboru \verb|graph.bad.dot|. V pøípadì zakázaných podgrafù jsou
+vygenerované grafy umístìny v souboru \verb|graph.fg.dot|.
+
+\input{test_ham_cestu_dva_pevne_konce}
+\input{test_ham_cestu_jeden_pevny_konec}
+\input{test_ham_cestu}
+\input{test_ham_kruznici}
+
+\input{vypocet_zakazanych_podgrafu}

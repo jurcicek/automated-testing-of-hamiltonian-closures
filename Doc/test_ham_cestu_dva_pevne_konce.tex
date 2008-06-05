@@ -1,0 +1,195 @@
+\section{Test na hamiltonovskou $st$-cestu}
+Testy uzávìrù budeme provádìt pomocí programu \emph{HamiltonPath}
+s tím, ¾e v definici uzávìru bude nastaven test na $st$-cestu
+(\verb|test: stPath|).
+
+\subsection{Uzávìr $K_{4-4}-b$} \label{test:st:k4-4-b}
+Provìøujeme strukturu $K_{4-4}-D$. Podmínky uzávìru navrhl Èada.
+Oproti struktuøe z testu \ref{test:s:k4-4-a} má struktura pøidány
+hrany mezi uzly $x$ a $y_1, y_2$. Zadání ze souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-4-b/\hyp closure.txt} je
+následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+test:   stPath \\
+\\
+condition:       \{x,y1,y2\} <= N(u) \& N(v) \\
+condition:       x\_y1 <= E(G) \\
+condition:       x\_y2 <= E(G) \\
+\\
+condition:        N(x) <= N[u] | N[v] \\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k-a-b} pod
+písmenem D. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-4-b/\hyp nohup.out}.
+
+\obrazek{obrazky/k-a-b.eps}{fig:k-a-b}{Struktury
+$K_{\alpha-\beta}$.}
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1066 sekund (více ne¾ 17 minut) na
+procesoru P450. Vygeneroval 1332 výjimek z 593576 testovaných
+grafù. Proto z pohledu tohoto programu uzávìr nezachovává
+vlastnost neexistence hamiltonovské $st$-cesty.
+
+\subsection{Uzávìr $K_{4-5}-b$} \label{test:st:k4-5-b}
+Provìøujeme strukturu $K_{4-5}-E$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp st/\hyp
+k4-5-b/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2,y3 \\
+path:   u,v \\
+test:   stPath \\
+\\
+condition:       \{x,y1\} <= N(u) \& N(v) \\
+condition:         u\_y2 <= E(G) \\
+condition:         v\_y3 <= E(G) \\
+condition:        y2\_y3 <= E(G) \\
+\\
+condition:        x\_y1 <= E(G) \\
+condition:        x\_y2 <= E(G) \\
+condition:        x\_y3 <= E(G) \\
+\\
+condition:         N(x) <= N[u] | N[v] \\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+condition: N(y3) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k-a-b} pod
+písmenem E. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-5-b/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 116157 (více ne¾ 32 hodin) sekund na
+procesoru P450. Vygeneroval 55157 výjimek z 38721628 testovaných
+grafù. Proto z pohledu tohoto programu uzávìr nezachovává
+vlastnost neexistence hamiltonovské $st$-cesty.
+
+\subsection{Uzávìr $K_{4-4-4}-a$} \label{test:st:k4-4-4-a}
+Provìøujeme strukturu $K_{4-4-4}-A$. Podmínky uzávìru navrhl
+Èada. Zadání ze souboru \texttt{/Tests/\hyp path/\hyp st/\hyp
+k4-4-4-a/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2,y3 \\
+path:   u,v \\
+test:   stPath \\
+\\
+condition:       \{x,y1,y2,y3\} <= N(u) \& N(v) \\
+\\
+condition: N(x) <= N[u] | N[v] \\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+condition: N(y3) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k-a-b-c} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-4-4-a/\hyp nohup.out}.
+
+\obrazek{obrazky/k-a-b-c.eps}{fig:k-a-b-c}{Struktury
+$K_{\alpha-\beta-\gamma}$.}
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 154286 sekund (více ne¾ 42 hodin) na
+procesoru P450. Vygeneroval 12636 výjimek z 60694800 testovaných
+grafù. Proto z pohledu tohoto programu uzávìr nezachovává
+vlastnost neexistence hamiltonovské $st$-cesty.
+
+\subsection{Uzávìr $K_{4}-g$} \label{test:st:k4-g}
+Provìøujeme strukturu $K_{4}-G$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp st/\hyp k4-g/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y \\
+path:   u,v \\
+test:   stPath \\
+\\
+condition: u\_x <= E(G) \\
+condition: x\_y <= E(G) \\
+condition: y\_v <= E(G) \\
+\\
+condition: N(x) <= N[u] \\
+condition: N(y) <= N[v] \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem G. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-g/\hyp nohup.out}.
+
+\obrazek{obrazky/k4-next.eps}{fig:k4:next}{Dal¹í struktury $K_4$.}
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P800. Nevygeneroval
+¾ádnou výjimku z 1530 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+$st$-cesty.
+
+\subsection{Uzávìr $K_{4}-i$} \label{test:st:k4-i}
+Provìøujeme strukturu $K_{4}-I$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp st/\hyp k4-i/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y \\
+path:   u,v \\
+test:   stPath \\
+\\
+condition: u\_x <= E(G) \\
+condition: x\_v <= E(G) \\
+\\
+condition: N(x) <= N[u] \& N[v] \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem I. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-i/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 1 sekundu na procesoru P800. Nevygeneroval
+¾ádnou výjimku z 1530 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+$st$-cesty.
+
+\subsection{Uzávìr $K_{4}-l$} \label{test:st:k4-l}
+Provìøujeme strukturu $K_{4}-L$. Podmínky uzávìru navrhl Èada.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp st/\hyp k4-l/\hyp
+closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y \\
+path:   u,v \\
+test:   stPath \\
+\\
+condition: u\_x <= E(G) \\
+condition: u\_y <= E(G) \\
+condition: x\_y <= E(G) \\
+condition: y\_v <= E(G) \\
+\\
+condition: N(x) <= N[u] \\
+condition: N(y) <= N(u)|N(v) \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4:next} pod
+písmenem L. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp st/\hyp k4-l/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 4 sekundu na procesoru P800. Nevygeneroval
+¾ádnou výjimku z 7296 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+$st$-cesty.

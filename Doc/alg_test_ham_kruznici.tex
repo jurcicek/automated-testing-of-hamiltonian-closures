@@ -1,0 +1,320 @@
+\section{Test zachování vlastnosti neexistence hamiltonovské
+kru¾nice} \label{sec:alg:kruznice}
+
+Budeme se zabývat algoritmizováním techniky u¾ité v dùkazech
+lemmat \ref{lem:k4-a} a¾ \ref{lem:k5-a}. Kdy¾ se podíváme na
+dùkazy jmenovaných lemmat, tak zjistíme, ¾e staèí øe¹it implikaci:
+$G + uv$ je hamiltonovský, potom $G$ je hamiltonovský.
+
+Pro jednoduchost budeme v následujícím textu pøedpokládat, ¾e
+pracujeme na formulaci dùkazu \ref{lem:k4-a}. Ale ji¾ pøedem si
+mù¾eme øíct, ¾e postup bude natolik obecný, aby ho bylo mo¾no
+pou¾ít i na ostatní dùkazy. Øekneme-li $G + uv$ je hamiltonovský,
+potom to neznamená nic jiného, ne¾ ¾e mezi uzly $u$ a $v$ existuje
+hamiltonovská cesta a pøidání hrany $uv$ vytvoøí kru¾nici. Proto,
+aby implikace: $G + uv$ je hamiltonovský, potom $G$ je
+hamiltonovský, platila, musí být v $G$ hamiltonovská kru¾nice. Ale
+jak mù¾e vypadat graf $G$?
+
+\subsection{Konfigurace uzlù na cestì}
+
+Jak jsem øekli, pøedpokládáme, ¾e $G$ obsahuje hamiltonovskou
+cestu mezi uzly $u$ a $v$. Dále obsahuje hrany pøíslu¹ející
+struktuøe. V pøípadì $K_4-A$ jsou to hrany  $ux$, $uy$, $vx$,
+$vy$ a $xy$. Dal¹í hrany jsou vynuceny podmínkami lemma
+\ref{lem:k4-a}. Musíme si v¹ak uvìdomit, jaké situace mohou na
+dané cestì nastat.
+
+Za prvé obecnì není jedno, v jakém poøadí budou jednotlivé uzly
+grafu le¾et na cestì. My samozøejmì chceme co nejobecnìj¹í postup
+i za cenu zvý¹ené slo¾itosti. Proto musíme zkou¹et v¹echny
+permutace uzlù struktury. To se netýká uzlù $u$ a $v$, proto¾e ty
+jsou v¾dy na koncích cesty. V pøípadì $K_4$ se jedná o uzly $x$ a
+$y$ a tedy jsou dvì poøadí, v jakých mohou být umístìny na cestì.
+V pøípadì $K_5$ jsou permutované uzly tøi a tedy je ¹est rùzných
+umístìní na cestì.
+
+Za druhé lze snadno vypozorovat, ¾e není jedno, jak daleko jsou od
+sebe vzdáleny jednotlivé uzly testované struktury. Mohou nastat
+ètyøi situace (uva¾ujeme první okolí struktury):
+\begin{enumerate}
+  \item dva uzly struktury spolu bezprostøednì sousedí,
+  \item dva uzly struktury mají mezi sebou jeden uzel, jedná se o
+    následníka prvního uzlu a pøedchùdce druhého uzlu (jedná-li se
+    o uzly $x$ a $y$, potom se znaèí $x^+:y^-$),
+  \item dva uzly struktury mají mezi sebou dva uzly, jedná se o
+    následníka prvního uzlu a pøedchùdce druhého uzlu (jedná-li se
+    o uzly $x$ a $y$, potom se znaèí $x^+$, resp. $y^-$),
+  \item dva uzly struktury mají mezi sebou tøi a více uzlù, jedná se o
+    následníka prvního uzlu, skupinu uzlù o kterých nevíme nic bli¾¹ího
+    a pøedchùdce druhého uzlu (jedná-li se o uzly $x$ a $y$, potom
+    se znaèí $x^+$, jedním uzlem bez pojmenování a $y^-$).
+\end{enumerate}
+
+Spojíme-li dva pøedchozí pøedpoklady, dojdeme k pojmu
+konfigurace, který jednoznaènì popisuje situaci na cestì. Na
+obrázku \ref{fig:k4-a-konfigurace} jsou vyobrazeny v¹echny mo¾né
+konfigurace pro strukturu $K_4-A$. Celkem jich je 72. S
+pøibývajícím poètem uzlù bude rùst poèet konfigurací
+exponenciálnì.
+
+\obrazek{obrazky/k4-a-konfigurace.eps}{fig:k4-a-konfigurace}{V¹echny
+konfigurace pro strukturu $K_4-A$.}
+
+Pøedpis pro výpoèet poètu konfigurací je následující:
+$\abs{konfigurace} = 3 \cdot 4^{\abs{co-uzly} - 1} \cdot 3$. V
+lemma \ref{lem:k4-a} jsme psali o co-dvojicích, v lemma
+\ref{lem:k5-a} bychom mohli mluvit o co-trojicích. Obecnì tedy
+budeme mluvit o co-uzlech. Nebo-li co-uzly jsou uzly struktury
+bez uzlù $u$ a $v$.
+
+Mù¾eme si nyní polo¾it otázku, proè se ve formuli pro výpoèet
+poètu konfigurací neobjevují v¹echny uzly, a je tam dvakrát
+násobení tøemi. Odpovìï je jednoduchá. Generování konfigurací
+závisí na podmínkách, které budeme dále klást na co-uzly.
+Vzhledem k tomu, ¾e v¹echny uvedené podmínky a ty podmínky, které
+se budou klást na co-uzly, se týkají nejvý¹e prvního okolí daných
+uzlù, potom nás na cestì zajímají pouze pøedchùdci a následníci.
+Kdybychom ov¹em chtìli pou¾ít podmínky, které by zasahovaly a¾ do
+druhého okolí, potom bychom museli uva¾ovat i~``pøedchùdce
+pøedchùdcù'' a ``následníky následníkù'' atd. A tady se ji¾
+dostáváme k odpovìdi na na¹i pøedchozí otázku. Objevuje se tam
+dvakrát násobení tøemi, proto¾e neklademe ¾ádné podmínky na okolí
+uzlù $u$ a $v$. A tudí¾ nás nezajímají následníci uzlu $u$ nebo
+pøedchùdci uzlu $v$. Tím dojde ke sní¾ení kombinací, které musíme
+provìøovat. Schéma pro generování vzdáleností lze popsat
+následovnì.
+
+\begin{verbatim}
+    0)    u - x             | x          --          y |             y - v
+    1)    u - (x-) - x      | x    -  (x+:y-)  -     y |      y - (y-) - v
+    2)    u - // - (x-) - x | x - (x+)    -   (y-) - y | y - (y-) - // - v
+    3)                      | x - (x+) - // - (y-) - y |
+\end{verbatim}
+
+Jedná se vlastnì o tabulku $4\cdot 3$ pro $K_4-A$. Musíme vygenerovat
+v¹echny mo¾nosti, jak vybrat trojici na øádku. Máme tedy $3\cdot 4\cdot 3$
+konfigurací, co¾ pøesnì odpovídá situaci pro $K_4-A$. Nesmíme v¹ak
+zapomenout tento poèet vynásobit dvìma, proto¾e musíme zahrnout
+permutace co-uzlù. Tímto dostaneme 72 konfigurací pro strukturu
+$K_4-A$. V pøípadì $K_5$ by tabulka vypadala obdobnì, ale
+prostøední sloupec by se zdvojil.
+
+Nyní máme vytvoøeny v¹echny situace, jak mohou být jednotlivé uzly
+umístìny na cestì mezi uzly $u$ a $v$. Tyto konfigurace
+pøedstavují základ, toho jak mù¾e vypadat ná¹ graf $G$, a tedy
+musíme pro ka¾dou konfiguraci provádìt extra testování. To
+zahrnuje pøidání hran struktury a hran vynucených testovanými
+podmínkami.
+
+\subsection{Pøidání hran struktury}
+
+Na zaèátku pøedchozí èásti jsme psali o hranách struktury, které
+se do takto vytvoøených konfigurací (grafù) pøidají. V pøípadì
+$K_4-A$ jsou to hrany $ux$, $uy$, $vx$, $vy$ a $xy$. Na obrázku
+\ref{fig:k4-a-konfigurace-re} lze vidìt, jak mohou vypadat
+konfigurace po pøidání hran struktury.
+
+\obrazek{obrazky/k4-a-konfigurace-re.eps}{fig:k4-a-konfigurace-re}{Minimální
+a maximální konfigurace pro strukturu $K_4-A$ s pøidanými hranami
+struktury.}
+
+Je uvedena minimální a maximální konfigurace. U minimální
+konfigurace lze ji¾ na první pohled vidìt, ¾e hrany struktury
+vynucují existenci hamiltonovské kru¾nice. U maximální
+konfigurace tomu tak v¹ak není. To nás tedy vede k aplikování
+podmínek z lemmat \ref{lem:k4-a} a¾ \ref{lem:k5-a}.
+
+\subsection{Pøidání hran vynucených podmínkou typu: $N(x) \cup N(y) \subseteq N[u] \cup N[v]$}
+
+Podívejme se na podmínku $N(x) \cup N(y) \subseteq N[u] \cup
+N[v]$. Na levé stranì podmínky máme výraz $N(x) \cup N(y)$. Ten se
+na daném grafu (konfiguraci) snadno vyhodnotí. Získáme tak mno¾inu
+uzlù, kdy ka¾dý uzel této mno¾iny je spojen hranou s uzlem $x$
+nebo $y$. A pro takový uzel musí platit, ¾e je prvkem mno¾iny
+$N[u] \cup N[v]$. Neboli musí existovat hrana mezi daným uzlem a
+uzlem $u$ nebo $v$, nebo daný uzel je uzlem $u$ nebo $v$
+\footnote{Podmínku $N[u] \cup N[v]$ lze snadno pøepsat do tvaru
+$N(u) \cup N(v) \cup \set{u} \cup \set{v}$. Z tohoto pøepisu ji¾
+lze snadno vidìt pøedchozí pozorování.}.
+
+Pro maximální konfiguraci na obrázku
+\ref{fig:k4-a-konfigurace-re} mno¾ina $N(x) \cup N(y)$ obsahuje
+uzly $y^-, y^+, x^-$ a $x^+$. Tyto uzly musí být podle podmínek
+napojeny na uzly $u$ nebo $v$. V tomto pøípadì se neuplatòuje
+mo¾nost, kdy tyto uzly mohou být pøímo uzly $u$ nebo $v$, proto¾e
+tato podmínka se ``aktivuje'', jen kdy¾ uzel $x$ nebo $y$ je
+následníkem, resp. pøedchùdcem, uzlù $u$ nebo $v$. Takovou
+konfiguraci je mo¾no vidìt na obrázku \ref{fig:k4-a-konfigurace}.
+Je obta¾ena èárkovanou èarou. Samozøejmì je jich tam daleko více
+ne¾ jedna.
+
+Nyní u¾ není nic sna¾¹ího, ne¾ pøidat hrany tak, aby podmínky byly
+splnìny. To znamená pro ka¾dý uzel, pro který nejsou splnìny
+podmínky, pøidat hranu, která ho pøipojí k $u$ nebo $v$. Musí se
+ovìøit oba pøípady. Neboli se z daného grafu vytvoøí dva grafy, v
+kterých je jednou daný uzel spojen s uzlem $u$ nebo podruhé s $v$.
+Nyní pro vzniklé dva grafy musíme opakovat pøidávání hran pro
+dal¹í uzel atd. To lze provést najednou vytvoøením v¹ech
+kombinací a vznikne tak okam¾itì 16 ($16=2^4$) grafù. Tyto grafy
+mù¾eme vidìt na obrázku \ref{fig:k4-a-konfigurace-aed}.
+
+\obrazek{obrazky/k4-a-konfigurace-aed.eps}{fig:k4-a-konfigurace-aed}{Maximální
+konfigurace pro struktury $K_4-A$ s pøidanými hranami struktury a
+s hranami vynucenými podmínkou $N(x) \cup N(y) \subseteq N[u] \cup
+N[v]$.}
+
+V grafech byla tlustou èarou zvýraznìna hamiltonovská kru¾nice,
+aby byla vidìt postaèující "síla" podmínek kladených na okolí uzlù
+$x$ a $y$. Pro jiné konfigurace se bude postupovat obdobnì. Tento
+pøístup není nijak závislý na poètu uzlù struktury, proto¾e jsme
+zde psali o mno¾inì uzlù na levé stranì podmínky. Ale pro
+názornost jsme uva¾ovali pouze pøípad, kdy obsahovala jen okolí
+uzlù $x$ a $y$. Nic by se nestalo, kdyby pro $K_5-A$ obsahovala
+navíc okolí uzlu $z$, resp. $y_2$, kdybychom oznaèili $y$ jako
+$y_1$. Navíc tento pøístup nám umo¾òuje vytváøet na levé stranì
+podmínky mno¾inové výrazy typu $N(y) \backslash N[x]$ a podobnì.
+
+V lemma \ref{lem:k4-c} se v¹ak vyskytují podmínky dvì, ale ani to
+pro nás není problém. Jakmile máme z dané konfigurace vytvoøeny
+grafy splòující první podmínku, potom na ka¾dý takový graf
+aplikujeme druhou podmínku, jako by graf byl poèáteèní
+konfigurace. Tím se nám opìt roz¹íøí mno¾ina testovaných grafù.
+Ji¾ triviálnì lze tento postup roz¹íøit na libovolný poèet
+podmínek. Jakmile máme nìjaký graf, který splòuje v¹echny
+podmínky, potom v nìm vyhledáme hamiltonovskou kru¾nici. Pokud
+tato kru¾nice neexistuje, oznaèíme graf jako výjimku pro danou
+strukturu a podmínky.
+
+\subsection{Pøidání hran vynucených podmínkou typu: $N(y) \backslash N[x]$
+indukuje kliku (pøípadnì je prázdná mno¾ina)}
+
+V lemma \ref{lem:k4-f} je uvedena podmínka $N(y) \backslash N[x]$
+indukuje kliku (pøípadnì je prázdná mno¾ina). I zde budeme
+postupovat obdobnì jako v pøedchozí èásti. Tj. budeme generovat
+grafy z dané konfigurace nebo grafu ze zaèátku fronty tak, aby
+splòovaly podmínku na nì kladené.
+
+Nyní budeme pracovat se strukturou z lemma \ref{lem:k4-f}, nebo-li
+s $K_4-F$. Maximální konfiguraci pro tuto strukturu mù¾eme vidìt
+na obrázku \ref{fig:k4-f-konfigurace-re}. Jedná se o stejný graf
+jako na obrázku \ref{fig:k4-a-konfigurace-re} a¾ na to, ¾e v nìm
+chybí hrana $xy$.
+
+\obrazek{obrazky/k4-f-konfigurace-re.eps}{fig:k4-f-konfigurace-re}{Maximální
+konfigurace pro strukturu $K_4-F$ s pøidanými hranami struktury.}
+
+V pøípadì na¹eho grafu mno¾ina $N(y) \backslash N[x]$ obsahuje
+uzly $y^-$ a $y^+$. Proto by mìla být pøidána do grafu hrana
+$y^-y^+$, ale to nestaèí. Proto¾e na zaèátku pracujeme s
+konfigurací a postupnì do tohoto grafu pøidáváme hrany, byla
+mno¾ina $N[x]$ disjunktní s mno¾inou $N(y)$. Ale aby byly
+vygenerovány v¹echny mo¾né grafy, musíme uva¾ovat i pøípady, kdy
+uzel $y^-$ nebo $y^+$ je pøipojen hranou k uzlu $x$ nebo jsou s
+ním dokonce toto¾né. To zajistíme vytvoøením nových grafù, kdy
+jednou pøidáme hranu $y^-x$ a jednou $y^+x$. Pøípad, kdy budou
+pøipojeny oba uzly k $x$ není tøeba uva¾ovat, proto¾e to ji¾ bude
+ovìøeno pøípadem, kdy je k uzlu $x$ pøipojen uzel $y^-$ nebo
+$y^+$. Na obrázku \ref{fig:k4-f-konfigurace-clique} vidíme takto
+vytvoøené grafy.
+
+\obrazek{obrazky/k4-f-konfigurace-clique.eps}{fig:k4-f-konfigurace-clique}{Maximální
+konfigurace pro strukturu $K_4-F$ s pøidanými hranami struktury a
+s hranami vynucenými podmínkou: $N(y) \backslash N[x]$ indukuje
+kliku (pøípadnì je prázdná mno¾ina).}
+
+V pøípadì, kdy jsme pøidali hranu $y^-y^+$, nám vznikla v grafu
+hamiltonovská kru¾nice, ale ve zbývajících pøípadech nikoli. To
+nevadí, proto¾e dal¹í podmínka lemma \ref{lem:k4-f} $N(x)\subseteq
+N[u] \cup N[v]$ zajistí existenci hamiltonovské kru¾nice i pro
+tyto pøípady.
+
+V lemma \ref{lem:k5-a} se vyskytuje podmínka typu $N(y)
+\backslash N[x]$ dvakrát a to pro uzly $y_1$ a $y_2$. Jako v
+pøedchozí èásti se aplikují jedna nebo druhá podmínka, dokud
+nevznikne graf, který splòuje v¹echny podmínky. Ten se ovìøí na
+existenci hamiltonovské kru¾nice.
+
+\subsection{Algoritmus}
+
+Následuje zápis algoritmu, který postupnì pøidává do
+vygenerovaných konfigurací hrany struktury a hrany vynucené
+podmínkami, a následnì testuje takto vygenerované grafy na
+existenci hamiltonovské kru¾nice.
+
+\begin{alg} \label{alg:kruznice:main}
+\begin{ttfamily} \noindent \\
+\\
+{\bf Inicializuj} Grafy := prázdná mno¾ina \\
+{\bf Inicializuj} Podmínky := podmínky uzávìru \\
+{\bf Inicializuj} Konfigurace := v¹echny konfigurace pro daný uzávìr\\
+\\
+{\bf Pro v¹echny} K {\bf z} Konfigurace\\
+{\bf \{} \\
+\taba  {\bf Pøidej} v¹echny hrany struktury {\bf do} K\\
+\taba  {\bf Pøidej} K {\bf do} mno¾iny Grafy\\
+\\
+\taba  {\bf Dokud} mno¾ina Grafy obsahuje nìjaký graf \\
+\taba  {\bf \{} \\
+\tabb    {\bf Inicializuj} G := libovolný graf z mno¾iny Grafy, takto pøiøazený graf \\
+\tabc      odstraò z mno¾iny Grafy \\
+\\
+\tabb    {\bf Pro v¹echny} P {\bf z} Podmínky\\
+\tabb    {\bf \{} \\
+\tabc      {\bf Jestli¾e} není splnìna P na G {\bf potom} \\
+\tabc      {\bf \{} \\
+\tabd        {\bf Jestli¾e} P je podmínka typu: $N(x) \cup N(y) \subseteq N[u] \cup N[v]$ {\bf potom} \\
+\tabd        {\bf \{} \\
+\tabe          zajisti, aby mno¾ina uzlù odpovídající levé stranì podmínky \\
+\tabf            byla v sousedství uzlù odpovídající pravé stranì podmínky \\
+\tabe          uprav $G$ a nové grafy vlo¾ do mno¾iny Grafy \\
+\\
+\tabe          jeliko¾ nebyla splnìna podmínka, ovìø znovu v¹echny podmínky \\
+\tabd        {\bf \}} \\
+\\
+\tabd        {\bf Jestli¾e} P je podmínka typu: $N(y) \backslash N[x]$ indukuje kliku (pøípadnì
+\tabe          je prázdná mno¾ina) {\bf potom} \\
+\tabd        {\bf \{} \\
+\tabe          zajisti, aby mno¾ina uzlù odpovídající $N(y) \backslash N[x]$ byla v klice \\
+\tabe          uprav $G$ a nové grafy vlo¾ do mno¾iny Grafy \\
+\\
+\tabe          jeliko¾ nebyla splnìna podmínka, ovìø znovu v¹echny podmínky \\
+\tabd        {\bf \}} \\
+\tabc      {\bf \}} \\
+\tabb    {\bf \}} \\
+\\
+\tabb    {\bf Jestli¾e} graf G není hamiltonovský {\bf potom} \\
+\tabb      {\bf \{} \\
+\tabc      graf $G$  ulo¾ jako výjimku \\
+\tabc      vypi¹: uzávìr nezachovává vlastnost neexistence hamiltonovské kru¾nice \\
+\tabc      pokraèuj ve výpoètu, aby byly vygenerovány v¹echny minimální výjimky \\
+\tabb      {\bf \}} \\
+{\bf \}} \\
+\\
+{\bf Jestli¾e} nebyla vygenerována jediná výjimka {\bf potom} \\
+\taba  vypi¹: uzávìr zachovává vlastnost neexistence hamiltonovské kru¾nice \\
+\end{ttfamily}
+\end{alg}
+
+Na první pohled je zøejmé, ¾e slo¾itost algoritmu je
+exponenciální vzhledem k poètu uzlù struktury, proto¾e probíráme
+v¹echny konfigurace (poèet konfigurací je funkcí s poètem co-uzlù
+v~exponentu). Poèet konfigurací roste také díky tomu, ¾e
+permutujeme co-uzly na cestì mezi uzly $u$ a $v$.
+
+\subsection{Shrnutí}
+Z pøedchozího vyplývá nezávislost na poøadí aplikování
+(zaji¹»ování platnosti) podmínek. Mohou se tedy aplikovat
+podmínky libovolného typu v jakémkoli poøadí. Postupnì nám z
+poèáteèní konfigurace aplikováním podmínek testovaného uzávìru
+vznikají rùzné grafy s minimálním vynuceným poètem hran. Jakmile
+vznikne graf, který splòuje v¹echny podmínky, provìøíme existenci
+hamiltonovské kru¾nice. Pokud tato kru¾nice neexistuje, oznaèíme
+graf jako výjimku pro danou strukturu a podmínky. Testovací
+algoritmus konèí v momentì, kdy provìøí v¹echny konfigurace,
+resp. z nich vzniklé grafy. Pokud nebyla nalezena jediná výjimka,
+øekneme ¾e uzávìr definovaný pomocí struktury a podmínek
+zachovává vlastnost neexistence hamiltonovské kru¾nice. Pokud jsou
+vygenerovány nìjaké výjimky, pak se nejedná o v¹echny, ale pouze o
+ty, které jsou minimální v poètu vynucených hran podmínkami
+testovaného uzávìru.

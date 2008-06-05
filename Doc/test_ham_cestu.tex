@@ -1,0 +1,276 @@
+\section{Test na hamiltonovskou cestu}
+Testy uzávìrù budeme provádìt pomocí programu \emph{HamiltonPath}
+s tím, ¾e v definici uzávìru bude nastaven test na cestu s
+libovolnými konci (\verb|test: aPath|). Jedná se o testy toto¾né
+s testy provádìnými na hamiltonovskou kru¾nici a¾ na to, ¾e
+budeme provádìt test na hamiltonovskou cestu.
+
+\subsection{Uzávìr $K_4-a$ }
+Provìøujeme strukturu $K_4-A$ s podmínkami z lemma
+\ref{lem:k4-a}. Zadání ze souboru \texttt{/Tests/\hyp path/\hyp
+any/\hyp k4-a/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path:  u,v \\
+test:  aPath \\
+\\
+condition:     \{x,y\} <= N(u) \& N(v) \\
+condition:        x\_y <= E(G) \\
+\\
+condition: N(x) | N(y) <= N[u] | N[v] \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k4-a/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 12 sekund na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 10824 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+cesty.
+
+\subsection{Uzávìr $K_4-b$}
+Provìøujeme strukturu $K_4-B$ s podmínkami z lemma \ref{lem:k4-b}.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp any/\hyp
+k4-b/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path:  u,v \\
+test:  aPath \\
+\\
+condition:     \{x,y\} <= N(u) \\
+\\
+condition: N(x) | N(y) <= N[v] | u \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k4-b/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 2 sekundy na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 1530 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+cesty.
+
+\subsection{Uzávìr $K_4-c$ }
+Provìøujeme strukturu $K_4-C$ s podmínkami z lemma
+\ref{lem:k4-c}. Zadání ze souboru \texttt{/Tests/\hyp path/\hyp
+any/\hyp k4-c/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path:  u,v \\
+test:  aPath \\
+\\
+condition:    x <= N(u) \& N(v) \\
+condition:    y <= N(u) \\
+\\
+condition: N(y) <= N[v] | u \\
+condition: N(x) <= N[y] | v \\
+\end{ttfamily}
+
+\noindent Oproti lemma \ref{lem:k4-c} je zde zmìnìna podmínka
+$N(y) \subseteq N(v) | \set{u}$ na $N(y) \subseteq N[v] | \set{u}$
+proto¾e pro pøípad na obrázku \ref{fig:k4:c:counterpart} nelze
+pùvodní podmínku aplikovat.
+
+Struktura je vyobrazena na obrázku \ref{fig:k4} pod písmenem C.
+Výstup programu je umístìn v souboru \texttt{/Tests/\hyp
+path/\hyp any/\hyp k4-c/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 4 sekundy na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 1530 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+cesty.
+
+\subsection{Uzávìr $K_4-d$ }
+Provìøujeme strukturu $K_4-D$ s podmínkami z lemma \ref{lem:k4-d}.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp any/\hyp
+k4-d/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path:  u,v \\
+test:  aPath \\
+\\
+condition:    x <= N(u) \\
+\\
+condition: N(y) <= N[v] | u \\
+condition: N(x) <= N[y] | v \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem D. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k4-d/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 3 sekundy na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 1530 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+cesty.
+
+\subsection{Uzávìr $K_4-e$ }
+Provìøujeme strukturu $K_4-E$ s podmínkami z lemma \ref{lem:k4-e}.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp any/\hyp
+k4-e/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path:  u,v \\
+test:  aPath \\
+\\
+condition:  x\_y <= E(G) \\
+\\
+condition: N(x) <= N[u] | v \\
+condition: N(y) <= N[v] | u \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem E. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k4-e/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 3 sekundy na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 1530 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+cesty.
+
+\subsection{Uzávìr $K_4-f$ }
+Provìøujeme strukturu $K_4-F$ s podmínkami z lemma \ref{lem:k4-f}.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp any/\hyp
+k4-f/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes: u,v,x,y \\
+path: u,v \\
+test: aPath \\
+\\
+condition:       \{x,y\} <= N(u) \& N(v) \\
+\\
+condition:        N(x) <= N[u] | N[v] \\
+condition: N(y) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k4} pod
+písmenem F. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k4-f/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 11 sekund na procesoru P450. Nevygeneroval
+¾ádnou výjimku z 11676 testovaných grafù. Proto z pohledu tohoto
+programu uzávìr zachovává vlastnost neexistence hamiltonovské
+cesty.
+
+\subsection{Uzávìr $K_5-a$}
+Provìøujeme strukturu $K_5-A$ s podmínkami z lemma \ref{lem:k5-a}.
+Zadání ze souboru \texttt{/Tests/\hyp path/\hyp any/\hyp
+k5-a/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+test:   aPath \\
+\\
+condition:        \{x,y1,y2\} <= N(u) \& N(v) \\
+condition:               x\_y1 <= E(G) \\
+condition: x\_y2 <= E(G) \\
+condition:              y1\_y2 <= E(G) \\
+\\
+condition:               N(x) <= N[u] | N[v] \\
+condition:              N(y1) <= N[u] | N[v] | N(y2) \\
+condition:              N(y2) <= N[u] | N[v] | N(y1) \\
+\\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k5} pod
+písmenem A. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k5-a/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 301735 sekund (více jak 81 hodin) na
+procesoru P450. Nevygeneroval ¾ádnou výjimku z 73600484
+testovaných grafù. Proto z pohledu tohoto programu uzávìr
+zachovává vlastnost neexistence hamiltonovské cesty.
+
+\subsection{Uzávìr $K_5-b$} \label{test:any:k5-b}
+Provìøujeme strukturu $K_5-B$ s podmínkami \footnote{V tomto
+uzávìru pouze ubylo hran ve struktuøe. Poèet uzlù a podmínky pro
+uzly zùstaly stejné.} z lemma \ref{lem:k5-a}. Jedná se o návrh
+uzávìru od Èady. Zadání ze souboru \texttt{/Tests/\hyp path/\hyp
+any/\hyp k5-b/\hyp closure.txt} je následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+test:   aPath \\
+\\
+condition:           x  <= N(u) \& N(v) \\
+condition:         u\_y1 <= E(G) \\
+condition:         v\_y2 <= E(G) \\
+condition:        y1\_y2 <= E(G) \\
+\\
+condition:         N(x) <= N[u] | N[v] \\
+condition:        N(y1) <= N[u] | N[v] | N(y2) \\
+condition: N(y2) <= N[u] | N[v] | N(y1) \\
+\\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k5} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k5-b/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 3724271 sekund (více jak 43 dnù) na
+procesoru P450. Nevygeneroval ¾ádnou výjimku z 973438528
+testovaných grafù. Proto z pohledu tohoto programu uzávìr
+zachovává vlastnost neexistence hamiltonovské cesty.
+
+\subsection{Uzávìr $K_5-c$} \label{test:any:k5-c}
+Provìøujeme strukturu $K_5-B$. Podmínky tohoto uzávìru pochází z
+\cite{cada_claw_free_graphs}. Zadání ze souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k5-c/\hyp closure.txt} je
+následující.
+
+\begin{ttfamily} \noindent
+\\
+nodes:  u,v,x,y1,y2 \\
+path:   u,v \\
+test:   aPath \\
+\\
+condition:           x  <= N(u) \& N(v) \\
+condition:         u\_y1 <= E(G) \\
+condition:         v\_y2 <= E(G) \\
+condition:        y1\_y2 <= E(G) \\
+\\
+condition:         N(x) <= N[u] | N[v] \\
+\\
+condition: N(y1) \bs N[x] <= clique \\
+condition: N(y2) \bs N[x] <= clique \\
+\end{ttfamily}
+
+\noindent Struktura je vyobrazena na obrázku \ref{fig:k5} pod
+písmenem B. Výstup programu je umístìn v souboru
+\texttt{/Tests/\hyp path/\hyp any/\hyp k5-c/\hyp nohup.out}.
+
+\subsubsection{Výsledky testu}
+Uzávìr testem pro¹el za 122239 sekund (více jak 33 hodin) na
+procesoru P450. Nevygeneroval ¾ádnou výjimku z 41734442
+testovaných grafù. Proto z pohledu tohoto programu uzávìr
+zachovává vlastnost neexistence hamiltonovské cesty.

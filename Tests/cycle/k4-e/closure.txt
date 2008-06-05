@@ -1,0 +1,17 @@
+//======================================================
+//
+//  Closure K_4-e from "Subgraphs, closures and 
+//    hamiltonocity", H.J. Broersma, I. Schiermeyer
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+
+//======================================================
+//  K_4-e from Theorem 3.6 
+//======================================================
+  
+condition:  x_y <= E(G)
+condition: N(x) <= N[u] | v
+condition: N(y) <= N[v] | u

@@ -1,0 +1,12 @@
+Debug
+Release
+release_objs
+release_deps
+debug_objs
+debug_deps
+forbiddengraphs_release
+forbiddengraphs_debug
+Source
+.kdevses
+*.dot
+log.txt

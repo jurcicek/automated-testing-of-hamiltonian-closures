@@ -1,0 +1,58 @@
+//======================================================
+//
+//  Path closure K_6
+//
+//======================================================
+
+/nodes:  u,v,x,y1,y2,y3 
+/path:   u,v
+/test:   sPath
+
+//======================================================
+// s path
+//======================================================
+
+/condition:    {x,y1} <= N(u) & N(v)
+/condition:     y2_y3 <= E(G)
+/condition:      y2_u <= E(G)
+/condition:      y3_v <= E(G)
+/condition:         N(x) <= N[u] | N[v] 
+/condition: N(y1) \ N[x] <= clique
+/condition: N(y2) \ N[x] <= clique
+/condition: N(y3) \ N[x] <= clique
+
+//======================================================
+//
+//  Path closure K_9
+//
+//======================================================
+
+nodes:  u,v,x,y1,y2,y3,y4,y5,y6
+path:   u,v
+test:   stPath
+
+//======================================================
+// st path
+//======================================================
+
+condition:          {x} <= N(u) & N(v)
+condition:        y1_y2 <= E(G)
+condition:         y1_u <= E(G)
+condition:         y2_v <= E(G)
+
+condition:        y3_y4 <= E(G)
+condition:         y3_u <= E(G)
+condition:         y4_v <= E(G)
+
+condition:        y5_y6 <= E(G)
+condition:         y5_u <= E(G)
+condition:         y6_v <= E(G)
+
+condition:         N(x) <= N[u] | N[v] 
+condition: N(y1) \ N[x] <= clique
+condition: N(y2) \ N[x] <= clique
+condition: N(y3) \ N[x] <= clique
+condition: N(y4) \ N[x] <= clique
+condition: N(y5) \ N[x] <= clique
+condition: N(y6) \ N[x] <= clique
+

@@ -1,0 +1,18 @@
+//======================================================
+//
+//  Closure K_4-c from "Subgraphs, closures and 
+//    hamiltonocity", H.J. Broersma, I. Schiermeyer
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+
+//======================================================
+//  K_4-c from Theorem 3.4 
+//======================================================
+  
+condition:    x <= N(u) & N(v)
+condition:    y <= N(u)
+condition: N(y) <= N[v] | u
+condition: N(x) <= N[y] | v

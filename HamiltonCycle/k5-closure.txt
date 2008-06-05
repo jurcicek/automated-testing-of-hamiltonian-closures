@@ -1,0 +1,30 @@
+//======================================================
+//
+//  Closure K_5 from "Some notes on closure concepts
+//    for claw-free graphs", H.J. Broersma, H. Trommel
+//
+//======================================================
+
+nodes:  u,v,x,y1,y2
+path:   u,v
+
+//======================================================
+//  K_5 from Theorem 10 
+//======================================================
+
+condition:        {x,y1,y2} <= N(u) & N(v)
+condition:               x_y1 <= E(G)
+condition:               x_y2 <= E(G)
+condition:              y1_y2 <= E(G)
+
+condition:           x <= N(u) & N(v)
+condition:          y1 <= N(u) & N(y2)
+condition:          y2 <= N(y1) & N(v)
+
+
+condition:               N(x) <= N[u] | N[v]
+condition:              N(y1) <= N[u] | N[v] | N(y2)
+condition:              N(y2) <= N[u] | N[v] | N(y1)
+
+condition: N(y1) \ N[x] <= clique
+condition: N(y2) \ N[x] <= clique

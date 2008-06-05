@@ -1,0 +1,17 @@
+//======================================================
+//
+//  Cycle closure K_{4-4-4}-x
+//
+//======================================================
+
+nodes:  u,v,x,y1,y2,y3
+path:   u,v
+test: aPath
+
+condition:       {x,y1,y2,y3} <= N(u) & N(v)
+
+condition: N(y1) \ N[x] <= clique
+condition: N(y2) \ N[x] <= clique
+condition: N(y3) \ N[x] <= clique
+
+condition: N(x) \ ( N[u] | N[v] ) <= clique

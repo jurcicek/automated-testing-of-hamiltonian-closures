@@ -1,0 +1,20 @@
+//======================================================
+//
+//  Closure K_4^*-x from "Some notes on closure concepts
+//    for claw-free graphs", H.J. Broersma, H. Trommel
+//
+//======================================================
+
+nodes:  u,v,x,y
+path:   u,v
+
+//======================================================
+//  K_4^*-f from Theorem 5 
+//======================================================
+
+condition:        {x,y} <= N(u) & N(v)
+
+condition: N(x) \ ( N[u] | N[v] ) <= clique
+
+condition: N(y) \ N[x] <= clique
+

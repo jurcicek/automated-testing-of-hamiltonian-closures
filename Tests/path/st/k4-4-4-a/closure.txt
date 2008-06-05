@@ -1,0 +1,16 @@
+//======================================================
+//
+//  Path closure K_4-4-4
+//
+//======================================================
+
+nodes:  u,v,x,y1,y2,y3
+path:   u,v
+test:   stPath
+
+condition:       {x,y1,y2,y3} <= N(u) & N(v)
+condition:        N(x) <= N[u] | N[v]
+condition: N(y1) \ N[x] <= clique
+condition: N(y2) \ N[x] <= clique
+condition: N(y3) \ N[x] <= clique
+

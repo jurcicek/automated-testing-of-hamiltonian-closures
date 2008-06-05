@@ -1,0 +1,55 @@
+\chapter{Dal¹í testy}
+
+Z dùvodu veliké èasové nároènosti výpoètù nebyly provedeny
+následující testy. Pøi lep¹í implementaci testovacích algoritmù
+by mohly být provedeny.
+
+\section{Test na hamiltonovskou cestu s dvìmi pevnými konci}
+
+{\large \textbf Uzávìr $K_{5-5}-b$} \label{test:st:k5-5-b}
+
+Zadání je v souboru \texttt{/Tests/path/st/k5-5-b/closure.txt}.
+Struktura je vyobrazena na obrázku \ref{fig:k-a-b} pod písmenem F.
+
+{\large \textbf Uzávìr $K_{4-4-5}-a$}
+
+Zadání je v souboru \texttt{/Tests/path/st/k4-4-5-a/closure.txt}.
+Struktura je vyobrazena na obrázku \ref{fig:k-a-b-c} pod písmenem
+B.
+
+{\large \textbf Uzávìr $K_{4-5-5}-a$}
+
+Zadání je v souboru \texttt{/Tests/path/st/k4-5-5-a/closure.txt}.
+Struktura je vyobrazena na obrázku \ref{fig:k-a-b-c} pod písmenem
+C.
+
+{\large \textbf Uzávìr $K_{5-5-5}-a$}
+
+Zadání je v souboru \texttt{/Tests/path/st/k5-5-5-a/closure.txt}.
+Struktura je vyobrazena na obrázku \ref{fig:k-a-b-c} pod písmenem
+D.
+
+\section{Test na hamiltonovskou cestu s jedním pevným koncem}
+
+{\large \textbf Uzávìr $K_{4-5}-a$} \label{test:s:k4-5-a}
+
+Jedná se o modifikace uzávìru \ref{test:s:k4-4-a}. Pouze se mìní
+struktura. A obdobnì se roz¹íøí podmínky na nové uzly. Zadání je v
+souboru \texttt{/Tests/path/s/k4-5-a/closure.txt}. Struktura je
+vyobrazena na obrázku \ref{fig:k-a-b} pod písmenem B.
+
+{\large \textbf Uzávìr $K_{5-5}-a$} \label{test:s:k5-5-a}
+
+Jedná se o modifikace uzávìru \ref{test:s:k4-4-a}. Pouze se mìní
+struktura. A obdobnì se roz¹íøí podmínky na nové uzly. Zadání je
+v souboru \texttt{/Tests/path/s/k5-5-a/closure.txt}. Struktura je
+vyobrazena na obrázku \ref{fig:k-a-b} pod písmenem C.
+
+\section{Výpoèet zakázaných podgrafù}
+
+Byl proveden výpoèet zakázaných podgrafù pro první okolí a pro
+první okolí + $u,v$ pro struktury $K_4-A$ a $K_4-F$. Bylo by
+vhodné dopoèítat zakázané podgrafy pro první okolí + $u,v$ i pro
+ostatní struktury. Dále nebyly spoèítány zakázané podgrafy pro
+druhé okolí a pro druhé okolí + $u,v$. Je dále mo¾né poèítat
+zakázané podgrafy pro více jak ètyøuzlové struktury.
